@@ -5,7 +5,7 @@
 - Updated: September 26, 2026 (Asia/Kolkata).
 - Repository: https://github.com/satish1615/Multiplayer_Game
 - Working branch: main.
-- Stage: Checkpoint setup and official rulebook review complete; game implementation not started.
+- Stage: Reviewing mission instructions; Prepare and Build received, Submit pending. Game implementation not started.
 - Game concept/build plan: Split Signal is proposed, awaiting the owner's approval or revision.
 - Budget: INR 0 additional spend for building and publishing; use existing included access only.
 - Published game: None.
@@ -22,17 +22,19 @@
 - Added AGENTS.md so a new session knows how to resume and save progress.
 - Reviewed all seven pages of the uploaded official rulebook and recorded requirements, scoring, deadline, and entry considerations in docs/CONTEST_RULES.md.
 - Recorded the owner's no-additional-cost requirement in README.md and AGENTS.md; checked the current documented Sites pricing.
+- Reviewed the owner-supplied Prepare and Build sections and saved their requirements/workflow in docs/MISSION_GUIDE.md. Sites is the selected first publishing path.
 
 ## In progress
 
-No game feature is currently in progress. This checkpoint contains documentation only.
+Collecting the mission's three sections: Prepare and Build are reviewed; the owner is still to provide Submit. No game feature is in progress. This checkpoint contains documentation only.
 
 For future work, record the exact feature, affected files, partial implementation, and next action here before long operations. Identify running jobs using non-sensitive IDs and verify their actual status after resuming.
 
 ## Remaining
 
+- [ ] Review the owner's Submit section and combine all three sections into the final specification.
 - [ ] Obtain approval or revisions for the proposed concept and build plan.
-- [ ] Finalize rules, role distribution for 2-6 players, scoring, and win/loss conditions.
+- [ ] Finalize rules, role distribution for 2-6 players, scoring, win/loss conditions, and how remote teammates communicate.
 - [ ] Verify included hosting/shared-state availability and retain the INR 0 additional-spend constraint.
 - [ ] Initialize the application and record exact setup/run commands.
 - [ ] Implement room creation, joining, player identity, and the lobby.
@@ -57,7 +59,8 @@ For future work, record the exact feature, affected files, partial implementatio
 - The owner provided this repository for those updates.
 - Split Signal, the 2-6 player range, five-minute rounds, and the visual direction are proposals, not confirmed decisions.
 - No application framework, database schema, hosting project, external service, or paid dependency has been created.
-- ChatGPT Sites is the proposed publishing path. Record any hosting source remote and its relationship to this repository when created.
+- The owner selected Sites with the Build section. Use it as the first publishing path, subject to the zero-additional-cost constraint and actual account access. Record any hosting source remote and its relationship to this repository when created.
+- Follow the mission sequence: approved rules/specification, core playable loop, owner testing and focused fixes, visual refinement, then publication. Verify the public URL in a private session.
 - Do not assume a new conversation remembers details that are absent from the repository.
 
 ## Verification and known problems
@@ -73,13 +76,13 @@ For future work, record the exact feature, affected files, partial implementatio
 
 ## Exact next action
 
-If the latest user message approves the proposed plan, record that approval and begin milestone 1/2 without asking for the same permission again.
+The owner is providing the mission in three sections. Receive and review the Submit section, then consolidate the final game specification and build plan for approval. Do not start implementation merely because the pasted second section is titled Build.
 
-Otherwise, resolve the owner's concept/build-plan choice before starting game implementation. The user paused the build to establish checkpoints; providing this repository alone should not be recorded as explicit approval of Split Signal.
+If a later user message explicitly authorizes starting before the remaining section arrives, follow that instruction, record the agreed scope, and do not ask for the same approval again. Split Signal remains proposed until selected.
 
 ## Resume procedure
 
-1. Read this file, README.md, AGENTS.md, and the latest user instructions. Consult docs/CONTEST_RULES.md for contest requirements.
+1. Read this file, README.md, AGENTS.md, and the latest user instructions. Consult docs/CONTEST_RULES.md for contest requirements and docs/MISSION_GUIDE.md for the mission workflow.
 2. Inspect the current remote branch and recent commits. In an existing checkout, inspect local changes before pulling or editing; preserve unfinished work.
 3. Confirm whether the in-progress step or any external operation already completed.
 4. Continue the next unfinished task using the existing implementation and decisions.
@@ -89,6 +92,8 @@ Otherwise, resolve the owner's concept/build-plan choice before starting game im
 Only progress successfully saved to the remote repository is recoverable from it. Code not yet pushed and unfinished internal reasoning may require reconstruction.
 
 ## Recent checkpoint log
+
+- 2026-09-26 IST: Saved Prepare/Build mission instructions, the remote-player requirement, and the testing-before-polish sequence. Submit section and game approval remain pending.
 
 - 2026-09-26 IST: Recorded INR 0 additional-spend constraint and verified the current documented Sites inclusion; implementation has not started.
 
