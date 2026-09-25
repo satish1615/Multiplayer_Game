@@ -16,6 +16,20 @@ Start with [PROJECT_STATUS.md](PROJECT_STATUS.md) for the latest progress and ne
 - Groups can replay with a fresh round.
 - A project title, cover image, description, and playable link for submission.
 
+## Budget: no additional spending
+
+The owner requires building and publishing at INR 0 additional cost using existing ChatGPT Work access.
+
+- Use the existing GitHub repository and tools available within the current plan.
+- Use the hosting provider's included public URL. Do not buy a domain.
+- Use hosting and shared-state storage only when covered by an included allowance or a genuine free plan, without paid overages or an expiring paid trial.
+- Implement replayable puzzles with game logic and randomized content; no billed AI API calls are required during gameplay.
+- Do not purchase credits, plan upgrades, paid assets, databases, or other services.
+- If included Work usage is exhausted, resume from a saved checkpoint after the allowance resets; do not buy more usage.
+- If a required capability cannot be provided without added cost, explain the limitation and seek a no-cost approach rather than enabling billing.
+
+As checked on September 26, 2026, [OpenAI's pricing documentation](https://learn.chatgpt.com/docs/pricing) says Sites is included with eligible ChatGPT plans during public beta. Actual availability depends on plan, region, and workspace settings. Account-specific deployment access still needs verification. This is not a promise of unlimited capacity or permanently free hosting.
+
 ## Proposed concept: Split Signal
 
 **Awaiting approval.** The repository and checkpoint workflow are approved; this game concept has not yet been explicitly approved.
@@ -48,7 +62,7 @@ Technology choices are pending the approved design and the first multiplayer pro
 
 ChatGPT Sites is the proposed publishing path. If hosting requires a separate managed source repository, record its relationship to this GitHub repository in PROJECT_STATUS.md and keep the game source recoverable here.
 
-Do not add an external paid service unless needed and agreed with the owner.
+Keep all implementation and publishing choices within the no-additional-spending requirement above.
 
 ## Verification plan
 

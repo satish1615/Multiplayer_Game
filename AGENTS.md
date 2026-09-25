@@ -8,6 +8,16 @@
 - Use PROJECT_STATUS.md to distinguish completed, in-progress, planned, and unverified work.
 - The initial Split Signal concept is a proposal. Check the latest user messages for approval; once granted, record it and do not request the same approval again.
 
+## Cost constraint
+
+- Building and publishing must incur no additional cost beyond the owner's existing ChatGPT access.
+- Do not buy credits, upgrades, domains, paid assets, or external services, and do not enable paid overages.
+- Use included hosting/storage allowances or genuinely free alternatives. Do not rely on a trial that becomes paid.
+- Use ordinary game logic for puzzle generation; do not add a billed AI API dependency to gameplay.
+- If a capability is not available without added cost, report it and look for a no-cost approach.
+- Keep checkpoints current so Work can resume after usage resets.
+- Do not promise unlimited capacity or permanently free hosting; verify actual service terms and account access when needed.
+
 ## Checkpoint workflow
 
 - Work in small, coherent steps and save after meaningful progress.
