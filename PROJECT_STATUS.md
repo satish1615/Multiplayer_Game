@@ -25,6 +25,7 @@
 - Reviewed Prepare, Build, and the Submit form screenshot; all three are recorded in docs/MISSION_GUIDE.md. Sites is the selected first publishing path.
 - Confirmed the form requires a real game screenshot, a description within 500 characters, and public sharing for monthly-challenge entry.
 - Added docs/GAME_SPEC.md as a discussion draft, not an approved specification.
+- Compared the three proposals against the equal-weight judging rubric. Recommendation remains Split Signal with a stronger mechanic; originality of the basic private-clue setup is a known design gap.
 
 ## In progress
 
@@ -95,6 +96,8 @@ After the owner selects the game and approves the plan, record that decision and
 Only progress successfully saved to the remote repository is recoverable from it. Code not yet pushed and unfinished internal reasoning may require reconstruction.
 
 ## Recent checkpoint log
+
+- 2026-09-26 IST: Assessed judge fit and checked a similar existing game's official site. Added a proposed linked-controls direction to discuss; no concept has been approved and no judging score is predicted.
 
 - 2026-09-26 IST: Recorded the Submit form, including its screenshot, 500-character description, and public-sharing requirement. Owner explicitly requested game discussion before building; all concepts remain proposals.
 

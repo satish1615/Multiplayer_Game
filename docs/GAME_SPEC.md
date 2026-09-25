@@ -34,6 +34,19 @@ Remote communication must be part of the design. Consider simple room chat and q
 
 Keep instructions short and provide a worked example. Avoid player elimination, long waits, or specialist knowledge.
 
+## Assessment against the contest rubric
+
+Recommendation as of September 26: develop Split Signal further. This is a design judgment, not a predicted judging score or a selected plan.
+
+- Execution: a bounded cooperative puzzle loop can make shared state, private information, and correct synchronization easy to demonstrate and test.
+- Creativity: this is the main gap in the initial proposal. Private clues, timed cooperation, and generated puzzles already appear in [Keep Talking and Nobody Explodes](https://keeptalkinggame.com/), whose official site was checked on September 26. A space theme or a timer alone does not establish originality.
+- Usefulness/value: aim for short sessions, meaningful participation by every player, and enjoyable remote cooperation. Real-player feedback must confirm these aims.
+- Polish/thoughtfulness: prioritize readable phone controls, understandable instructions, quick communication, and recovery after disconnection.
+
+Proposed mechanic to explore: linked controls. Each player operates a control whose effects appear partly on another player's screen; the team must find one configuration satisfying the separate clues together. Settle a concrete, understandable example before accepting this design. This may differentiate the implementation, but is not a claim that the mechanic has never existed.
+
+Vault Pact remains a viable alternative, with greater uncertainty around balance and whether bluffing stays engaging with only two players. Pattern Panic is a simpler fallback, but its current pitch offers less differentiation from ordinary puzzle competitions. These comparisons are implementation judgments rather than empirical results.
+
 ## Decisions still open
 
 1. Cooperative, competitive, or bluffing-focused experience.
