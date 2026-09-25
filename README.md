@@ -2,7 +2,7 @@
 
 A multiplayer browser game for the Handshake AI Skills Studio "Create a Multiplayer Game" mission.
 
-**Current stage:** Checkpoint setup and official rulebook review complete. Game implementation has not started.
+**Current stage:** All three mission sections and the rulebook are reviewed. Discussing the game concept with the owner; implementation has not started.
 
 Start with [PROJECT_STATUS.md](PROJECT_STATUS.md) for the latest progress and next action. [AGENTS.md](AGENTS.md) explains how to resume and save work.
 
@@ -14,7 +14,8 @@ Start with [PROJECT_STATUS.md](PROJECT_STATUS.md) for the latest progress and ne
 - Works on phones and laptops.
 - Shared game state stays synchronized across separate player sessions.
 - Groups can replay with a fresh round.
-- A project title, cover image, description, and playable link for submission.
+- Submission: title, an actual screenshot of a key game screen, a description within 500 characters, and the public playable link.
+- Public sharing must be selected in the submission form to enter the monthly challenge. See [the mission guide](docs/MISSION_GUIDE.md).
 
 ## Budget: no additional spending
 
@@ -32,7 +33,7 @@ As checked on September 26, 2026, [OpenAI's pricing documentation](https://learn
 
 ## Proposed concept: Split Signal
 
-**Awaiting approval.** The repository and checkpoint workflow are approved; this game concept has not yet been explicitly approved.
+**For discussion, not selected.** The owner wants to discuss what to build before implementation. See [the concept discussion draft](docs/GAME_SPEC.md). The repository and checkpoint workflow are approved.
 
 A cooperative escape game for 2-6 players, with approximately five-minute rounds. Players restore a failing space station using different private clues and controls.
 

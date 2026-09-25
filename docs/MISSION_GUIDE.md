@@ -1,6 +1,6 @@
 # Mission guide
 
-Source: Prepare and Build sections pasted by the owner on September 26, 2026 (Asia/Kolkata). Submit section is still pending. These are mission instructions, separate from the contest rules in [CONTEST_RULES.md](CONTEST_RULES.md).
+Source: Prepare and Build sections pasted by the owner, plus the Submit form screenshot provided on September 26, 2026 (Asia/Kolkata). All three sections have been reviewed. These are mission instructions, separate from the contest rules in [CONTEST_RULES.md](CONTEST_RULES.md).
 
 ## Required result
 
@@ -35,10 +35,23 @@ Option A allows experienced users to build directly with these requirements. Opt
 - Styling changes should preserve verified behavior; repeat relevant gameplay checks if a styling change affects interactions.
 - The pasted guide mentions Netlify and Vercel as alternatives. They have not been selected, and no alternative host or shared-state service has been provisioned.
 
+## Submit form confirmed from the screenshot
+
+| Visible field | Required content |
+| --- | --- |
+| Project title | The finished game's title; the screenshot does not show a title length limit |
+| Your project | The actual public game URL; the helper text asks for a link to the game |
+| Preview image | A screenshot of one of the game's key screens, used as the project cover image |
+| Description | A brief account of the game, challenges, enjoyable parts, learning, and possible next steps; the counter shows 0/500, so keep the draft within 500 characters |
+| Share to Showcase | Keep this checked for monthly-challenge entry; the form says only publicly shared projects enter, while unchecked submissions publish only to the Handshake profile |
+
+The four content fields show required markers. The form also offers an Upload file button in the project field, but the mission requests a playable link, so use the published game URL.
+
+Capture a real game screenshot after implementation. A generated promotional illustration does not satisfy the form's specific screenshot instruction. Do not invent learning experiences or claim planned features are finished in the description.
+
 ## Still needed
 
-- The owner's Submit section, including any form fields or evidence requests.
-- The final approved game specification.
+- The owner's approval or revisions to [GAME_SPEC.md](GAME_SPEC.md).
 - Actual implementation, playtesting evidence, public deployment, and submission.
 
-Do not invent missing submission fields or mark planned tests complete.
+All three mission sections are recorded. Do not mark planned tests complete.

@@ -5,8 +5,8 @@
 - Updated: September 26, 2026 (Asia/Kolkata).
 - Repository: https://github.com/satish1615/Multiplayer_Game
 - Working branch: main.
-- Stage: Reviewing mission instructions; Prepare and Build received, Submit pending. Game implementation not started.
-- Game concept/build plan: Split Signal is proposed, awaiting the owner's approval or revision.
+- Stage: All three mission sections reviewed. The owner explicitly wants to discuss what to build before implementation.
+- Game concept/build plan: Under discussion. Split Signal is one proposal, not a selected or approved design.
 - Budget: INR 0 additional spend for building and publishing; use existing included access only.
 - Published game: None.
 - Active background operations: None.
@@ -22,17 +22,20 @@
 - Added AGENTS.md so a new session knows how to resume and save progress.
 - Reviewed all seven pages of the uploaded official rulebook and recorded requirements, scoring, deadline, and entry considerations in docs/CONTEST_RULES.md.
 - Recorded the owner's no-additional-cost requirement in README.md and AGENTS.md; checked the current documented Sites pricing.
-- Reviewed the owner-supplied Prepare and Build sections and saved their requirements/workflow in docs/MISSION_GUIDE.md. Sites is the selected first publishing path.
+- Reviewed Prepare, Build, and the Submit form screenshot; all three are recorded in docs/MISSION_GUIDE.md. Sites is the selected first publishing path.
+- Confirmed the form requires a real game screenshot, a description within 500 characters, and public sharing for monthly-challenge entry.
+- Added docs/GAME_SPEC.md as a discussion draft, not an approved specification.
 
 ## In progress
 
-Collecting the mission's three sections: Prepare and Build are reviewed; the owner is still to provide Submit. No game feature is in progress. This checkpoint contains documentation only.
+Discussing the game concept with the owner. The latest instruction is: first discuss what to build. All three mission sections are recorded; no game feature is in progress.
 
 For future work, record the exact feature, affected files, partial implementation, and next action here before long operations. Identify running jobs using non-sensitive IDs and verify their actual status after resuming.
 
 ## Remaining
 
-- [ ] Review the owner's Submit section and combine all three sections into the final specification.
+- [x] Review all three mission sections.
+- [ ] Discuss and select the game concept, then write the agreed specification.
 - [ ] Obtain approval or revisions for the proposed concept and build plan.
 - [ ] Finalize rules, role distribution for 2-6 players, scoring, win/loss conditions, and how remote teammates communicate.
 - [ ] Verify included hosting/shared-state availability and retain the INR 0 additional-spend constraint.
@@ -45,9 +48,9 @@ For future work, record the exact feature, affected files, partial implementatio
 - [ ] Test multiplayer behavior and phone/desktop layouts.
 - [ ] Collect real-player feedback and resolve concrete issues.
 - [ ] Publish and verify public access without login.
-- [ ] Prepare the project cover image and submission description.
+- [ ] Capture a key game screen for the preview image and draft a truthful description within 500 characters.
 - [ ] Before contest entry, verify entrant eligibility and resolve any applicable affiliation ambiguity with the organizer; this is not a prerequisite to implementing the game.
-- [ ] Owner submits the title, cover image, description, and public game URL through the mission after reviewing the final result.
+- [ ] Owner submits the title, actual game screenshot, description, and public game URL through the mission with public sharing selected, after reviewing the result.
 
 ## Decisions and authorization
 
@@ -76,9 +79,9 @@ For future work, record the exact feature, affected files, partial implementatio
 
 ## Exact next action
 
-The owner is providing the mission in three sections. Receive and review the Submit section, then consolidate the final game specification and build plan for approval. Do not start implementation merely because the pasted second section is titled Build.
+Discuss what to build with the owner. Compare a small number of concrete concepts and settle the desired player experience before writing a final specification. Do not interpret receipt of the Submit screenshot as approval of Split Signal.
 
-If a later user message explicitly authorizes starting before the remaining section arrives, follow that instruction, record the agreed scope, and do not ask for the same approval again. Split Signal remains proposed until selected.
+After the owner selects the game and approves the plan, record that decision and begin the first playable multiplayer loop without asking for the same approval again.
 
 ## Resume procedure
 
@@ -92,6 +95,8 @@ If a later user message explicitly authorizes starting before the remaining sect
 Only progress successfully saved to the remote repository is recoverable from it. Code not yet pushed and unfinished internal reasoning may require reconstruction.
 
 ## Recent checkpoint log
+
+- 2026-09-26 IST: Recorded the Submit form, including its screenshot, 500-character description, and public-sharing requirement. Owner explicitly requested game discussion before building; all concepts remain proposals.
 
 - 2026-09-26 IST: Saved Prepare/Build mission instructions, the remote-player requirement, and the testing-before-polish sequence. Submit section and game approval remain pending.
 
