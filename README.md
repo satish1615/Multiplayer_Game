@@ -2,7 +2,7 @@
 
 A multiplayer browser game for the Handshake AI Skills Studio "Create a Multiplayer Game" mission.
 
-**Current stage:** Project checkpoint setup. Game implementation has not started.
+**Current stage:** Checkpoint setup and official rulebook review complete. Game implementation has not started.
 
 Start with [PROJECT_STATUS.md](PROJECT_STATUS.md) for the latest progress and next action. [AGENTS.md](AGENTS.md) explains how to resume and save work.
 
@@ -68,6 +68,8 @@ Before describing the game as ready, verify:
 Record actual commands, results, and remaining gaps in PROJECT_STATUS.md. Planned tests are not passing tests.
 
 ## Challenge references
+
+See [the rulebook summary and submission requirements](docs/CONTEST_RULES.md) for eligibility, judging, required entry materials, and page references from the uploaded official PDF.
 
 The official rules retrieved on September 25, 2026 give equal weight to execution, creativity, usefulness/value, and polish/thoughtfulness. They list an entry deadline of October 30, 2026 at 11:59 PM Pacific, equivalent to October 31 at 12:29 PM IST. Plan to submit earlier and recheck the rules before entry.
 

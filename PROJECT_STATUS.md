@@ -5,7 +5,7 @@
 - Updated: September 26, 2026 (Asia/Kolkata).
 - Repository: https://github.com/satish1615/Multiplayer_Game
 - Working branch: main.
-- Stage: Checkpoint setup complete; game implementation not started.
+- Stage: Checkpoint setup and official rulebook review complete; game implementation not started.
 - Game concept/build plan: Split Signal is proposed, awaiting the owner's approval or revision.
 - Published game: None.
 - Active background operations: None.
@@ -19,6 +19,7 @@
 - Recorded the mission requirements and proposed game plan in README.md.
 - Added this record of completed, active, and remaining work.
 - Added AGENTS.md so a new session knows how to resume and save progress.
+- Reviewed all seven pages of the uploaded official rulebook and recorded requirements, scoring, deadline, and entry considerations in docs/CONTEST_RULES.md.
 
 ## In progress
 
@@ -40,7 +41,8 @@ For future work, record the exact feature, affected files, partial implementatio
 - [ ] Collect real-player feedback and resolve concrete issues.
 - [ ] Publish and verify public access without login.
 - [ ] Prepare the project cover image and submission description.
-- [ ] Owner submits the project through the mission after reviewing the final result.
+- [ ] Before contest entry, verify entrant eligibility and resolve any applicable affiliation ambiguity with the organizer; this is not a prerequisite to implementing the game.
+- [ ] Owner submits the title, cover image, description, and public game URL through the mission after reviewing the final result.
 
 ## Decisions and authorization
 
@@ -56,7 +58,8 @@ For future work, record the exact feature, affected files, partial implementatio
 ## Verification and known problems
 
 - Verified: repository metadata, main branch, and the initial README were accessible through the GitHub connection.
-- Documentation: reviewed the plan and status for consistency.
+- Documentation: reviewed the plan and status for consistency; reviewed the uploaded seven-page official rulebook.
+- Contest note: contractor/contributor eligibility is not explicitly clarified by the rulebook. Do not assume either eligibility or ineligibility if an affiliation exclusion may apply.
 - Application tests: not applicable yet; there is no application code.
 - Runtime/build/deployment checks: not run.
 - Known application bugs: not assessed.
@@ -70,7 +73,7 @@ Otherwise, resolve the owner's concept/build-plan choice before starting game im
 
 ## Resume procedure
 
-1. Read this file, README.md, AGENTS.md, and the latest user instructions.
+1. Read this file, README.md, AGENTS.md, and the latest user instructions. Consult docs/CONTEST_RULES.md for contest requirements.
 2. Inspect the current remote branch and recent commits. In an existing checkout, inspect local changes before pulling or editing; preserve unfinished work.
 3. Confirm whether the in-progress step or any external operation already completed.
 4. Continue the next unfinished task using the existing implementation and decisions.
@@ -80,5 +83,7 @@ Otherwise, resolve the owner's concept/build-plan choice before starting game im
 Only progress successfully saved to the remote repository is recoverable from it. Code not yet pushed and unfinished internal reasoning may require reconstruction.
 
 ## Recent checkpoint log
+
+- 2026-09-26 IST: Reviewed the uploaded official rulebook; added docs/CONTEST_RULES.md and updated the entry tasks. Game concept remains proposed.
 
 - 2026-09-26 IST: Initialized project documentation and the recovery workflow. No game implementation or deployment yet.
