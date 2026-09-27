@@ -2,11 +2,11 @@
 
 ## Checkpoint
 
-- Updated: September 26, 2026 (Asia/Kolkata).
+- Updated: September 27, 2026 (Asia/Kolkata).
 - Repository: https://github.com/satish1615/Multiplayer_Game
 - Working branch: main.
-- Stage: All three mission sections reviewed. The owner explicitly wants to discuss what to build before implementation.
-- Game concept/build plan: Under discussion. Split Signal is one proposal, not a selected or approved design.
+- Stage: Split Signal design discussion. Three concept-image boards generated and shown for review; implementation has not started.
+- Game concept/build plan: The owner chose to explore Split Signal. Detailed rules, visuals, and implementation remain unapproved.
 - Budget: INR 0 additional spend for building and publishing; use existing included access only.
 - Published game: None.
 - Active background operations: None.
@@ -14,6 +14,9 @@
 - Starting repository commit: `f8057b5497fc4d4c9e53a0b14334a4cdfdc904f0`.
 
 ## Completed
+
+- Generated and visually reviewed three Split Signal concept boards on September 27: start/lobby, two-player gameplay, and success/retry. Displayed them in the conversation. No generated screen mockup has been added as a runtime asset or represented as an actual game screenshot.
+- Owner agreed to initial normal/incognito playtesting. Clarified that collecting external feedback is optional.
 
 - Owner created the public Multiplayer_Game repository.
 - Confirmed repository access and inspected the initial README and main branch.
@@ -29,7 +32,7 @@
 
 ## In progress
 
-Discussing the game concept with the owner. The latest instruction is: first discuss what to build. All three mission sections are recorded; no game feature is in progress.
+Reviewing Split Signal concept images with the owner. Three boards illustrate room entry/lobby, simultaneous Power and Routing player screens, and success/retry. These are visual proposals, not functioning screens. No game feature is in progress.
 
 For future work, record the exact feature, affected files, partial implementation, and next action here before long operations. Identify running jobs using non-sensitive IDs and verify their actual status after resuming.
 
@@ -47,7 +50,7 @@ For future work, record the exact feature, affected files, partial implementatio
 - [ ] Handle simultaneous actions, refresh/reconnection, and host departure.
 - [ ] Add puzzle variation, rotating roles, instructions, feedback, and rematches.
 - [ ] Test multiplayer behavior and phone/desktop layouts.
-- [ ] Collect real-player feedback and resolve concrete issues.
+- [ ] Owner playtests with one normal browser session and one incognito session; reproduce, fix, and retest concrete issues. Feedback from additional people is optional.
 - [ ] Publish and verify public access without login.
 - [ ] Capture a key game screen for the preview image and draft a truthful description within 500 characters.
 - [ ] Before contest entry, verify entrant eligibility and resolve any applicable affiliation ambiguity with the organizer; this is not a prerequisite to implementing the game.
@@ -80,7 +83,7 @@ For future work, record the exact feature, affected files, partial implementatio
 
 ## Exact next action
 
-Discuss what to build with the owner. Compare a small number of concrete concepts and settle the desired player experience before writing a final specification. Do not interpret receipt of the Submit screenshot as approval of Split Signal.
+Discuss the concept images with the owner and settle the Split Signal visual direction and rules. Explain that the illustrated station art is a visual treatment, not evidence of an implemented 3D game. An untimed practice followed by five-minute missions is proposed; pace has not yet been explicitly selected.
 
 After the owner selects the game and approves the plan, record that decision and begin the first playable multiplayer loop without asking for the same approval again.
 
@@ -96,6 +99,8 @@ After the owner selects the game and approves the plan, record that decision and
 Only progress successfully saved to the remote repository is recoverable from it. Code not yet pushed and unfinished internal reasoning may require reconstruction.
 
 ## Recent checkpoint log
+
+- 2026-09-27 IST: Generated three visual concept boards for Split Signal, including distinct player views and win/retry outcomes. Visual and gameplay approval still pending; no application code or deployment exists.
 
 - 2026-09-26 IST: Assessed judge fit and checked a similar existing game's official site. Added a proposed linked-controls direction to discuss; no concept has been approved and no judging score is predicted.
 

@@ -1,6 +1,6 @@
 # Game concept discussion
 
-Status: discussion only. No game concept or implementation plan has been approved. Updated September 26, 2026 (Asia/Kolkata).
+Status: Split Signal selected for further discussion. Its detailed rules, visual direction, and implementation plan have not been approved. Updated September 27, 2026 (Asia/Kolkata).
 
 The owner explicitly asked to discuss what to build after sharing all three mission sections.
 
@@ -46,6 +46,20 @@ Recommendation as of September 26: develop Split Signal further. This is a desig
 Proposed mechanic to explore: linked controls. Each player operates a control whose effects appear partly on another player's screen; the team must find one configuration satisfying the separate clues together. Settle a concrete, understandable example before accepting this design. This may differentiate the implementation, but is not a claim that the mechanic has never existed.
 
 Vault Pact remains a viable alternative, with greater uncertainty around balance and whether bluffing stays engaging with only two players. Pattern Panic is a simpler fallback, but its current pitch offers less differentiation from ordinary puzzle competitions. These comparisons are implementation judgments rather than empirical results.
+
+## Visual concepts shown on September 27
+
+The owner asked for images showing how the stages could look. Three AI-generated UI concept boards were displayed in the conversation:
+
+1. Create/join and room lobby: navy station background, large cyan actions, amber secondary actions, name/code inputs, ready player rows, and a sample room code NOVA42.
+2. Two-player gameplay: Alex's Power screen has channel/strength controls and target/current receiver feedback; Sam's Routing screen has incoming-power information and an illustrative route board. Both show shared timer, progress, and room chat.
+3. Outcomes: an illuminated communications beacon after rescue, or a dim amber station when time expires, with round results and replay/lobby actions.
+
+These are brainstorming images, not application screenshots, final assets, or an approved UI specification. The visuals use cinematic station artwork behind conventional web controls; they do not imply a working 3D environment. Puzzle wiring and icon states in generated mockups are illustrative and must not be treated as exact game logic.
+
+The owner has agreed to initial testing in one normal browser window and one incognito window. Extra user-feedback collection is optional. Also confirm the actual public game across separate devices.
+
+Proposed pace remains a short untimed practice followed by five-minute missions; the owner has not yet selected the pace. The intended payoff is to restore the station and transmit a rescue signal.
 
 ## Decisions still open
 
