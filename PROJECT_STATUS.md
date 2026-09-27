@@ -5,7 +5,7 @@
 - Updated: September 27, 2026 (Asia/Kolkata).
 - Repository: https://github.com/satish1615/Multiplayer_Game
 - Working branch: main.
-- Stage: Split Signal design discussion. Three concept-image boards generated and shown for review; implementation has not started.
+- Stage: Split Signal design discussion. Three original concept boards plus a revised worked-example image shown; implementation has not started.
 - Game concept/build plan: The owner chose to explore Split Signal. Detailed rules, visuals, and implementation remain unapproved.
 - Budget: INR 0 additional spend for building and publishing; use existing included access only.
 - Published game: None.
@@ -15,6 +15,7 @@
 
 ## Completed
 
+- Recorded the owner's feedback that the gameplay image did not explain who gives clues or operates each control. Edited the exact selected image into a five-step practice example showing both players' messages, actions, and the resulting receiver change. Detailed mechanics remain proposed.
 - Generated and visually reviewed three Split Signal concept boards on September 27: start/lobby, two-player gameplay, and success/retry. Displayed them in the conversation. No generated screen mockup has been added as a runtime asset or represented as an actual game screenshot.
 - Owner agreed to initial normal/incognito playtesting. Clarified that collecting external feedback is optional.
 
@@ -32,7 +33,7 @@
 
 ## In progress
 
-Reviewing Split Signal concept images with the owner. Three boards illustrate room entry/lobby, simultaneous Power and Routing player screens, and success/retry. These are visual proposals, not functioning screens. No game feature is in progress.
+Clarifying the actual player interaction after the owner found the gameplay concept image unclear. A revised image shows You/Power sharing the target, Friend/Routing giving channel and strength clues, both adjusting their own controls, Power checking the result, and both locking in. The simplified route picker teaches the interaction; it is not approval of final puzzle mechanics. No game feature is in progress.
 
 For future work, record the exact feature, affected files, partial implementation, and next action here before long operations. Identify running jobs using non-sensitive IDs and verify their actual status after resuming.
 
@@ -83,7 +84,7 @@ For future work, record the exact feature, affected files, partial implementatio
 
 ## Exact next action
 
-Discuss the concept images with the owner and settle the Split Signal visual direction and rules. Explain that the illustrated station art is a visual treatment, not evidence of an implemented 3D game. An untimed practice followed by five-minute missions is proposed; pace has not yet been explicitly selected.
+Check whether the worked example makes each player's role clear, then settle the real puzzle mechanics and visual direction. Decide how routing involves reasoning beyond selecting the named destination. An untimed practice followed by five-minute missions is proposed; pace remains unselected. See the new worked example in docs/GAME_SPEC.md. No implementation has been approved.
 
 After the owner selects the game and approves the plan, record that decision and begin the first playable multiplayer loop without asking for the same approval again.
 
@@ -99,6 +100,8 @@ After the owner selects the game and approves the plan, record that decision and
 Only progress successfully saved to the remote repository is recoverable from it. Code not yet pushed and unfinished internal reasoning may require reconstruction.
 
 ## Recent checkpoint log
+
+- 2026-09-27 IST: Owner asked who gives calls and chooses controls. Edited the selected gameplay image into a numbered practice example and documented the reciprocal clue/action flow. This is a clarification proposal, not an approved specification or implementation.
 
 - 2026-09-27 IST: Generated three visual concept boards for Split Signal, including distinct player views and win/retry outcomes. Visual and gameplay approval still pending; no application code or deployment exists.
 

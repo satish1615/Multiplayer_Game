@@ -61,6 +61,31 @@ The owner has agreed to initial testing in one normal browser window and one inc
 
 Proposed pace remains a short untimed practice followed by five-minute missions; the owner has not yet selected the pace. The intended payoff is to restore the station and transmit a rescue signal.
 
+## Worked example and clarity feedback (September 27)
+
+The owner said the gameplay image did not explain who gives calls or chooses controls. The exact selected image was edited into a clearer five-step practice board. This feedback is about concept clarity, not a playtest of working software.
+
+Proposed explanation: the game supplies the target and private clues. Both players communicate and operate their own controls; there is no permanently designated caller or button-presser.
+
+| Player | Information shown | Controls |
+| --- | --- | --- |
+| You / Power | Required receiver and current receiver | Channel A/B/C and strength 1/2/3 |
+| Friend / Routing | Wiring clues giving usable channel/strength combinations for receiver symbols; no target instruction | Route changes |
+
+Simplified example, not an approved puzzle:
+
+1. Power sees target STAR and tells Routing, "We need STAR."
+2. Routing's wiring reference says STAR uses channel B at strength 2. Routing sends that instruction to Power.
+3. Power selects B and 2. Routing changes the channel B route from MOON to STAR.
+4. Power sees the receiving symbol change to STAR and confirms the match.
+5. Both select Lock in. If the combined settings satisfy the puzzle, the repair completes.
+
+The revised image uses a simple destination picker to explain ownership of the controls. It does not finalize or validate a route puzzle. The eventual game needs a clear, solvable routing challenge; the initial decorative pipe image is not a technical specification. The example's other clue rows (MOON/A/1 and TRIANGLE/C/3) are illustrative.
+
+Communication is proposed through room chat and quick messages. Players could optionally use their own voice call; in-app voice calling has not been implemented or selected. No external call should be required.
+
+Future instructions should explicitly explain what you know, what you control, what to tell your teammate, and how to check success. The design and build plan still need the owner's approval.
+
 ## Decisions still open
 
 1. Cooperative, competitive, or bluffing-focused experience.
