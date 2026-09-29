@@ -2,7 +2,7 @@
 
 A multiplayer browser game for the Handshake AI Skills Studio "Create a Multiplayer Game" mission.
 
-**Current stage:** All three mission sections and the rulebook are reviewed. Discussing the game concept with the owner; implementation has not started.
+**Current stage:** The owner authorized the build on September 29, 2026. Split Signal is being implemented with an accessible rules section and practice mode. See PROJECT_STATUS.md for actual progress.
 
 Start with [PROJECT_STATUS.md](PROJECT_STATUS.md) for the latest progress and next action. [AGENTS.md](AGENTS.md) explains how to resume and save work.
 
@@ -33,7 +33,7 @@ As checked on September 26, 2026, [OpenAI's pricing documentation](https://learn
 
 ## Proposed concept: Split Signal
 
-**For discussion, not selected.** The owner wants to discuss what to build before implementation. See [the concept discussion draft](docs/GAME_SPEC.md). The repository and checkpoint workflow are approved.
+**Build authorized.** See [the current game specification](docs/GAME_SPEC.md).
 
 A cooperative escape game for 2-6 players, with approximately five-minute rounds. Players restore a failing space station using different private clues and controls.
 

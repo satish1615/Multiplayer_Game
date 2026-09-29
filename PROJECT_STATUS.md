@@ -1,118 +1,40 @@
 # Project Status
 
-## Checkpoint
+Updated: September 29, 2026 (Asia/Kolkata).
 
-- Updated: September 27, 2026 (Asia/Kolkata).
-- Repository: https://github.com/satish1615/Multiplayer_Game
-- Working branch: main.
-- Stage: Split Signal design discussion. Three original concept boards plus a revised worked-example image shown; implementation has not started.
-- Game concept/build plan: The owner chose to explore Split Signal. Detailed rules, visuals, and implementation remain unapproved.
-- Budget: INR 0 additional spend for building and publishing; use existing included access only.
-- Published game: None.
-- Active background operations: None.
-- Checkpoint commit: The commit containing this version of the file. Use `git log -1 -- PROJECT_STATUS.md` to identify it; do not embed this file's own commit hash in itself.
-- Starting repository commit: `f8057b5497fc4d4c9e53a0b14334a4cdfdc904f0`.
+## Authorization
 
-## Completed
-
-- Recorded the owner's feedback that the gameplay image did not explain who gives clues or operates each control. Edited the exact selected image into a five-step practice example showing both players' messages, actions, and the resulting receiver change. Detailed mechanics remain proposed.
-- Generated and visually reviewed three Split Signal concept boards on September 27: start/lobby, two-player gameplay, and success/retry. Displayed them in the conversation. No generated screen mockup has been added as a runtime asset or represented as an actual game screenshot.
-- Owner agreed to initial normal/incognito playtesting. Clarified that collecting external feedback is optional.
-
-- Owner created the public Multiplayer_Game repository.
-- Confirmed repository access and inspected the initial README and main branch.
-- Recorded the mission requirements and proposed game plan in README.md.
-- Added this record of completed, active, and remaining work.
-- Added AGENTS.md so a new session knows how to resume and save progress.
-- Reviewed all seven pages of the uploaded official rulebook and recorded requirements, scoring, deadline, and entry considerations in docs/CONTEST_RULES.md.
-- Recorded the owner's no-additional-cost requirement in README.md and AGENTS.md; checked the current documented Sites pricing.
-- Reviewed Prepare, Build, and the Submit form screenshot; all three are recorded in docs/MISSION_GUIDE.md. Sites is the selected first publishing path.
-- Confirmed the form requires a real game screenshot, a description within 500 characters, and public sharing for monthly-challenge entry.
-- Added docs/GAME_SPEC.md as a discussion draft, not an approved specification.
-- Compared the three proposals against the equal-weight judging rubric. Recommendation remains Split Signal with a stronger mechanic; originality of the basic private-clue setup is a known design gap.
+The owner explicitly said: "Build this and make sure to include rules sections so that players can understand it easily that how they have to play." The Split Signal build is authorized. Do not ask for the same approval again. Public publishing and GitHub checkpoints were already requested. Budget remains INR 0 additional spend.
 
 ## In progress
 
-Clarifying the actual player interaction after the owner found the gameplay concept image unclear. A revised image shows You/Power sharing the target, Friend/Routing giving channel and strength clues, both adjusting their own controls, Power checking the result, and both locking in. The simplified route picker teaches the interaction; it is not approval of final puzzle mechanics. No game feature is in progress.
+Building Split Signal in `/workspace/sites/split-signal` using the Sites Vinext starter and D1 for authoritative multiplayer state. Site registered as `appgprj_6abbb87ccbac81919d299c5a9403c352`; not deployed yet. Source repository is Sites-managed; this GitHub repository remains the user's source/checkpoint copy. Initial setup and dependency installation succeeded. Generated a standalone orbital station background. Source implementation is incomplete and not yet tested.
 
-For future work, record the exact feature, affected files, partial implementation, and next action here before long operations. Identify running jobs using non-sensitive IDs and verify their actual status after resuming.
+## Build scope
+
+2–6 anonymous players, six-character rooms, host lobby, private Power and Relay views, shared timer, three repairs, three failed-check limit, unlimited untimed practice, role rotation, quick messages and room chat, refresh recovery, disconnected-host takeover, replay, mobile layout, and clear rules available before and during play. See docs/GAME_SPEC.md.
 
 ## Remaining
 
-- [x] Review all three mission sections.
-- [ ] Discuss and select the game concept, then write the agreed specification.
-- [ ] Obtain approval or revisions for the proposed concept and build plan.
-- [ ] Finalize rules, role distribution for 2-6 players, scoring, win/loss conditions, and how remote teammates communicate.
-- [ ] Verify included hosting/shared-state availability and retain the INR 0 additional-spend constraint.
-- [ ] Initialize the application and record exact setup/run commands.
-- [ ] Implement room creation, joining, player identity, and the lobby.
-- [ ] Implement authoritative shared state and one complete mission.
-- [ ] Verify separate players receive the correct public and private information.
-- [ ] Handle simultaneous actions, refresh/reconnection, and host departure.
-- [ ] Add puzzle variation, rotating roles, instructions, feedback, and rematches.
-- [ ] Test multiplayer behavior and phone/desktop layouts.
-- [ ] Owner playtests with one normal browser session and one incognito session; reproduce, fix, and retest concrete issues. Feedback from additional people is optional.
-- [ ] Publish and verify public access without login.
-- [ ] Capture a key game screen for the preview image and draft a truthful description within 500 characters.
-- [ ] Before contest entry, verify entrant eligibility and resolve any applicable affiliation ambiguity with the organizer; this is not a prerequisite to implementing the game.
-- [ ] Owner submits the title, actual game screenshot, description, and public game URL through the mission with public sharing selected, after reviewing the result.
-
-## Decisions and authorization
-
-- The owner requires free building and publishing: INR 0 additional spend, using existing Work access. No paid APIs, domains, upgrades, purchased credits, paid assets, or billed overages. If a required capability needs payment, find a no-cost alternative; do not enable billing.
-- Gameplay must not depend on billed AI generation; puzzle variation can be generated by ordinary game logic.
-- The owner requested GitHub checkpoints to reduce repeated work after Work interruptions.
-- Save the actual source code together with updated status after meaningful steps.
-- Save progress before lengthy tests or deployment. Partial work must be labeled incomplete or unverified.
-- The owner provided this repository for those updates.
-- Split Signal, the 2-6 player range, five-minute rounds, and the visual direction are proposals, not confirmed decisions.
-- No application framework, database schema, hosting project, external service, or paid dependency has been created.
-- The owner selected Sites with the Build section. Use it as the first publishing path, subject to the zero-additional-cost constraint and actual account access. Record any hosting source remote and its relationship to this repository when created.
-- Follow the mission sequence: approved rules/specification, core playable loop, owner testing and focused fixes, visual refinement, then publication. Verify the public URL in a private session.
-- Do not assume a new conversation remembers details that are absent from the repository.
-
-## Verification and known problems
-
-- Verified: repository metadata, main branch, and the initial README were accessible through the GitHub connection.
-- Documentation: reviewed the plan and status for consistency; reviewed the uploaded seven-page official rulebook.
-- Contest note: contractor/contributor eligibility is not explicitly clarified by the rulebook. Do not assume either eligibility or ineligibility if an affiliation exclusion may apply.
-- Pricing check: OpenAI documentation currently includes Sites with eligible plans during public beta; account-specific hosting/storage availability remains to be verified. No hosting project or billing setup was created.
-- Application tests: not applicable yet; there is no application code.
-- Runtime/build/deployment checks: not run.
-- Known application bugs: not assessed.
-- No failed application fixes or outstanding background jobs exist at this checkpoint.
+- Complete server game engine, API, and UI.
+- Generate and inspect schema migration.
+- Verify private data, concurrency, timers, full rounds, 2/3/6 players, reconnect and replay.
+- Verify layout and interactions using permitted browser QA when available.
+- Save source to this GitHub repo and Sites source remote.
+- Publish with public access using included Sites hosting. No paid APIs or purchases.
+- Verify deployment success. User playtests normal/incognito, then phone/laptop.
+- Capture an actual game screen and prepare submission materials after playtesting.
 
 ## Exact next action
 
-Check whether the worked example makes each player's role clear, then settle the real puzzle mechanics and visual direction. Decide how routing involves reasoning beyond selecting the named destination. An untimed practice followed by five-minute missions is proposed; pace remains unselected. See the new worked example in docs/GAME_SPEC.md. No implementation has been approved.
+Continue the incomplete implementation in the existing checkout. Read AGENTS.md and docs/GAME_SPEC.md. Do not register a second Site. Inspect actual local files and running jobs before repeating setup or deployment.
 
-After the owner selects the game and approves the plan, record that decision and begin the first playable multiplayer loop without asking for the same approval again.
+## Known limitations at this checkpoint
 
-## Resume procedure
+No game URL is live. No tests passed yet. Only successfully pushed source is recoverable from GitHub; local changes after this checkpoint may need recovery. Native Sites registration succeeded without a billing or purchase step; use included access only.
 
-1. Read this file, README.md, AGENTS.md, and the latest user instructions. Consult docs/CONTEST_RULES.md for contest requirements and docs/MISSION_GUIDE.md for the mission workflow.
-2. Inspect the current remote branch and recent commits. In an existing checkout, inspect local changes before pulling or editing; preserve unfinished work.
-3. Confirm whether the in-progress step or any external operation already completed.
-4. Continue the next unfinished task using the existing implementation and decisions.
-5. Commit source changes and the updated status together when practical, push, and verify the remote branch includes the new commit.
-6. Report only saves, tests, and deployments that actually succeeded.
+## Recent history
 
-Only progress successfully saved to the remote repository is recoverable from it. Code not yet pushed and unfinished internal reasoning may require reconstruction.
-
-## Recent checkpoint log
-
-- 2026-09-27 IST: Owner asked who gives calls and chooses controls. Edited the selected gameplay image into a numbered practice example and documented the reciprocal clue/action flow. This is a clarification proposal, not an approved specification or implementation.
-
-- 2026-09-27 IST: Generated three visual concept boards for Split Signal, including distinct player views and win/retry outcomes. Visual and gameplay approval still pending; no application code or deployment exists.
-
-- 2026-09-26 IST: Assessed judge fit and checked a similar existing game's official site. Added a proposed linked-controls direction to discuss; no concept has been approved and no judging score is predicted.
-
-- 2026-09-26 IST: Recorded the Submit form, including its screenshot, 500-character description, and public-sharing requirement. Owner explicitly requested game discussion before building; all concepts remain proposals.
-
-- 2026-09-26 IST: Saved Prepare/Build mission instructions, the remote-player requirement, and the testing-before-polish sequence. Submit section and game approval remain pending.
-
-- 2026-09-26 IST: Recorded INR 0 additional-spend constraint and verified the current documented Sites inclusion; implementation has not started.
-
-- 2026-09-26 IST: Reviewed the uploaded official rulebook; added docs/CONTEST_RULES.md and updated the entry tasks. Game concept remains proposed.
-
-- 2026-09-26 IST: Initialized project documentation and the recovery workflow. No game implementation or deployment yet.
+- September 29: Build authorized; starter installed; Site registered; implementation started.
+- September 27: Three stage previews and a clearer worked-example image produced. Owner's feedback was that caller/control ownership was unclear.
+- September 26: Official contest rules, all mission sections, zero-cost constraint, and checkpoint instructions recorded.
