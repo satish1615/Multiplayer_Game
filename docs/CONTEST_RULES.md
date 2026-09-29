@@ -69,3 +69,4 @@ The uploaded PDF references a Challenge Code of Conduct but does not reproduce i
 
 - [Mission page](https://joinhandshake.com/learn/create-a-multiplayer-game-8d7d59b5/)
 - [Official rules PDF](https://go.joinhandshake.com/rs/390-ZTF-353/images/%5BAI_Skills_Studio_Challenge%5D_Contest_Official_Rules.pdf?version=0)
+

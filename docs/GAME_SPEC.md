@@ -29,3 +29,4 @@ Dark navy station setting, mint/cyan controls, amber signal accents, large touch
 ## Cost and delivery
 
 INR 0 extra spend, included Sites/D1 only, no runtime paid AI APIs, domains, upgrades, or credits. Keep the GitHub source and PROJECT_STATUS.md current. Publish publicly and report actual validation gaps. User will test normal/incognito and separate phone/laptop devices. Contest submission requires an actual screenshot, not a concept image.
+

@@ -39,3 +39,4 @@
 - Record actual test commands and outcomes; identify checks that were skipped or remain manual.
 - After an interrupted operation, inspect its result before retrying it, especially for deployment or migrations.
 - Keep progress updates concise and state the next concrete action.
+

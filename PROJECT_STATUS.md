@@ -8,7 +8,7 @@ The owner explicitly said: "Build this and make sure to include rules sections s
 
 ## In progress
 
-Building Split Signal in `/workspace/sites/split-signal` using the Sites Vinext starter and D1 for authoritative multiplayer state. Site registered as `appgprj_6abbb87ccbac81919d299c5a9403c352`; not deployed yet. Source repository is Sites-managed; this GitHub repository remains the user's source/checkpoint copy. Initial setup and dependency installation succeeded. Generated a standalone orbital station background. Source implementation is incomplete and not yet tested.
+Building Split Signal in `/workspace/sites/split-signal` using the Sites Vinext starter and D1 for authoritative multiplayer state. Site registered as `appgprj_6abbb87ccbac81919d299c5a9403c352`; not deployed yet. Source repository is Sites-managed; this GitHub repository remains the user's source/checkpoint copy. Initial setup and dependency installation succeeded. Generated a standalone orbital station background. The first complete server/API/UI implementation is written. TypeScript validation and the first Worker build passed. Three-table schema migration generated and inspected. Next: apply local migration and run integration/browser tests. The application is not yet verified or published.
 
 ## Build scope
 
@@ -38,3 +38,4 @@ No game URL is live. No tests passed yet. Only successfully pushed source is rec
 - September 29: Build authorized; starter installed; Site registered; implementation started.
 - September 27: Three stage previews and a clearer worked-example image produced. Owner's feedback was that caller/control ownership was unclear.
 - September 26: Official contest rules, all mission sections, zero-cost constraint, and checkpoint instructions recorded.
+
