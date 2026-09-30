@@ -4,7 +4,7 @@ A cooperative rescue game by Satish Singh. Trade private clues, set your own sta
 
 **Play: [Split Signal](https://split-signal-satish.satishofficial016.chatgpt.site)**
 
-Version 1 is publicly deployed. See [PROJECT_STATUS.md](PROJECT_STATUS.md) to resume development and [PLAYTEST.md](docs/PLAYTEST.md) for verified results and your live testing steps.
+Version 2 is publicly deployed. It adds direct-browser play guidance and clearer responses to hosting errors. The reported room-creation failure inside ChatGPT still needs a separate-browser retest. See [PROJECT_STATUS.md](PROJECT_STATUS.md) to resume development and [PLAYTEST.md](docs/PLAYTEST.md) for verified results and your live testing steps.
 
 ## How to play
 

@@ -44,3 +44,5 @@ No contest entry has been submitted. Choose the final screenshot and submission 
 ## Live report after initial publication
 
 The owner reported an HTML-as-JSON error from Solo + bot inside ChatGPT. Native Worker logs did not contain a matching API request. The client patch handles non-JSON hosting replies explicitly and offers the verified public URL in a separate browser tab. 13 targeted response checks cover HTML status 200/401/403/404/503, malformed JSON, non-game JSON errors, legitimate seat errors, and successful room data. Direct-browser room creation must be retested by the owner; its success is not yet established.
+
+Version 2 was published successfully at 10:05:43 UTC on September 30. TypeScript, the production build, and all 13 targeted response tests passed. The owner should right-click the public link and open a separate browser tab, then retry Solo + bot. The original production failure is not marked resolved yet.
