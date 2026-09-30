@@ -1,6 +1,6 @@
 # Reactor Rush: design checkpoint
 
-Recorded September 30, 2026, through the owner's 23:47 IST request for energy visibly spreading outward from a central core and the resulting third concept board.
+Recorded September 30, 2026, through the owner's 23:50 IST selection of option 14 as the starting design and request to remove the small centre ball and lines.
 
 ## Current stage
 
@@ -95,6 +95,10 @@ At 23:47 IST the owner requested more options and clarified the desired effect: 
 - 16 Ripple Core: nested translucent waves expanding outward from the core.
 
 No option has been selected. These are static concepts, not implemented animations. Outward particle or wave motion can be considered when the chosen design is implemented. The visual effect does not add damage, an area attack or a change to collection range. Golden remains rare and worth two deposited energy; normal remains blue and worth one.
+
+### Current selected direction: option 14 with requested edits
+
+At 23:50 IST the owner chose option 14, Plasma Burst, and requested removal of the small central ball and "the lines". The assistant stated that it was interpreting lines as the sharp lightning branches. A single revised concept was generated from option 14: no separate central sphere, a diffuse bright centre, softer flowing golden plasma, and sparks spreading outward against a dark navy background. This interpretation of the lines and the revised result still await owner feedback; do not call the edited asset locked or approved. Option 14 is the chosen starting point, superseding the earlier unselected status. No animation, production sprite or gameplay change has been implemented.
 
 ## Map discussion, layout not yet selected
 

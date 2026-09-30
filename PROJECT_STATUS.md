@@ -18,6 +18,8 @@ Latest checkpoint changes documentation and concept art only. It does not modify
 
 **Latest energy-art direction, 23:47 IST:** The owner requested more options and clarified that energy should visibly generate from a central core and spread everywhere. The new board offers 13 Radiant Pulse (outward rays and sparks), 14 Plasma Burst (branching electricity), 15 Solar Flow (flowing plasma streams), and 16 Ripple Core (expanding waves). The rare collectible remains golden and normal balls blue. No option is selected; these are static concept images, with no gameplay or animation implemented.
 
+**Current rare-ball choice, 23:50 IST:** The owner chose option 14, Plasma Burst, as the starting design and requested removal of the small central ball and the lines. A revised single-ball concept removes the distinct inner sphere and softens the sharp lightning branches into flowing golden plasma and outward sparks. Interpreting "lines" as lightning branches was stated to the owner; the revised appearance still awaits feedback and is not a final locked asset. Keep normal balls blue and rare balls golden; scoring is unchanged.
+
 **Character approval is final:** At 18:44 IST on September 30, the owner said "Lock these 6 characters" for the current image. Keep Iris, helmet-free Orbit, Juno in plum/cream/amber, Comet, Lumi and Jet exactly as selected. Do not repeat character ideation without a new request. Continue design discussion; this is not approval to start implementation.
 
 ## Current outcome
