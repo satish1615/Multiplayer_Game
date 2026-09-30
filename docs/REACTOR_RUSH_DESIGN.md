@@ -1,6 +1,6 @@
 # Reactor Rush: design checkpoint
 
-Recorded September 30, 2026, through the owner's 23:31 IST approval of the rare-energy-ball option.
+Recorded September 30, 2026, through the owner's 23:42 IST proposal to use gold for rare balls and blue for normal balls.
 
 ## Current stage
 
@@ -57,8 +57,8 @@ Player character selection is required before playing. The proposed flow is nick
 
 At 23:31 IST on September 30, the owner said "Keep the rare ball option" after discussing mission unlocks versus a shared random bonus-ball spawn. Keep the rare ball in the design; a dash-count or opponent-hit mission is not required to reveal it.
 
-- Normal golden ball: one energy point when deposited.
-- Rare ball: larger glowing blue orb, clearly marked with a 2; worth two energy points when deposited.
+- Normal blue ball: one energy point when deposited, following the latest colour direction below.
+- Rare golden ball: larger glowing orb, clearly marked with a 2; worth two energy points when deposited, following the latest colour direction below.
 - The rare ball occupies ONE of the three carrying slots. Each player can carry at most ONE rare ball.
 - Two normal balls plus one rare ball occupy three slots and deposit FOUR energy points. Carrying capacity counts balls, not their total value.
 - Picking up the rare ball does not award points immediately. The player must take it to their own reactor to bank its value.
@@ -67,6 +67,12 @@ At 23:31 IST on September 30, the owner said "Keep the rare ball option" after d
 - UI should distinguish inventory from value, for example: "Carrying 3 balls · Worth 4 energy".
 
 Full-inventory pickup behavior, the maximum number of rare balls on the map, expiry, and any dropped-ball priority still need decisions. Approval of the rare ball does not approve dash attacks or other unresolved combat rules. It has not been implemented or tested.
+
+### Latest ball colour direction and pending art selection
+
+At 23:39 IST the owner requested golden energy ball appearance options. A concept board showed six numbered candidates: 1 Glow Orb (smooth glowing sphere), 2 Bolt Core (lightning emblem), 3 Halo Orb (one surrounding ring), 4 Crystal Core (faceted sphere), 5 Reactor Core (protective shell around a glowing centre), and 6 Plasma Swirl (internal energy spiral). Option 2 was recommended by the assistant; the owner has not selected an option.
+
+At 23:42 IST the owner said, "I am thinking of making Golden as rare ball and blue as Normal". Use blue for normal one-point balls and gold for rare two-point balls as the current visual direction in further discussion. This supersedes the earlier opposite colour assignment in the working design, without changing any approved scoring, carrying or spawn rules. Exact normal and rare appearances remain unselected. The six golden candidates can now be considered for the rare ball. Do not treat the concept board as production sprites or as an approved ball design.
 
 ## Map discussion, layout not yet selected
 
@@ -86,7 +92,7 @@ An open arena with scattered obstacles was recommended; a maze with narrow corri
 - Proposed hazards: telegraphed lasers and moving/closing doors. Timings, damage/drop penalties, map size and safe areas remain undecided.
 - A dash collision making a rival drop one unbanked ball, followed by brief protection, was recommended. The owner has NOT answered that choice yet. Do not treat it as approved.
 - Bots should move, collect, bank energy, dash and avoid hazards under the same rules. Bot count and difficulty settings remain undecided.
-- Visual direction: colourful sci-fi arcade illustration, readable navy arena, glowing gold energy, distinct characters, dash trails, score feedback, visible carried balls, compact scoreboard and large timer. Character concepts use a three-quarter front view; final in-game camera/animation assets still need design work.
+- Visual direction: colourful sci-fi arcade illustration, readable navy arena, glowing blue normal energy and golden rare energy, distinct characters, dash trails, score feedback, visible carried balls, compact scoreboard and large timer. Character concepts use a three-quarter front view; final in-game camera/animation assets still need design work.
 
 ## Cost and technical feasibility
 
