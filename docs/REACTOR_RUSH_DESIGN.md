@@ -1,6 +1,6 @@
 # Reactor Rush: design checkpoint
 
-Recorded September 30, 2026, through the owner's 23:50 IST selection of option 14 as the starting design and request to remove the small centre ball and lines.
+Recorded September 30, 2026, through the owner's 23:53 IST clarification that the golden glow should not look like evenly spaced lines and the resulting second revision.
 
 ## Current stage
 
@@ -99,6 +99,8 @@ No option has been selected. These are static concepts, not implemented animatio
 ### Current selected direction: option 14 with requested edits
 
 At 23:50 IST the owner chose option 14, Plasma Burst, and requested removal of the small central ball and "the lines". The assistant stated that it was interpreting lines as the sharp lightning branches. A single revised concept was generated from option 14: no separate central sphere, a diffuse bright centre, softer flowing golden plasma, and sparks spreading outward against a dark navy background. This interpretation of the lines and the revised result still await owner feedback; do not call the edited asset locked or approved. Option 14 is the chosen starting point, superseding the earlier unselected status. No animation, production sprite or gameplay change has been implemented.
+
+At 23:53 IST the owner clarified that the spaces between the glowing lines were too even and that the glow itself should not look like lines. This supersedes the earlier interpretation that softening lightning branches was enough. The second revision uses broad overlapping clouds of golden light, irregular patch sizes and spacing, diffuse bright areas and scattered round sparks. Remove regular radial streaks, repeated gaps and a distinct inner core ball. Preserve the golden energy-ball identity and dark navy background. The second revision has been shown but is not yet approved or locked; no production asset or animation has been implemented.
 
 ## Map discussion, layout not yet selected
 

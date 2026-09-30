@@ -20,6 +20,8 @@ Latest checkpoint changes documentation and concept art only. It does not modify
 
 **Current rare-ball choice, 23:50 IST:** The owner chose option 14, Plasma Burst, as the starting design and requested removal of the small central ball and the lines. A revised single-ball concept removes the distinct inner sphere and softens the sharp lightning branches into flowing golden plasma and outward sparks. Interpreting "lines" as lightning branches was stated to the owner; the revised appearance still awaits feedback and is not a final locked asset. Keep normal balls blue and rare balls golden; scoring is unchanged.
 
+**Latest art correction, 23:53 IST:** The owner clarified that the glow still looked like evenly spaced lines. The second revision replaces the regular streaks with broad, irregular clouds of golden light, varied spacing and round sparks. Keep the separate inner ball removed. The owner wants the glow itself to avoid a line-like appearance; merely softening lightning is insufficient. The new draft remains unapproved concept art, not gameplay or animation.
+
 **Character approval is final:** At 18:44 IST on September 30, the owner said "Lock these 6 characters" for the current image. Keep Iris, helmet-free Orbit, Juno in plum/cream/amber, Comet, Lumi and Jet exactly as selected. Do not repeat character ideation without a new request. Continue design discussion; this is not approval to start implementation.
 
 ## Current outcome
