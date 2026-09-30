@@ -4,7 +4,7 @@ import { hash, rateLimit } from "./room-store";
 export const nameSchema = z.string().trim().min(1, "Enter a nickname.").max(20, "Use a nickname of 20 characters or fewer.").regex(/^[\p{L}\p{N} _.-]+$/u, "Use letters, numbers, spaces, or . _ - in your nickname.");
 export const codeSchema = z.string().trim().toUpperCase().regex(/^[A-Z2-9]{6}$/, "Enter the six-character room code.");
 export const actionSchema = z.object({
-  type: z.enum(["chat", "mode", "ready", "start", "set", "lock", "lobby", "claim", "leave"]),
+  type: z.enum(["chat", "mode", "bot", "ready", "start", "set", "lock", "lobby", "claim", "leave"]),
   requestId: z.string().uuid(), puzzleId: z.string().uuid().optional(), configRevision: z.number().int().nonnegative().optional(),
   value: z.number().int().optional(), field: z.enum(["channel", "strength", "relay"]).optional(),
   text: z.string().max(200).optional(), mode: z.enum(["mission", "practice"]).optional(),

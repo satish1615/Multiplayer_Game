@@ -1,41 +1,38 @@
 # Project Status
 
-Updated: September 29, 2026 (Asia/Kolkata).
+Updated: September 30, 2026 (Asia/Kolkata).
 
-## Authorization
+## Authorization and budget
 
-The owner explicitly said: "Build this and make sure to include rules sections so that players can understand it easily that how they have to play." The Split Signal build is authorized. Do not ask for the same approval again. Public publishing and GitHub checkpoints were already requested. Budget remains INR 0 additional spend.
+Build and public publishing are authorized, including clear rules and GitHub checkpoints. The owner requested a solo bot teammate on September 30. INR 0 extra spend: included Sites/D1 only, no paid runtime AI, purchases, credits, or upgrades. No contest submission is authorized now.
 
-## In progress
+## Completed locally
 
-Building Split Signal in `/workspace/sites/split-signal` using the Sites Vinext starter and D1 for authoritative multiplayer state. Site registered as `appgprj_6abbb87ccbac81919d299c5a9403c352`; not deployed yet. Source repository is Sites-managed; this GitHub repository remains the user's source/checkpoint copy. Initial setup and dependency installation succeeded. Generated a standalone orbital station background. The first complete server/API/UI implementation is written. TypeScript validation and the first Worker build passed. Three-table schema migration generated and inspected. Next: apply local migration and run integration/browser tests. The application is not yet verified or published.
+- Full 2–6-player server, API, and responsive UI in `/workspace/sites/split-signal`.
+- Private Power/Relay clues, room codes, host lobby, modes, shared deadlines, three repairs, locks/fuses, role rotation, chat, reconnect, replay, and host recovery.
+- Rules with worked example and interactive tutorial.
+- Station artwork and custom icon.
+- D1 migration generated, inspected, and applied locally once.
+- First pre-bot TypeScript check and Worker build passed. A previous integration run reached a passing 2-player full mission before interruption; its remaining results were not recovered.
+- September 30: solo Nova (bot) implemented. Trades clues via chat, uses only its role projection, operates its station, responds to help/wait, and rotates roles. Lobby can switch between solo and friends. Post-change TypeScript check passed.
+- Fixed lobby reset retaining offline seats. Bot never inherits host ownership.
 
-## Build scope
+## In progress and unverified
 
-2–6 anonymous players, six-character rooms, host lobby, private Power and Relay views, shared timer, three repairs, three failed-check limit, unlimited untimed practice, role rotation, quick messages and room chat, refresh recovery, disconnected-host takeover, replay, mobile layout, and clear rules available before and during play. See docs/GAME_SPEC.md.
+Extended real-Worker/D1 integration tests with complete bot missions, privacy, conversation, mode switching, offline takeover, and deadline expiry. New build and full test run are next. Bot behavior and mobile layout still require browser QA. No public deployment yet.
 
-## Remaining
+## Hosting and source
 
-- Complete server game engine, API, and UI.
-- Generate and inspect schema migration.
-- Verify private data, concurrency, timers, full rounds, 2/3/6 players, reconnect and replay.
-- Verify layout and interactions using permitted browser QA when available.
-- Save source to this GitHub repo and Sites source remote.
-- Publish with public access using included Sites hosting. No paid APIs or purchases.
-- Verify deployment success. User playtests normal/incognito, then phone/laptop.
-- Capture an actual game screen and prepare submission materials after playtesting.
+Existing Site ID: `appgprj_6abbb87ccbac81919d299c5a9403c352`. Reuse it; never create another. On September 30, native inspection returned zero versions and no live URL, access custom. Public access is requested and available. Source will be pushed to the Sites-managed remote during the publication workflow; this GitHub repository is the user's recoverable source/checkpoint copy. Never save source credentials in files.
 
-## Exact next action
+## Exact next actions
 
-Continue the incomplete implementation in the existing checkout. Read AGENTS.md and docs/GAME_SPEC.md. Do not register a second Site. Inspect actual local files and running jobs before repeating setup or deployment.
+1. Build via the Sites build helper, then run `node tests/integration.mjs`.
+2. Start supervised Sites preview and test solo, multiplayer entry, rules/tutorial, and phone layout. Fix concrete failures.
+3. Publish the exact tested source with public access using Sites; verify native deployment status.
+4. Save source, results, public URL, and remaining manual tests here and verify GitHub head.
+5. Owner tests normal/incognito and separate phone/laptop, then prepare actual screenshot and submission copy.
 
-## Known limitations at this checkpoint
+## Resume instructions
 
-No game URL is live. No tests passed yet. Only successfully pushed source is recoverable from GitHub; local changes after this checkpoint may need recovery. Native Sites registration succeeded without a billing or purchase step; use included access only.
-
-## Recent history
-
-- September 29: Build authorized; starter installed; Site registered; implementation started.
-- September 27: Three stage previews and a clearer worked-example image produced. Owner's feedback was that caller/control ownership was unclear.
-- September 26: Official contest rules, all mission sections, zero-cost constraint, and checkpoint instructions recorded.
-
+Read AGENTS.md, README.md, and this file. Preserve existing checkout and source. Inspect interrupted operations before repeating migration or publication. The initial migration was already applied locally; do not blindly replay it. Preview may need restarting after interruption. Tests use an isolated Miniflare D1 fixture and never production data.

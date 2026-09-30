@@ -3,15 +3,17 @@ export const PORTS = ["A", "B", "C"] as const;
 export const SYSTEMS = ["Restore power", "Align the antenna", "Send the rescue signal"];
 export type Mode = "mission" | "practice";
 export type Phase = "lobby" | "playing" | "between" | "won" | "lost";
-export type Player = { id: string; name: string; ready: boolean; joined: number };
+export type Player = { id: string; name: string; ready: boolean; joined: number; isBot?: boolean };
 export type PowerRule = { channel: number; strength: number };
 export type Relay = { playerId: string; exits: number[]; shifts: number[]; selected: number };
-export type Puzzle = { id: string; target: number; powerId: string; powerRules: PowerRule[]; channel: number; strength: number; relays: Relay[]; configRevision: number };
+export type Puzzle = { id: string; target: number; powerId: string; powerRules: PowerRule[]; channel: number; strength: number; relays: Relay[]; configRevision: number; chatStart?: string };
+export type BotMemory = { key: string; nextAt: number; cursor?: string; target?: number; channel?: number; strength?: number; waiting?: boolean; reported?: number; strikes: number };
 export type ChatMessage = { id: string; playerId: string; name: string; text: string; at: number };
 export type RoomState = {
   code: string; hostId: string; mode: Mode; phase: Phase; players: Player[]; puzzle: Puzzle | null;
   round: number; repairs: number; strikes: number; startedAt: number | null; deadline: number | null;
   finishedAt: number | null; notice: string; chat: ChatMessage[]; processed: string[]; createdAt: number;
+  bot?: BotMemory;
 };
 export type RoleView = {
   kind: "power" | "relay"; label: string; puzzleId: string; configRevision: number; target?: number;

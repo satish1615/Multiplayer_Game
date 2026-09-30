@@ -10,7 +10,7 @@ export function newPuzzle(room: RoomState): Puzzle {
   return {
     id: crypto.randomUUID(), target: random(3), powerId: order[0].id,
     powerRules: shuffle().map(channel => ({ channel, strength: random(3) + 1 })),
-    channel: random(3), strength: 1, configRevision: 0,
+    channel: random(3), strength: 1, configRevision: 0, chatStart: room.chat.at(-1)?.id,
     relays: order.slice(1).map((p, i, all) => ({ playerId: p.id, exits: i === all.length - 1 ? [0, 1, 2] : shuffle(), shifts: shuffle(), selected: 0 })),
   };
 }
@@ -48,6 +48,18 @@ export function applyAction(room: RoomState, id: string, action: Action, now: nu
       assertHost(room, id);
       if (room.phase !== "lobby" || !["mission", "practice"].includes(action.mode || "")) throw new GameError("Choose a mode in the lobby.");
       room.mode = action.mode as "mission" | "practice"; resetReady(room); break;
+    case "bot":
+      assertHost(room, id);
+      if (room.phase !== "lobby") throw new GameError("Change teammates in the lobby.");
+      if (room.players.some(p => p.isBot)) {
+        room.players = room.players.filter(p => !p.isBot); room.bot = undefined;
+        room.notice = "Nova left. Invite a friend using the room code.";
+      } else {
+        if (room.players.length !== 1) throw new GameError("Nova joins a solo player. Your human crew is already here.");
+        room.players.push({ id: crypto.randomUUID(), name: "Nova (bot)", isBot: true, ready: true, joined: now });
+        room.notice = "Nova is your bot teammate. Share clues in room chat.";
+      }
+      resetReady(room); break;
     case "ready":
       if (room.phase !== "lobby" && room.phase !== "between") throw new GameError("This screen has changed. Try again.", 409);
       player.ready = true;
@@ -60,7 +72,7 @@ export function applyAction(room: RoomState, id: string, action: Action, now: nu
       assertHost(room, id);
       if (room.phase !== "lobby") throw new GameError("The mission already started.", 409);
       if (room.players.length < 2 || !room.players.every(p => p.ready)) throw new GameError("You need at least two players, and everyone must be ready.");
-      if (room.players.some(p => now - (seen[p.id] || 0) > 30000)) throw new GameError("Wait for all players to reconnect.");
+      if (room.players.some(p => !p.isBot && now - (seen[p.id] || 0) > 30000)) throw new GameError("Wait for all players to reconnect.");
       room.phase = "playing"; room.round = 0; room.repairs = 0; room.strikes = 0;
       room.startedAt = now; room.deadline = room.mode === "mission" ? now + 300000 : null; room.finishedAt = null;
       room.puzzle = newPuzzle(room); resetReady(room); room.notice = "Power: share your target. Relay 1: share the channel and strength."; break;
@@ -105,9 +117,9 @@ export function applyAction(room: RoomState, id: string, action: Action, now: nu
     case "lobby":
       assertHost(room, id);
       if (room.phase === "playing" || room.phase === "between") {
-        if (!room.players.some(p => now - (seen[p.id] || 0) > 45000)) throw new GameError("A live mission is in progress.");
-        room.players = room.players.filter(p => p.id === id || now - (seen[p.id] || 0) <= 45000);
+        if (!room.players.some(p => !p.isBot && now - (seen[p.id] || 0) > 45000)) throw new GameError("A live mission is in progress.");
       }
+      room.players = room.players.filter(p => p.isBot || p.id === id || now - (seen[p.id] || 0) <= 45000);
       room.phase = "lobby"; room.puzzle = null; room.deadline = null; room.startedAt = null; room.finishedAt = null;
       room.repairs = 0; room.strikes = 0; room.round = 0; resetReady(room);
       room.notice = "Ready for another mission. New clues are generated each time."; break;
@@ -116,7 +128,8 @@ export function applyAction(room: RoomState, id: string, action: Action, now: nu
       room.hostId = id; room.notice = player.name + " is now the host."; break;
     case "leave":
       room.players = room.players.filter(p => p.id !== id);
-      if (room.hostId === id) room.hostId = room.players[0]?.id || "";
+      if (!room.players.some(p => !p.isBot)) { room.players = []; room.bot = undefined; }
+      if (room.hostId === id) room.hostId = room.players.find(p => !p.isBot)?.id || "";
       room.phase = "lobby"; room.puzzle = null; room.deadline = null; room.startedAt = null; room.finishedAt = null;
       room.repairs = 0; room.strikes = 0; room.round = 0;
       resetReady(room); room.notice = player.name + " left. Ready up to start with the remaining crew."; break;
@@ -141,7 +154,7 @@ export function projectRoom(room: RoomState, selfId: string, version: number, se
   }
   return {
     code: room.code, hostId: room.hostId, mode: room.mode, phase: room.phase,
-    players: room.players.map(member => ({ ...member, lastSeen: seen[member.id] || 0, online: now - (seen[member.id] || 0) < 30000, role: p ? (p.powerId === member.id ? "Power" : "Relay " + (p.relays.findIndex(r => r.playerId === member.id) + 1)) : "Crew" })),
+    players: room.players.map(member => ({ ...member, lastSeen: member.isBot ? now : seen[member.id] || 0, online: !!member.isBot || now - (seen[member.id] || 0) < 30000, role: p ? (p.powerId === member.id ? "Power" : "Relay " + (p.relays.findIndex(r => r.playerId === member.id) + 1)) : "Crew" })),
     selfId, role, round: room.round, repairs: room.repairs, strikes: room.strikes, deadline: room.deadline,
     startedAt: room.startedAt, finishedAt: room.finishedAt, serverTime: now, notice: room.notice, chat: room.chat, version,
   };

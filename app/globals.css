@@ -61,7 +61,7 @@ button:not(:disabled):active { transform:translateY(1px); }
 .text-input::placeholder { color:#738c9c; }
 .code-input { font-family:monospace; letter-spacing:5px; font-size:20px; margin-bottom:15px; }
 .entry-tabs { margin-top:24px; gap:0; }
-.entry-tab-list { display:grid; grid-template-columns:1fr 1fr; width:100%; height:44px; background:#08151e; border:1px solid #29414e; border-radius:9px; padding:4px; }
+.entry-tab-list { display:grid; grid-template-columns:1fr 1fr 1fr; width:100%; height:44px; background:#08151e; border:1px solid #29414e; border-radius:9px; padding:4px; }
 .entry-tab-list [role=tab] { font-size:14px; color:#9dafbd; border-radius:5px; }
 .entry-tab-list [role=tab][data-state=active] { background:#24404b; color:#ecf8f8; box-shadow:none; }
 .entry-tabs [role=tabpanel] { margin-top:17px; }
@@ -343,3 +343,17 @@ button:not(:disabled):active { transform:translateY(1px); }
  .mission-notice { font-size:12px; }
 }
 @media(prefers-reduced-motion:reduce){ *,*::before,*::after { scroll-behavior:auto!important; transition:none!important; animation:none!important; } }
+
+.bot-add { margin-top:16px; }
+.bot-chat-help { font-size:13px; color:#a4bbc8; margin-top:12px; }
+.bot-chat-help b { color:var(--primary); }
+@media (max-width:640px) {
+ .wiring-table th { font-size:12px; padding:9px 5px; }
+ .wiring-table td { font-size:15px; padding:11px 5px; }
+ .table-symbol { font-size:12px; }
+ .quick-clues button,.chat-quick button { min-height:42px; font-size:12px; }
+ .chat-form input { font-size:16px; }
+ .role-tip p,.role-title p,.rule-steps p,.rules-body>p { font-size:16px; }
+ .relay-readout .eyebrow,.relay-readout small { font-size:12px; }
+ .signal-card small { font-size:12px; }
+}

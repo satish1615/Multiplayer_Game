@@ -1,6 +1,7 @@
 import { getDb } from "@/db";
 import { GameError, applyAction, expire, projectRoom, type Action } from "./game-engine";
 import type { RoomState, Session } from "./game-types";
+import { tickBot } from "./game-bot";
 
 const DAY = 86400000;
 type Row = { state: string; version: number; expires_at: number };
@@ -40,13 +41,15 @@ export async function readRoom(code: string, id: string) {
   for (let retry = 0; retry < 6; retry++) {
     const { room, version } = await load(code);
     if (!room.players.some(p => p.id === id)) throw new GameError("Your seat is no longer in this room. Join again.", 401);
-    const changed = expire(room, Date.now());
+    const now = Date.now(), presence = await seen(code);
+    const expired = expire(room, now);
+    const changed = tickBot(room, now, presence) || expired;
     if (changed && !await save(room, version)) continue;
-    return projectRoom(room, id, version + (changed ? 1 : 0), await seen(code), Date.now());
+    return projectRoom(room, id, version + (changed ? 1 : 0), presence, now);
   }
   throw new GameError("The crew is making changes. Try again.", 409);
 }
-export async function createRoom(name: string, mode: "mission" | "practice") {
+export async function createRoom(name: string, mode: "mission" | "practice", solo = false) {
   const db = getDb(), now = Date.now(), playerId = crypto.randomUUID(), secret = token();
   const alphabet = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
   await db.batch([
@@ -56,6 +59,11 @@ export async function createRoom(name: string, mode: "mission" | "practice") {
   for (let attempt = 0; attempt < 4; attempt++) {
     const code = Array.from(crypto.getRandomValues(new Uint8Array(6)), n => alphabet[n % alphabet.length]).join("");
     const room: RoomState = { code, hostId: playerId, mode, phase: "lobby", players: [{ id: playerId, name, ready: false, joined: now }], puzzle: null, round: 0, repairs: 0, strikes: 0, startedAt: null, deadline: null, finishedAt: null, notice: "Share the room code with your crew.", chat: [], processed: [], createdAt: now };
+    if (solo) {
+      room.players.push({ id: crypto.randomUUID(), name: "Nova (bot)", ready: true, joined: now, isBot: true });
+      room.notice = "Nova is your bot teammate. Share clues in room chat.";
+      tickBot(room, now, { [playerId]: now });
+    }
     try {
       await db.batch([
         db.prepare("INSERT INTO rooms (code, state, version, expires_at) VALUES (?, ?, 0, ?)").bind(code, JSON.stringify(room), now + DAY),
@@ -78,6 +86,7 @@ export async function joinRoom(code: string, name: string) {
     for (let retry = 0; retry < 6; retry++) {
       const { room, version } = await load(code);
       if (room.phase !== "lobby") throw new GameError("This crew is on a mission. Ask the host to return to the lobby.");
+      if (room.players.some(p => p.isBot)) throw new GameError("This is a solo room. Ask the host to switch to friends in the lobby first.");
       if (room.players.length >= 6) throw new GameError("This room has six players. Create another room.");
       if (room.players.some(p => p.name.toLowerCase() === name.toLowerCase())) throw new GameError("That nickname is already in this room. Choose another.");
       room.players.push({ id: playerId, name, ready: false, joined: now });
@@ -104,6 +113,7 @@ export async function mutateRoom(code: string, id: string, action: Action) {
       continue;
     }
     applyAction(room, id, action, now, presence);
+    tickBot(room, now, presence);
     if (!await save(room, version)) continue;
     if (action.type === "leave") return { left: true };
     return projectRoom(room, id, version + 1, presence, now);
