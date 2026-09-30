@@ -16,6 +16,8 @@ Latest checkpoint changes documentation and concept art only. It does not modify
 
 **Golden-ball art revision, 23:45 IST:** The owner rejected all six initial golden-ball designs and requested more. A new concept board offers 7 Sunburst, 8 Honey Core, 9 Starheart, 10 Mercury Gold, 11 Pearl Spark and 12 Comet Seed. No replacement has been selected yet. Do not revive options 1–6 or treat an assistant recommendation as an owner selection.
 
+**Latest energy-art direction, 23:47 IST:** The owner requested more options and clarified that energy should visibly generate from a central core and spread everywhere. The new board offers 13 Radiant Pulse (outward rays and sparks), 14 Plasma Burst (branching electricity), 15 Solar Flow (flowing plasma streams), and 16 Ripple Core (expanding waves). The rare collectible remains golden and normal balls blue. No option is selected; these are static concept images, with no gameplay or animation implemented.
+
 **Character approval is final:** At 18:44 IST on September 30, the owner said "Lock these 6 characters" for the current image. Keep Iris, helmet-free Orbit, Juno in plum/cream/amber, Comet, Lumi and Jet exactly as selected. Do not repeat character ideation without a new request. Continue design discussion; this is not approval to start implementation.
 
 ## Current outcome

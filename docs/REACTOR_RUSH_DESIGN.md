@@ -1,6 +1,6 @@
 # Reactor Rush: design checkpoint
 
-Recorded September 30, 2026, through the owner's 23:45 IST rejection of the first golden-ball designs and the next concept board.
+Recorded September 30, 2026, through the owner's 23:47 IST request for energy visibly spreading outward from a central core and the resulting third concept board.
 
 ## Current stage
 
@@ -86,6 +86,15 @@ At 23:45 IST the owner said, "I didn't like any, show me more". All six initial 
 | 12 | Comet Seed | Rounded gold ball with a short swept flame-shaped fin. |
 
 No option from this second board has been selected. These are appearance choices for the same rare ball, not six powers or new gameplay mechanics. Both batches are concept previews, not production sprites. Keep the normal ball blue; its detailed appearance is still undecided.
+
+At 23:47 IST the owner requested more options and clarified the desired effect: "energy is generating from core and then it is spreading everywhere". Follow this direction for further golden rare-ball concepts: a visible bright central source emitting energy outward in all directions. A third concept board shows four alternatives:
+
+- 13 Radiant Pulse: a bright spherical core emitting radial rays and outward sparks.
+- 14 Plasma Burst: golden electrical branches spreading outward from the core.
+- 15 Solar Flow: flowing luminous plasma streams spreading from the central source.
+- 16 Ripple Core: nested translucent waves expanding outward from the core.
+
+No option has been selected. These are static concepts, not implemented animations. Outward particle or wave motion can be considered when the chosen design is implemented. The visual effect does not add damage, an area attack or a change to collection range. Golden remains rare and worth two deposited energy; normal remains blue and worth one.
 
 ## Map discussion, layout not yet selected
 
