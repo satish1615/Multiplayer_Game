@@ -1,6 +1,6 @@
 # Reactor Rush: design checkpoint
 
-Recorded September 30, 2026, through the owner's 18:44 IST instruction to lock all six characters.
+Recorded September 30, 2026, through the owner's 23:31 IST approval of the rare-energy-ball option.
 
 ## Current stage
 
@@ -49,15 +49,37 @@ Player character selection is required before playing. The proposed flow is nick
 - Solo mode with computer-controlled opponents. Ordinary game logic; no billed AI API.
 - Host-selectable duration: 60 seconds, 90 seconds, or custom minutes/seconds. The discussed default is 90 seconds. Everyone sees the duration before starting and shares the same fixed countdown during play. Custom bounds are not yet chosen.
 - Original selectable characters, including girls. All six selected designs are listed above.
+- Rare energy balls worth two deposited energy points, using one carrying slot. The owner explicitly chose the rare-ball option on September 30 at 23:31 IST; see the approved rule below.
 - INR 0 additional spending beyond existing ChatGPT access. Do not buy services, credits, upgrades, domains, assets or overages.
 - Maintain recoverable GitHub checkpoints when work or design decisions reach a meaningful milestone.
 
-## Gameplay proposal discussed, not yet a final approved specification
+## Approved rare-energy-ball option
+
+At 23:31 IST on September 30, the owner said "Keep the rare ball option" after discussing mission unlocks versus a shared random bonus-ball spawn. Keep the rare ball in the design; a dash-count or opponent-hit mission is not required to reveal it.
+
+- Normal golden ball: one energy point when deposited.
+- Rare ball: larger glowing blue orb, clearly marked with a 2; worth two energy points when deposited.
+- The rare ball occupies ONE of the three carrying slots. Each player can carry at most ONE rare ball.
+- Two normal balls plus one rare ball occupy three slots and deposit FOUR energy points. Carrying capacity counts balls, not their total value.
+- Picking up the rare ball does not award points immediately. The player must take it to their own reactor to bank its value.
+- It appears at a randomly selected reachable spawn location away from player bases. Everyone receives a short incoming-bonus warning and can see its location when it appears.
+- The discussed initial timing is roughly every 20–30 seconds; exact interval distribution and warning duration are balancing values for playtesting.
+- UI should distinguish inventory from value, for example: "Carrying 3 balls · Worth 4 energy".
+
+Full-inventory pickup behavior, the maximum number of rare balls on the map, expiry, and any dropped-ball priority still need decisions. Approval of the rare ball does not approve dash attacks or other unresolved combat rules. It has not been implemented or tested.
+
+## Map discussion, layout not yet selected
+
+The owner began discussing the map at 23:21 IST. The proposed setting is a compact space station with the whole arena visible, reactors around the outside, a central energy chamber, safer side routes with fewer balls, and shortcuts with warning lights before laser gates activate. Comparable access to energy and multiple routes should avoid unfair starting positions or dead ends. A slightly angled view from above was suggested so the selected character outfits and faces remain readable.
+
+An open arena with scattered obstacles was recommended; a maze with narrow corridors was the alternative. The owner has not yet selected between those layouts. Do not mark the map as approved. The rare-ball mechanic is approved independently of the pending layout.
+
+## Other gameplay proposals, not yet a final approved specification
 
 - Competitive top-down 2D arena for a target of 2–6 players; solo uses bots.
 - Collect shared energy balls, carry up to three, and return to your own reactor to deposit. Collection and depositing are automatic on contact/entry.
-- Each deposited ball earns one point. Players can deposit one, two or three; three is a capacity, not a minimum. Deposited points are safe.
-- Proposed initial supply: 6–12 active balls depending on player count. Replacements spawn about four seconds after collection at another spawn point. Exact values are untested balancing suggestions.
+- Each deposited normal ball earns one point; the approved rare ball earns two. Players can deposit one, two or three balls; three is a capacity, not a minimum. Deposited points are safe.
+- Proposed initial supply: 6–12 active normal balls depending on player count. Normal replacements spawn about four seconds after collection at another spawn point. Exact values are untested balancing suggestions.
 - Highest deposited score when the chosen duration ends wins. Tie handling is undecided.
 - Desktop movement: WASD or arrow keys; Space to dash. Touch: bottom-left joystick and bottom-right dash button. Free directional movement, including diagonals; release to stop.
 - One dash with a cooldown. Exact speed, range and cooldown are undecided.
@@ -76,8 +98,8 @@ Custom art can ship with the game and render on players' devices. Under 1 MB for
 
 ## Next steps when discussion resumes
 
-1. Continue from the six selected characters: Iris, helmet-free Orbit, Juno, Comet, Lumi and Jet. Ask only about unresolved gameplay choices as needed, one decision at a time.
-2. Resolve rival bumping, ties, custom-time bounds, hazard consequences, and bot settings into a short final specification.
+1. Continue map discussion: open arena versus maze is still undecided. Keep the locked characters and the approved two-point rare ball. Ask only about unresolved choices, one decision at a time.
+2. Resolve rival bumping, ties, custom-time bounds, hazard consequences, bot settings and rare-ball edge cases into a short final specification.
 3. Check real-time networking and included-hosting feasibility before presenting a concrete build plan. Keep the zero-additional-spend constraint.
 4. Build only after the owner asks to proceed. Preserve the existing repo and Site ID; do not create a replacement Site or discard the current working game.
 5. Once built, test independent sessions and actual separate devices, provide clear in-game rules and solo opponents, then publish and checkpoint. Do not submit the contest for the owner.

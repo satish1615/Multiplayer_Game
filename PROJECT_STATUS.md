@@ -10,6 +10,8 @@ Selected characters: **Iris, Orbit, Juno, Comet, Lumi, Jet**. Iris and Lumi repl
 
 Latest checkpoint changes documentation and concept art only. It does not modify the live game, run a migration or repeat gameplay tests. The INR 0 additional-spend constraint and normal GitHub checkpoint workflow still apply.
 
+**Rare ball approved at 23:31 IST:** The owner chose a randomly appearing rare blue energy ball worth two points when deposited. It uses one carrying slot, with at most one rare ball carried per player. Two normal balls plus one rare ball occupy three slots and bank four energy. Everyone gets a short warning and sees the spawn; it appears at reachable locations away from bases. Roughly 20–30 seconds between appearances is the initial balancing proposal. Dash-count/hit missions are not required. No gameplay code has been changed. Map layout remains undecided: open arena was recommended, with a narrow-corridor maze as the alternative.
+
 **Character approval is final:** At 18:44 IST on September 30, the owner said "Lock these 6 characters" for the current image. Keep Iris, helmet-free Orbit, Juno in plum/cream/amber, Comet, Lumi and Jet exactly as selected. Do not repeat character ideation without a new request. Continue design discussion; this is not approval to start implementation.
 
 ## Current outcome
@@ -65,7 +67,7 @@ Latest scope: the owner explicitly requested discussion before the Reactor Rush 
 ## Exact next actions
 
 1. Resume Reactor Rush discussion from docs/REACTOR_RUSH_DESIGN.md and the selected roster: Iris, helmet-free Orbit, Juno, Comet, Lumi and Jet. Do not repeat character selection unless the owner asks for changes.
-2. Resolve remaining game rules and verify real-time networking and zero-extra-cost hosting feasibility before agreeing on a concrete build plan.
+2. Continue the map layout discussion, keeping the approved rare ball. Resolve remaining rules and verify real-time networking and zero-extra-cost hosting feasibility before agreeing on a concrete build plan.
 3. Implement the redesign only when the owner asks to proceed. Preserve current source, Site identity, deployment history and the unresolved live issue below.
 
 ## Deferred Split Signal playtest actions
