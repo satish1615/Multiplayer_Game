@@ -1,6 +1,6 @@
 # Reactor Rush: design checkpoint
 
-Recorded September 30, 2026, through the owner's 23:53 IST clarification that the golden glow should not look like evenly spaced lines and the resulting second revision.
+Recorded September 30 to October 1, 2026, through the owner's 01:15 IST request for a transparent glass ball and the resulting revised concept.
 
 ## Current stage
 
@@ -101,6 +101,8 @@ No option has been selected. These are static concepts, not implemented animatio
 At 23:50 IST the owner chose option 14, Plasma Burst, and requested removal of the small central ball and "the lines". The assistant stated that it was interpreting lines as the sharp lightning branches. A single revised concept was generated from option 14: no separate central sphere, a diffuse bright centre, softer flowing golden plasma, and sparks spreading outward against a dark navy background. This interpretation of the lines and the revised result still await owner feedback; do not call the edited asset locked or approved. Option 14 is the chosen starting point, superseding the earlier unselected status. No animation, production sprite or gameplay change has been implemented.
 
 At 23:53 IST the owner clarified that the spaces between the glowing lines were too even and that the glow itself should not look like lines. This supersedes the earlier interpretation that softening lightning branches was enough. The second revision uses broad overlapping clouds of golden light, irregular patch sizes and spacing, diffuse bright areas and scattered round sparks. Remove regular radial streaks, repeated gaps and a distinct inner core ball. Preserve the golden energy-ball identity and dark navy background. The second revision has been shown but is not yet approved or locked; no production asset or animation has been implemented.
+
+At 01:15 IST on October 1, the owner said this version looked like a stone and requested that the ball look like glass. The latest concept therefore has a smooth, glossy, transparent spherical surface with clear reflections and refraction, containing soft irregular golden energy and scattered luminous motes. Clear areas reveal the dark navy background through the ball. No separate small core sphere or regular glowing line pattern should return. This supersedes the exposed cloud exterior of the preceding revision. The glass-ball concept has been shown but is not yet approved or locked; it is not a production sprite or implemented animation. Golden rare and blue normal colours, point values and carrying limits are unchanged.
 
 ## Map discussion, layout not yet selected
 

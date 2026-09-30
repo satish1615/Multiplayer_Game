@@ -1,6 +1,6 @@
 # Project Status
 
-Updated: September 30, 2026 (Asia/Kolkata).
+Updated: October 1, 2026 (Asia/Kolkata).
 
 ## Current focus: Reactor Rush design discussion
 
@@ -21,6 +21,8 @@ Latest checkpoint changes documentation and concept art only. It does not modify
 **Current rare-ball choice, 23:50 IST:** The owner chose option 14, Plasma Burst, as the starting design and requested removal of the small central ball and the lines. A revised single-ball concept removes the distinct inner sphere and softens the sharp lightning branches into flowing golden plasma and outward sparks. Interpreting "lines" as lightning branches was stated to the owner; the revised appearance still awaits feedback and is not a final locked asset. Keep normal balls blue and rare balls golden; scoring is unchanged.
 
 **Latest art correction, 23:53 IST:** The owner clarified that the glow still looked like evenly spaced lines. The second revision replaces the regular streaks with broad, irregular clouds of golden light, varied spacing and round sparks. Keep the separate inner ball removed. The owner wants the glow itself to avoid a line-like appearance; merely softening lightning is insufficient. The new draft remains unapproved concept art, not gameplay or animation.
+
+**Current glass-ball direction, October 1 at 01:15 IST:** The owner said the cloud version looked like a stone and requested a glass ball. The new concept has a smooth, glossy transparent sphere containing irregular golden light and scattered motes, with visible reflections and clear areas. Keep the small inner ball and regular line patterns removed. This supersedes the exposed cloud exterior; the revised glass appearance awaits owner feedback and is not yet locked. Rare remains golden and normal remains blue; no gameplay or production asset has changed.
 
 **Character approval is final:** At 18:44 IST on September 30, the owner said "Lock these 6 characters" for the current image. Keep Iris, helmet-free Orbit, Juno in plum/cream/amber, Comet, Lumi and Jet exactly as selected. Do not repeat character ideation without a new request. Continue design discussion; this is not approval to start implementation.
 
