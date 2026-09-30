@@ -8,6 +8,14 @@ Updated: September 30, 2026 (Asia/Kolkata).
 
 Sites returned `succeeded` at 08:25:37 UTC on September 30, 2026. Access is public. The first version supports real 2–6-player rooms and solo play with Nova (bot). Next: the owner's live playtest and small feedback-driven fixes. No contest entry has been submitted.
 
+## Current live bug report (September 30, 15:23 IST)
+
+Owner supplied a screenshot of Solo + bot failing with an HTML-as-JSON parse error and confirmed they were playing **inside ChatGPT**. The screenshot was recovered from its authorized attachment ID after the initial local path was missing.
+
+Native production logs showed successful root-page loads and no matching room API invocations or Worker errors. A direct terminal diagnostic request was denied by hosting security (Cloudflare 1010); no attempts were made to evade the restriction. This does not establish the exact reason for the user's embedded-preview failure. The reported room-creation failure is **not yet confirmed fixed** in the owner's browser.
+
+A small client patch is being prepared: offer the verified public URL in a separate browser tab when embedded; recognize HTML, malformed JSON and non-game upstream error responses before parsing/accepting room state; preserve saved seats during those failures; show a clear error with HTTP status. 13 response tests passed, and TypeScript passed before the final link-only change. Next: checkpoint, build/publish, then ask the owner to retry the direct public link. Do not describe this diagnostic/recovery patch as a verified fix for the hosting rejection.
+
 ## Authorization and budget
 
 Building, clear rules, public publishing, and GitHub checkpoints are authorized. The owner requested a solo bot on September 30. INR 0 additional spend. Use included Sites/D1 allowances only; no billed AI API, purchases, credits, upgrades, domains, or paid overages. Hosting capacity is subject to included allowances, not an unlimited or permanent-free guarantee.

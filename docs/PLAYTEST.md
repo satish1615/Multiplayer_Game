@@ -40,3 +40,7 @@ For an issue, send: “On [device/window], I did [action]. I expected [result], 
 The phone check used a browser frame, not a physical phone. Production reachability will be recorded from Sites deployment status; a signed-out user visit remains a manual check. Browser WebMCP was unavailable in the HTTP preview, so its optional tool registration was not validated. Gameplay uses ordinary browser controls and does not require it.
 
 No contest entry has been submitted. Choose the final screenshot and submission text after the live playtest.
+
+## Live report after initial publication
+
+The owner reported an HTML-as-JSON error from Solo + bot inside ChatGPT. Native Worker logs did not contain a matching API request. The client patch handles non-JSON hosting replies explicitly and offers the verified public URL in a separate browser tab. 13 targeted response checks cover HTML status 200/401/403/404/503, malformed JSON, non-game JSON errors, legitimate seat errors, and successful room data. Direct-browser room creation must be retested by the owner; its success is not yet established.

@@ -9,9 +9,11 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Progress } from "@/components/ui/progress";
 import { PORTS, SYMBOLS, SYSTEMS, type Mode, type RoomView, type Session } from "@/lib/game-types";
+import { readGameResponse, RoomServiceError } from "@/lib/client-response";
 
 const SESSION_KEY = "split-signal-seat-v1";
 const NAME_KEY = "split-signal-name";
+const PUBLIC_GAME_URL = "https://split-signal-satish.satishofficial016.chatgpt.site/";
 type Payload = Record<string, unknown>;
 function operationId() {
   // getRandomValues also works on local HTTP previews where randomUUID is absent.
@@ -86,6 +88,7 @@ export default function Game() {
   const [busy, setBusy] = useState(false), [error, setError] = useState(""), [toast, setToast] = useState("");
   const [connected, setConnected] = useState(true), [loaded, setLoaded] = useState(false), [now, setNow] = useState(Date.now()), [offset, setOffset] = useState(0);
   const [message, setMessage] = useState("");
+  const [embedded, setEmbedded] = useState(false);
   const lastView = useRef<RoomView | null>(null), chatEnd = useRef<HTMLDivElement>(null);
   const accept = useCallback((view: RoomView) => {
     if (!lastView.current || lastView.current.code !== view.code || view.version >= lastView.current.version) {
@@ -95,6 +98,7 @@ export default function Game() {
   }, []);
   const clearSeat = useCallback(() => { try { localStorage.removeItem(SESSION_KEY); } catch {} setSession(null); setRoom(null); lastView.current = null; setConnected(true); }, []);
   useEffect(() => {
+    setEmbedded(window.self !== window.top);
     try {
       setName(localStorage.getItem(NAME_KEY) || "");
       const stored = localStorage.getItem(SESSION_KEY);
@@ -113,14 +117,14 @@ export default function Game() {
       controller = new AbortController(); const timeout = setTimeout(() => controller.abort(), 8000);
       try {
         const response = await fetch("/api/rooms/" + session.code, { headers: { Authorization: "Bearer " + session.token }, cache: "no-store", signal: controller.signal });
-        const value = await response.json() as RoomView & { error: string };
+        const value = await readGameResponse<RoomView & { error: string }>(response);
         if (stopped) return;
         if (!response.ok) {
           if (response.status === 401 || response.status === 404) { clearSeat(); setError(value.error); return; }
           throw new Error(value.error);
         }
         accept(value);
-      } catch { if (!stopped) setConnected(false); }
+      } catch (e) { if (!stopped) { setConnected(false); if (e instanceof RoomServiceError) setError(e.message); } }
       finally { clearTimeout(timeout); if (!stopped) timer = setTimeout(poll, document.hidden ? 6000 : 1500); }
     };
     void poll(); return () => { stopped = true; clearTimeout(timer); controller?.abort(); };
@@ -137,7 +141,7 @@ export default function Game() {
         body: JSON.stringify({ name: nickname, code: roomCode, mode: overrides?.mode || "mission", solo: overrides?.solo || false }),
         signal: AbortSignal.timeout(12000),
       });
-      const value = await response.json() as { error: string; session: Session; room: RoomView };
+      const value = await readGameResponse<{ error: string; session: Session; room: RoomView }>(response);
       if (!response.ok) throw new Error(value.error);
       try { localStorage.setItem(SESSION_KEY, JSON.stringify(value.session)); localStorage.setItem(NAME_KEY, nickname); } catch { setToast("Keep this tab open. Your browser could not save this seat."); }
       setSession(value.session); accept(value.room); setName(nickname);
@@ -158,7 +162,7 @@ export default function Game() {
         try { response = await fetch("/api/rooms/" + session.code, { method: "POST", headers: { "Content-Type": "application/json", Authorization: "Bearer " + session.token }, body: JSON.stringify(payload), signal: AbortSignal.timeout(10000) }); break; }
         catch (e) { if (attempt === 1) throw e; }
       }
-      const value = await response!.json() as RoomView & { error: string; left?: boolean };
+      const value = await readGameResponse<RoomView & { error: string; left?: boolean }>(response!);
       if (!response!.ok) throw new Error(value.error);
       if (value.left) { clearSeat(); window.history.replaceState(null, "", "/"); }
       else accept(value);
@@ -202,7 +206,7 @@ export default function Game() {
     try { await navigator.clipboard.writeText(text); setToast(invite ? "Invite link copied." : "Room code copied."); } catch { setToast("Your room code is " + room!.code); }
   };
   const tutorialOpen = () => { setRules(false); setTutorial(true); };
-  const displayError = error && <div className="error-banner" role="alert"><span>{error}</span><button aria-label="Dismiss error" onClick={() => setError("")}><X size={18} /></button></div>;
+  const displayError = error && <div className="error-banner" role="alert"><span>{error}{embedded && <a className="error-recovery" href={PUBLIC_GAME_URL + (room ? "?room=" + room.code : "")} target="_blank" rel="noopener noreferrer">Open game in a browser tab</a>}</span><button aria-label="Dismiss error" onClick={() => setError("")}><X size={18} /></button></div>;
   const safeCreate = (kind: "create" | "join", solo = false) => { void createOrJoin(kind, { solo, mode: solo ? "practice" : "mission" }).catch(() => {}); };
 
   return <div className={"game-shell " + (room ? "in-room" : "at-entry")}>
@@ -221,6 +225,7 @@ export default function Game() {
           <div className="entry-facts"><span><Users size={17} />2–6 friends or solo + bot</span><span><Clock3 size={17} />5 minutes</span><span><ShieldCheck size={17} />No sign-up</span></div>
         </div>
         <div className="entry-console"><div className="console-top"><span className="eyebrow mint">CREW ACCESS</span><Radio size={21} /></div><h2>Make the connection.</h2><p>Gather your crew. Pick a call sign.</p>
+          {embedded && <div className="browser-play-note"><p>For live rooms, open the game in its own browser tab.</p><a className="btn secondary full" href={PUBLIC_GAME_URL + (code ? "?room=" + code : "")} target="_blank" rel="noopener noreferrer">Open game in browser</a></div>}
           <label className="field-label" htmlFor="nickname">Your nickname</label><input id="nickname" autoComplete="nickname" maxLength={20} value={name} onChange={e => setName(e.target.value)} placeholder="e.g. Satish" className="text-input" />
           <Tabs value={entryTab} onValueChange={setEntryTab} className="entry-tabs"><TabsList className="entry-tab-list"><TabsTrigger value="create">Create</TabsTrigger><TabsTrigger value="join">Join</TabsTrigger><TabsTrigger value="solo">Solo + bot</TabsTrigger></TabsList>
             <TabsContent value="create"><p className="tab-help">You'll get a room code to share with your friends.</p><button className="btn primary full" disabled={busy} onClick={() => safeCreate("create")}><RadioTower size={19} />{busy ? "Connecting…" : "Create room"}</button></TabsContent>
