@@ -2,7 +2,9 @@
 
 A cooperative rescue game by Satish Singh. Trade private clues, set your own station, and restore three systems together. Play with 2–6 friends across devices or alone with Nova, a clearly labelled bot teammate. No player account or installation is required.
 
-Publication is in progress. See [PROJECT_STATUS.md](PROJECT_STATUS.md) for the actual deployment result and current resume instructions.
+**Play: [Split Signal](https://split-signal-satish.satishofficial016.chatgpt.site)**
+
+Version 1 is publicly deployed. See [PROJECT_STATUS.md](PROJECT_STATUS.md) to resume development and [PLAYTEST.md](docs/PLAYTEST.md) for verified results and your live testing steps.
 
 ## How to play
 

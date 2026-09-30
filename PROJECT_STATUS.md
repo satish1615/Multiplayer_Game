@@ -2,39 +2,54 @@
 
 Updated: September 30, 2026 (Asia/Kolkata).
 
+## Current outcome
+
+**Version 1 is publicly deployed:** https://split-signal-satish.satishofficial016.chatgpt.site
+
+Sites returned `succeeded` at 08:25:37 UTC on September 30, 2026. Access is public. The first version supports real 2–6-player rooms and solo play with Nova (bot). Next: the owner's live playtest and small feedback-driven fixes. No contest entry has been submitted.
+
 ## Authorization and budget
 
-Build and public publishing are authorized, including clear rules and GitHub checkpoints. The owner requested a solo bot teammate on September 30. INR 0 extra spend: included Sites/D1 only, no paid runtime AI, purchases, credits, or upgrades. No contest submission is authorized now.
+Building, clear rules, public publishing, and GitHub checkpoints are authorized. The owner requested a solo bot on September 30. INR 0 additional spend. Use included Sites/D1 allowances only; no billed AI API, purchases, credits, upgrades, domains, or paid overages. Hosting capacity is subject to included allowances, not an unlimited or permanent-free guarantee.
 
-## Completed locally
+## Implemented
 
-- Full 2–6-player server, API, and responsive UI in `/workspace/sites/split-signal`.
-- Private Power/Relay clues, room codes, host lobby, modes, shared deadlines, three repairs, locks/fuses, role rotation, chat, reconnect, replay, and host recovery.
-- Rules with worked example and interactive tutorial.
-- Station artwork and custom icon.
-- D1 migration generated, inspected, and applied locally once.
-- First pre-bot TypeScript check and Worker build passed. A previous integration run reached a passing 2-player full mission before interruption; its remaining results were not recovered.
-- September 30: solo Nova (bot) implemented. Trades clues via chat, uses only its role projection, operates its station, responds to help/wait, and rotates roles. Lobby can switch between solo and friends. Post-change TypeScript check passed.
-- Fixed lobby reset retaining offline seats. Bot never inherits host ownership.
+- Anonymous nickname and room-code create/join, 2–6-player lobby, readiness, Mission and Practice modes.
+- Server-owned private Power/Relay clues, channel/strength and relay controls, shared deadlines, three repairs, three Mission fuses, locks, and rotating roles.
+- Chat and quick clue messages, refresh recovery, replay, offline host takeover, and departure cleanup.
+- Nova (bot), using only its own role projection and shared chat. Shares clues, operates its controls, responds to basic game requests, locks in, and rotates roles. One human plus one bot; switch to friends in the lobby.
+- Clear rules, worked example, five-step interactive tutorial, readable phone layout, station artwork, and custom icon.
+- Mobile teammate message beside the controls, bounded chat scrolling, labelled rules control, and scrollable rules dialog.
 
-## In progress and unverified
+## Verified
 
-The full Worker/D1 suite passed 140 assertions, including complete 2/3/6-player and solo missions. Browser playtest completed a three-repair solo practice mission with zero failed checks, using both roles and a 390×844 phone-width frame. Rules and all five tutorial steps passed manual UI checks. Refresh restored the seat. Fixed local HTTP request-ID compatibility, chat scrolling that moved the page, mobile clue visibility, a missing mobile rules label, and rules dialog overflow. A real playtest screenshot is in docs/screenshots/solo-mission-complete.jpg.
+- Final publication workflow: TypeScript check, production Worker build, and all 140 integration assertions passed.
+- Tests use the actual built Worker and isolated D1. Complete 2/3/6-player missions, concurrency, idempotency, clue privacy, readiness, rotation, reconnect, replay, fuses/deadline, bot in both roles, offline takeover, seat removal, and bot departure cleanup.
+- Actual browser: complete three-repair solo Practice mission, both roles, zero failed checks; refreshed seat recovery; rules and all tutorial steps.
+- Phone layout at 390×844 in a browser frame. This is not a physical-device test.
+- Actual screenshot: docs/screenshots/solo-mission-complete.jpg.
+- Public deployment confirmed through Sites native status. Signed-out production gameplay remains a manual user check.
+- Optional WebMCP validation was unavailable in the HTTP preview because modelContext was absent. Gameplay does not depend on it.
 
-Final build and publication are next. Recent UI changes and a clearer Nova confirmation message passed TypeScript; the final Worker will be rebuilt and the integration suite rerun during publication. No public deployment yet. Browser WebMCP validation was unavailable because the preview did not expose modelContext; ordinary UI is functional. Separate physical-device and signed-out live playtests remain with the owner.
+## Deployment and source provenance
 
-## Hosting and source
-
-Existing Site ID: `appgprj_6abbb87ccbac81919d299c5a9403c352`. Reuse it; never create another. On September 30, native inspection returned zero versions and no live URL, access custom. Public access is requested and available. Source will be pushed to the Sites-managed remote during the publication workflow; this GitHub repository is the user's recoverable source/checkpoint copy. Never save source credentials in files.
+- Existing Site ID: `appgprj_6abbb87ccbac81919d299c5a9403c352`. Reuse it; never create another.
+- Saved version ID: `appgprj_6abbb87ccbac81919d299c5a9403c352~appgver_714c8ddd56488191a5020e95c2ebd9bf` (version 1).
+- Deployment ID: `appgdep_6abcc740a6448191907f2ef313ae19e5`, succeeded.
+- Exact deployed Sites source commit: `167bbafdeaf2dbaf35b5f1082f9d138332e04d14`.
+- Public GitHub source checkpoint before publishing: `2b2ff2cfcfa7d5456919b177059972c3bc070e6a`. Later documentation adds deployment results without changing the application.
+- Checkout: `/workspace/sites/split-signal`. Source was pushed by the Sites workflow; this GitHub repository is the owner's recoverable source/progress copy.
+- Deployment archive was built from the pushed source. Do not persist or print short-lived source credentials.
+- D1 initial migration was generated, inspected, and applied locally once. Do not blindly replay it. Deployment provisioning is managed by Sites.
 
 ## Exact next actions
 
-1. Run the Sites workflow to type-check, rebuild, rerun `node tests/integration.mjs`, push exact source, and package it.
-2. Save a Site version and enable the requested public audience.
-3. Publish the exact tested source with public access using Sites; verify native deployment status.
-4. Save source, results, public URL, and remaining manual tests here and verify GitHub head.
-5. Owner tests normal/incognito and separate phone/laptop, then prepare actual screenshot and submission copy.
+1. Owner opens the public URL signed out, then tests one normal and one incognito session using different nicknames in the same room.
+2. Play on a phone and laptop, ideally separate connections. Check all three repairs and replay. Follow docs/PLAYTEST.md.
+3. Collect concrete issues: action, expected result, actual result, device/window, and screenshot when useful.
+4. Apply small fixes, verify affected behavior, publish a new version, and checkpoint the source/status here.
+5. After the live playtest, choose an actual key-screen image and prepare the final title and description within 500 characters. The owner completes contest submission.
 
 ## Resume instructions
 
-Read AGENTS.md, README.md, and this file. Preserve existing checkout and source. Inspect interrupted operations before repeating migration or publication. The initial migration was already applied locally; do not blindly replay it. Preview may need restarting after interruption. Tests use an isolated Miniflare D1 fixture and never production data.
+Read AGENTS.md, README.md, and this file before editing. Preserve existing code. If scratch is gone, restore this GitHub repository or the exact Sites source. Inspect current Site and GitHub status before repeating interrupted operations. Do not re-register the Site, rebuild from scratch, repeat successful migrations, or buy extra usage. Checkpoints identify completed work and the remaining manual tests.
