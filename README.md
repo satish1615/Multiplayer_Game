@@ -1,93 +1,63 @@
-# Multiplayer Game
+# Split Signal
 
-A multiplayer browser game for the Handshake AI Skills Studio "Create a Multiplayer Game" mission.
+A cooperative rescue game by Satish Singh. Trade private clues, set your own station, and restore three systems together. Play with 2–6 friends across devices or alone with Nova, a clearly labelled bot teammate. No player account or installation is required.
 
-**Current stage:** The owner authorized the build on September 29, 2026. Split Signal is being implemented with an accessible rules section and practice mode. See PROJECT_STATUS.md for actual progress.
+Publication is in progress. See [PROJECT_STATUS.md](PROJECT_STATUS.md) for the actual deployment result and current resume instructions.
 
-Start with [PROJECT_STATUS.md](PROJECT_STATUS.md) for the latest progress and next action. [AGENTS.md](AGENTS.md) explains how to resume and save work.
+## How to play
 
-## Required outcome
+1. Enter a nickname. Create a room and share its six-character code, join a friend's room, or choose Solo + bot.
+2. In the lobby, choose Mission (five minutes, three failed checks) or Practice (untimed, unlimited checks). Everyone readies up; the host starts.
+3. Power shares the private target. Relay 1 shares the target's channel and strength. Power sets those controls; each relay chooses the dial that routes to its own required exit.
+4. Check your readout and lock in. A control change clears all locks. The server checks the setup only when everyone is locked.
+5. Complete three repairs to win. Roles rotate after each repair; replay generates fresh clues.
 
-- A reusable game at a public URL.
-- Players create or join a room with a room code.
-- No player accounts or app installation.
-- Works on phones and laptops.
-- Shared game state stays synchronized across separate player sessions.
-- Groups can replay with a fresh round.
-- Submission: title, an actual screenshot of a key game screen, a description within 500 characters, and the public playable link.
-- Public sharing must be selected in the submission form to enter the monthly challenge. See [the mission guide](docs/MISSION_GUIDE.md).
+The in-game Rules & how to play section includes role ownership, a worked example, mistakes, winning, connection recovery, and an interactive tutorial. Room chat and quick clue buttons make external voice calls optional.
 
-## Budget: no additional spending
+## Solo with Nova
 
-The owner requires building and publishing at INR 0 additional cost using existing ChatGPT Work access.
+Nova controls the other station and responds in room chat. Share a target such as STAR, or send settings such as B2 with your clue buttons. Type help for a reminder. Wait pauses Nova's actions; I'm set resumes them. The mission clock still runs. The bot uses its own private clues and the messages you share, not the hidden solution. It handles game clues and basic requests rather than unrestricted conversation.
 
-- Use the existing GitHub repository and tools available within the current plan.
-- Use the hosting provider's included public URL. Do not buy a domain.
-- Use hosting and shared-state storage only when covered by an included allowance or a genuine free plan, without paid overages or an expiring paid trial.
-- Implement replayable puzzles with game logic and randomized content; no billed AI API calls are required during gameplay.
-- Do not purchase credits, plan upgrades, paid assets, databases, or other services.
-- If included Work usage is exhausted, resume from a saved checkpoint after the allowance resets; do not buy more usage.
-- If a required capability cannot be provided without added cost, explain the limitation and seek a no-cost approach rather than enabling billing.
+Solo starts in Practice. Mission is available in the lobby. Switch to playing with friends removes Nova and enables human joins. Bot behavior is ordinary server game logic; no paid AI API is called.
 
-As checked on September 26, 2026, [OpenAI's pricing documentation](https://learn.chatgpt.com/docs/pricing) says Sites is included with eligible ChatGPT plans during public beta. Actual availability depends on plan, region, and workspace settings. Account-specific deployment access still needs verification. This is not a promise of unlimited capacity or permanently free hosting.
+## Implementation
 
-## Proposed concept: Split Signal
+- React/TypeScript and the Sites Vinext starter.
+- Cloudflare Worker API with D1 room persistence.
+- Anonymous seat credentials: only token hashes persist on the server.
+- Server-owned deadlines, role checks, per-seat projections, request IDs, and conditional version updates protect shared state.
+- Browser polling updates the room; a seat can reconnect in the same browser.
+- Rooms expire after 24 hours without game activity. Offline host takeover is available after 45 seconds.
 
-**Build authorized.** See [the current game specification](docs/GAME_SPEC.md).
+See [GAME_SPEC.md](docs/GAME_SPEC.md) for game rules and design decisions. The Sites-managed source repository supplies deployment provenance; this public GitHub repository holds the same source plus progress records.
 
-A cooperative escape game for 2-6 players, with approximately five-minute rounds. Players restore a failing space station using different private clues and controls.
+## Local development and verification
 
-Example: one player sees a symbol sequence, another has the symbol instructions, and another operates the switches. The group must communicate to complete the repair. Clues and controls must be distributed so the game also works with only two players.
+Requires Node 22.13+ and pnpm. Dependencies are locked in pnpm-lock.yaml.
 
-After a repair, roles rotate. New clue combinations and changing conditions support replay. Everyone remains involved throughout the round.
+```sh
+pnpm install --frozen-lockfile
+pnpm build
+node --import ./scripts/sites-env.mjs ./node_modules/wrangler/bin/wrangler.js d1 execute DB --local --config dist/server/wrangler.json --persist-to .wrangler/state --file drizzle/0000_zippy_dark_beast.sql
+pnpm start
+```
 
-Proposed visual direction: dark navy, cyan controls, amber warnings, readable text, and large touch targets.
+Apply the initial migration only once to a fresh local database. Follow Wrangler's printed local address. In ChatGPT Work's managed environment, use the supervised Sites preview workflow.
 
-## Proposed milestones
+```sh
+node node_modules/typescript/bin/tsc --noEmit
+pnpm build
+node tests/integration.mjs
+```
 
-| Milestone | Deliverable |
-| --- | --- |
-| 0. Checkpoints | This repository, progress record, and resume instructions |
-| 1. Design | Approved concept, rules, win/loss conditions, and acceptance criteria |
-| 2. Playable core | Create/join rooms and complete one mission across separate player sessions |
-| 3. Reliability | Shared timer, server-validated actions, private clue isolation, refresh/reconnection, and host departure handling |
-| 4. Game experience | Brief instructions, varied puzzles, feedback, optional sound, and rematches |
-| 5. Verification | Multiplayer tests, mobile/desktop checks, and feedback from real players |
-| 6. Delivery | Public deployment, verified access without login, cover image, and submission description |
+The integration suite uses the actual built Worker and a separate, ephemeral D1 database. It covers 2/3/6-player full missions, concurrent actions, clue privacy, duplicate requests, role rotation, reconnect, replay, timed failure, bot missions in both roles, offline host recovery, and expiry. It never edits production data.
 
-Each milestone can be split into smaller saved steps. A saved partial checkpoint must clearly state what remains unverified.
+## Budget and challenge requirements
 
-## Technical direction
+INR 0 additional spending beyond existing ChatGPT access. Use included hosting and storage allowances only. Do not purchase APIs, credits, upgrades, domains, or paid assets or enable overages. Included capacity is not unlimited or guaranteed permanently free.
 
-Technology choices are pending the approved design and the first multiplayer prototype. Shared room state must be maintained by the server, with each player receiving only the information intended for them. Browser storage alone cannot synchronize separate devices.
+Required outcome: real multiplayer across devices, rules that new players can follow, a reusable public URL, room codes, and no login/install. Before contest submission, test normal/incognito and separate devices, capture an actual key screen, and provide a title, live link, and description within 500 characters. Public Showcase sharing is required for challenge entry.
 
-ChatGPT Sites is the proposed publishing path. If hosting requires a separate managed source repository, record its relationship to this GitHub repository in PROJECT_STATUS.md and keep the game source recoverable here.
+See [the mission guide](docs/MISSION_GUIDE.md) and [contest rulebook notes](docs/CONTEST_RULES.md). No submission has been made. Feedback and final submission materials follow the owner's playtest.
 
-Keep all implementation and publishing choices within the no-additional-spending requirement above.
-
-## Verification plan
-
-Before describing the game as ready, verify:
-
-- Players in separate sessions can create and join the same room.
-- Games work with 2, 3, and 6 players.
-- Actions, phase changes, scores, and round deadlines agree across sessions.
-- Simultaneous or repeated actions cannot apply twice or overwrite valid state.
-- Private clues and solutions are not sent to unauthorized clients.
-- Refreshing, reconnecting, and a host leaving have defined behavior.
-- Invalid/full room codes and expired rooms produce usable messages.
-- A rematch starts cleanly without mixing state from the previous round.
-- Phone and desktop controls remain usable.
-- The deployed URL opens for a signed-out visitor.
-
-Record actual commands, results, and remaining gaps in PROJECT_STATUS.md. Planned tests are not passing tests.
-
-## Challenge references
-
-See [the rulebook summary and submission requirements](docs/CONTEST_RULES.md) for eligibility, judging, required entry materials, and page references from the uploaded official PDF.
-
-The official rules retrieved on September 25, 2026 give equal weight to execution, creativity, usefulness/value, and polish/thoughtfulness. They list an entry deadline of October 30, 2026 at 11:59 PM Pacific, equivalent to October 31 at 12:29 PM IST. Plan to submit earlier and recheck the rules before entry.
-
-- [Mission page](https://joinhandshake.com/learn/create-a-multiplayer-game-8d7d59b5/)
-- [Official rules](https://go.joinhandshake.com/rs/390-ZTF-353/images/%5BAI_Skills_Studio_Challenge%5D_Contest_Official_Rules.pdf?version=0)
-
+![Solo mission completed during browser playtesting](docs/screenshots/solo-mission-complete.jpg)

@@ -74,7 +74,8 @@ export function tickBot(room: RoomState, now: number, seen: Record<string, numbe
     const exit = role.exits![memory.target], dial = role.shifts!.findIndex(s => (role.incoming! + s) % 3 === exit);
     if (dial !== role.selected) { act("set", { field: "relay", value: dial }); return finish(); }
     if (!player.ready) {
-      say(`My relay is routed to exit ${PORTS[exit]}. I'm locking in. Verify your channel and strength, then lock in on your screen.`);
+      const rule = role.powerRules![memory.target];
+      say(`My relay is at exit ${PORTS[exit]} and I'm locking in. For ${SYMBOLS[memory.target]}, verify channel ${PORTS[rule.channel]}, strength ${rule.strength}, then lock in on your screen.`);
       act("lock");
     }
   } else if (role.kind === "power" && memory.channel !== undefined && memory.strength !== undefined) {

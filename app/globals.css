@@ -257,10 +257,11 @@ button:not(:disabled):active { transform:translateY(1px); }
 .reconnect-screen>svg { color:var(--primary); }
 .reconnect-screen h1 { font-size:28px; }
 .reconnect-screen p { color:#aac3d0; max-width:500px; }
-.rules-dialog { width:760px; max-width:calc(100vw - 32px)!important; max-height:88dvh; background:#102431; border-color:#426373; padding:29px 30px; gap:15px; }
+.rules-dialog { display:flex; flex-direction:column; overflow:hidden; width:760px; max-width:calc(100vw - 32px)!important; max-height:88dvh; background:#102431; border-color:#426373; padding:29px 30px; gap:15px; }
+.rules-dialog [data-slot=dialog-header] { flex-shrink:0; }
 .rules-dialog [data-slot=dialog-title],.tutorial-dialog [data-slot=dialog-title] { font-size:27px; line-height:1.3; padding-right:15px; letter-spacing:-.5px; }
 .rules-dialog [data-slot=dialog-description],.tutorial-dialog [data-slot=dialog-description] { font-size:15px; color:#aec3cf; line-height:1.7; margin-top:5px; }
-.rules-body { overflow-y:auto; padding-right:12px; overscroll-behavior:contain; scrollbar-width:thin; scrollbar-color:#416b75 transparent; }
+.rules-body { min-height:0; overflow-y:auto; padding-right:12px; overscroll-behavior:contain; scrollbar-width:thin; scrollbar-color:#416b75 transparent; }
 .rules-body h3 { font-size:16px; font-weight:600; margin:20px 0 7px; }
 .rules-body>p { font-size:15px; color:#adbfcc; line-height:1.8; }
 .rules-summary { display:flex; gap:9px; flex-wrap:wrap; }
@@ -356,4 +357,12 @@ button:not(:disabled):active { transform:translateY(1px); }
  .role-tip p,.role-title p,.rule-steps p,.rules-body>p { font-size:16px; }
  .relay-readout .eyebrow,.relay-readout small { font-size:12px; }
  .signal-card small { font-size:12px; }
+}
+
+.mobile-clue { display:none; }
+@media (max-width:900px) {
+ .mobile-clue { display:block; padding:13px 15px; margin-top:18px; border:1px solid #385962; border-radius:9px; background:#15343c; }
+ .mobile-clue>span { display:flex; align-items:center; gap:7px; font-size:12px; color:var(--primary); font-weight:600; }
+ .mobile-clue p { font-size:14px; line-height:1.6; margin-top:6px; color:#dfedf0; overflow-wrap:anywhere; }
+ .mobile-clue a { display:inline-block; color:var(--primary); padding-top:8px; font-size:13px; text-decoration:underline; }
 }

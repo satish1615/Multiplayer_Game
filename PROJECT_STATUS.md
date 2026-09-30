@@ -19,7 +19,9 @@ Build and public publishing are authorized, including clear rules and GitHub che
 
 ## In progress and unverified
 
-Extended real-Worker/D1 integration tests with complete bot missions, privacy, conversation, mode switching, offline takeover, and deadline expiry. New build and full test run are next. Bot behavior and mobile layout still require browser QA. No public deployment yet.
+The full Worker/D1 suite passed 140 assertions, including complete 2/3/6-player and solo missions. Browser playtest completed a three-repair solo practice mission with zero failed checks, using both roles and a 390×844 phone-width frame. Rules and all five tutorial steps passed manual UI checks. Refresh restored the seat. Fixed local HTTP request-ID compatibility, chat scrolling that moved the page, mobile clue visibility, a missing mobile rules label, and rules dialog overflow. A real playtest screenshot is in docs/screenshots/solo-mission-complete.jpg.
+
+Final build and publication are next. Recent UI changes and a clearer Nova confirmation message passed TypeScript; the final Worker will be rebuilt and the integration suite rerun during publication. No public deployment yet. Browser WebMCP validation was unavailable because the preview did not expose modelContext; ordinary UI is functional. Separate physical-device and signed-out live playtests remain with the owner.
 
 ## Hosting and source
 
@@ -27,8 +29,8 @@ Existing Site ID: `appgprj_6abbb87ccbac81919d299c5a9403c352`. Reuse it; never cr
 
 ## Exact next actions
 
-1. Build via the Sites build helper, then run `node tests/integration.mjs`.
-2. Start supervised Sites preview and test solo, multiplayer entry, rules/tutorial, and phone layout. Fix concrete failures.
+1. Run the Sites workflow to type-check, rebuild, rerun `node tests/integration.mjs`, push exact source, and package it.
+2. Save a Site version and enable the requested public audience.
 3. Publish the exact tested source with public access using Sites; verify native deployment status.
 4. Save source, results, public URL, and remaining manual tests here and verify GitHub head.
 5. Owner tests normal/incognito and separate phone/laptop, then prepare actual screenshot and submission copy.

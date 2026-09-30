@@ -13,6 +13,13 @@ import { PORTS, SYMBOLS, SYSTEMS, type Mode, type RoomView, type Session } from 
 const SESSION_KEY = "split-signal-seat-v1";
 const NAME_KEY = "split-signal-name";
 type Payload = Record<string, unknown>;
+function operationId() {
+  // getRandomValues also works on local HTTP previews where randomUUID is absent.
+  const bytes = crypto.getRandomValues(new Uint8Array(16));
+  bytes[6] = (bytes[6] & 15) | 64; bytes[8] = (bytes[8] & 63) | 128;
+  const hex = Array.from(bytes, n => n.toString(16).padStart(2, "0")).join("");
+  return [hex.slice(0, 8), hex.slice(8, 12), hex.slice(12, 16), hex.slice(16, 20), hex.slice(20)].join("-");
+}
 function SymbolIcon({ value, size = 32 }: { value: number; size?: number }) {
   const Icon = [Star, Moon, Triangle][value] || Radio;
   return <Icon size={size} strokeWidth={1.4} className={"symbol symbol-" + value} aria-hidden="true" />;
@@ -49,7 +56,8 @@ function Rules({ open, onOpenChange, onTutorial, inMission }: { open: boolean; o
     <div className="worked-example"><span className="eyebrow amber">A TWO-PLAYER EXAMPLE</span><p><b>Power:</b> “We need STAR.”</p><p><b>Relay 1:</b> “Use B, strength 2.”</p><p>Power presses B and 2. The relay's STAR row says exit A, so the operator chooses the dial currently sending to A. Power sees STAR. Both lock in.</p><small>Clues and dial positions change every repair. This example is not a fixed answer.</small></div>
     <h3>What counts as a mistake?</h3><p>Changing a setting is free. One incorrect shared check costs one fuse. Any setting change clears everyone's locks, so check the new readout before locking again. A matching final symbol alone is not enough: every relay and the power settings must match their clues.</p>
     <h3>How do we win?</h3><p>Complete three repairs before five minutes or three failed checks. Roles rotate after each repair. Press Continue when everyone is ready. The timer keeps running between repairs and while the rules are open.</p>
-    <h3>Want a slower start?</h3><p>The host can select Practice in the lobby. It uses the same multiplayer puzzles with no timer and unlimited checks. You can also choose Play with a bot. Nova trades clues in chat, operates its own controls, and swaps roles with you. Use the clue buttons or type a symbol or settings such as B2. Say help for a reminder, Wait to pause Nova’s actions, and I’m set to resume. The mission timer still runs. Nova is a game bot, not a person or an open-ended AI assistant. A short tutorial lets you try both roles first.</p>
+    <h3>Want a slower start?</h3><p>The host can select Practice in the lobby. It uses the same puzzles with no timer and unlimited checks. A short tutorial lets you try both roles first.</p>
+    <h3>Playing alone?</h3><p>Choose Solo + bot, then Play with a bot. Nova trades clues in chat, operates its own controls, and swaps roles with you. Use the clue buttons or type a symbol or settings such as B2. Say help for a reminder, Wait to pause Nova’s actions, and I’m set to resume. The mission timer still runs. Nova is a game bot that understands game clues and basic requests.</p>
     <h3>Connection dropped?</h3><p>Refresh or reopen this game in the same browser to recover your seat. Keep that browser's stored data. The mission timer continues while you reconnect. If the host is offline for 45 seconds, another player can take over. Leaving a room returns the remaining crew to the lobby. Rooms expire after 24 hours without game activity.</p>
     <p className="muted"><Headphones size={16} className="inline-icon" /> A voice call is optional. Room chat is enough to play from different locations.</p>
     {inMission ? <div className="inline-note amber"><Clock3 size={17} /> Your mission continues while you read.</div> : <button className="btn secondary full" onClick={onTutorial}><BookOpen size={18} /> Try the solo tutorial</button>}
@@ -117,7 +125,7 @@ export default function Game() {
     };
     void poll(); return () => { stopped = true; clearTimeout(timer); controller?.abort(); };
   }, [session, accept, clearSeat]);
-  useEffect(() => { chatEnd.current?.scrollIntoView({ block: "nearest" }); }, [room?.chat.length]);
+  useEffect(() => { const panel = chatEnd.current?.parentElement; if (panel) panel.scrollTop = panel.scrollHeight; }, [room?.chat.at(-1)?.id]);
 
   async function createOrJoin(kind: "create" | "join", overrides?: { name?: string; code?: string; mode?: Mode; solo?: boolean }) {
     const nickname = (overrides?.name ?? name).trim(), roomCode = (overrides?.code ?? code).trim().toUpperCase();
@@ -142,7 +150,7 @@ export default function Game() {
     if (!session) return;
     setBusy(true); setError("");
     const view = lastView.current;
-    const payload = { type, requestId: crypto.randomUUID(), puzzleId: view?.role?.puzzleId, configRevision: view?.role?.configRevision, ...extra };
+    const payload = { type, requestId: operationId(), puzzleId: view?.role?.puzzleId, configRevision: view?.role?.configRevision, ...extra };
     try {
       let response: Response | undefined;
       // A network retry reuses the operation ID; the server applies it at most once.
@@ -187,6 +195,7 @@ export default function Game() {
   const canClaim = !!room && host && now + offset - host.lastSeen > 45000 && !isHost;
   const offlinePlayers = room?.players.some(p => !p.isBot && now + offset - p.lastSeen > 45000);
   const hasBot = room?.players.some(p => p.isBot);
+  const latestClue = room?.chat.filter(m => m.playerId !== room.selfId).at(-1);
   const send = async (text: string) => { const result = await act("chat", { text }); if (result) setMessage(""); };
   const copy = async (invite = false) => {
     const text = invite ? new URL("/?room=" + room!.code, window.location.origin).href : room!.code;
@@ -199,7 +208,7 @@ export default function Game() {
   return <div className={"game-shell " + (room ? "in-room" : "at-entry")}>
     <div className="scene" aria-hidden="true" />
     <header className="site-header"><a href="/" aria-label="Split Signal home" onClick={e => { if (session) { e.preventDefault(); setConfirm("leave"); } }}><Brand /></a>
-      <div className="header-actions">{room && <button className="room-code-small" onClick={() => void copy()}><span>ROOM</span> {room.code}<Copy size={14} /></button>}<button className="text-button" onClick={() => setRules(true)}><BookOpen size={17} /><span>Rules & how to play</span></button></div>
+      <div className="header-actions">{room && <button className="room-code-small" onClick={() => void copy()}><span>ROOM</span> {room.code}<Copy size={14} /></button>}<button className="text-button" aria-label="Rules & how to play" onClick={() => setRules(true)}><BookOpen size={17} /><span>Rules & how to play</span></button></div>
     </header>
     {toast && <div className="toast" role="status"><Check size={18} />{toast}</div>}
     <main>
@@ -243,6 +252,7 @@ export default function Game() {
           {room.phase === "playing" && role && <section className={"panel role-panel role-" + role.kind}>
             <div className="panel-heading"><span className="eyebrow"><LockKeyhole size={14} /> YOUR PRIVATE CONSOLE</span><Chip tone={role.kind === "power" ? "amber" : "mint"}>{role.kind === "power" ? <Zap size={14} /> : <ArrowRightLeft size={14} />}{role.label}</Chip></div>
             <div className="role-title"><h2>{role.kind === "power" ? "Give the signal a destination." : "Find the right connection."}</h2><p>{role.kind === "power" ? "Only you see the target. Tell your crew, then ask Relay 1 for your settings." : "Ask Power for the target symbol. Use that row in your wiring table."}</p></div>
+            {latestClue && <div className="mobile-clue"><span><MessageSquare size={15} />{latestClue.name}</span><p>{latestClue.text}</p><a href="#room-chat">Open room chat</a></div>}
             {role.kind === "power" ? <>
               <div className="signal-cards"><div className="signal-card target-card"><span className="eyebrow">YOUR TARGET</span><SymbolIcon value={role.target!} size={70} /><b>{SYMBOLS[role.target!]}</b></div><div className={"signal-card " + (role.receiving === role.target ? "signal-matched" : "")}><span className="eyebrow">RECEIVING</span><SymbolIcon value={role.receiving!} size={70} /><b>{SYMBOLS[role.receiving!]}</b><small>{role.receiving === role.target ? "Symbol matches. Verify all settings." : "Your crew is adjusting the route."}</small></div></div>
               <button className="share-clue" disabled={busy || !connected} onClick={() => void send("We need " + SYMBOLS[role.target!] + ". Relay 1, what channel and strength?")}><MessageSquare size={17} />Share my target with the crew</button>
@@ -272,7 +282,7 @@ export default function Game() {
         {canClaim && <button className="btn secondary full small" disabled={busy} onClick={() => void act("claim")}>Take over as host</button>}
         {isHost && offlinePlayers && <button className="text-button amber" onClick={() => setConfirm("reset")}>Reset room without offline players</button>}
       </section>
-      <section className="panel chat-panel"><div className="panel-heading"><h2><MessageSquare size={18} />Room chat</h2><span className="eyebrow">{hasBot ? "NOVA · BOT" : "CREW ONLY"}</span></div>{hasBot && <p className="bot-chat-help">Use your clue buttons, or type <b>help</b> for a hint.</p>}<div className="chat-messages" aria-label="Room messages" role="log" aria-live="polite">{room.chat.length ? room.chat.map(m => <div key={m.id} className={"chat-message " + (m.playerId === room.selfId ? "mine" : "")}><span>{m.name}<small>{new Date(m.at).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}</small></span><p>{m.text}</p></div>) : <div className="chat-empty"><MessageSquare size={26} /><p>Your clues belong here.</p><span>Say hello, then share what your screen shows.</span></div>}<div ref={chatEnd} /></div>
+      <section className="panel chat-panel" id="room-chat"><div className="panel-heading"><h2><MessageSquare size={18} />Room chat</h2><span className="eyebrow">{hasBot ? "NOVA · BOT" : "CREW ONLY"}</span></div>{hasBot && <p className="bot-chat-help">Use your clue buttons, or type <b>help</b> for a hint.</p>}<div className="chat-messages" aria-label="Room messages" role="log" aria-live="polite">{room.chat.length ? room.chat.map(m => <div key={m.id} className={"chat-message " + (m.playerId === room.selfId ? "mine" : "")}><span>{m.name}<small>{new Date(m.at).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}</small></span><p>{m.text}</p></div>) : <div className="chat-empty"><MessageSquare size={26} /><p>Your clues belong here.</p><span>Say hello, then share what your screen shows.</span></div>}<div ref={chatEnd} /></div>
         {room.phase === "playing" && <div className="chat-quick"><button disabled={busy} onClick={() => void send("What is our target?")}>Target?</button><button disabled={busy} onClick={() => void send("My settings are ready. Check yours, then lock in.")}>I'm set</button><button disabled={busy} onClick={() => void send("Please wait. I'm adjusting my control.")}>Wait</button></div>}
         <form className="chat-form" onSubmit={e => { e.preventDefault(); if (message.trim()) void send(message); }}><input aria-label="Message your crew" maxLength={200} value={message} onChange={e => setMessage(e.target.value)} placeholder="Message your crew…" /><button aria-label="Send message" disabled={busy || !connected || !message.trim()}><Send size={18} /></button></form><span className="chat-count">{message.length}/200</span>
       </section><div className="sidebar-help"><ShieldCheck size={18} /><p>Your clues stay on your screen until you share them. Keep talking.</p></div></aside>
