@@ -2,6 +2,16 @@
 
 Updated: September 30, 2026 (Asia/Kolkata).
 
+## Current focus: Reactor Rush design discussion
+
+The owner requested discussion before building a more interactive game and chose Reactor Rush. No Reactor Rush gameplay is implemented or deployed. Continue from [the design checkpoint](docs/REACTOR_RUSH_DESIGN.md); do not restart or treat proposals as already approved.
+
+Selected characters: **Iris, Orbit, Juno, Comet, Lumi, Jet**. Iris and Lumi replace Lyra and Echo; Orbit's helmet has been removed. The owner selected **option 2, Juno**, to replace Nova, then supplied a colour reference at 18:40 IST. Juno's outfit now uses plum purple, cream and amber-orange with dark navy equipment; her lavender hair and identity are retained. The current assembled concept reference is docs/concepts/reactor-rush-selected-lineup.png. Older lineup/options boards are preserved as design history; their Nova and original Juno outfit colours are superseded. Character selection and host choices of 60 seconds, 90 seconds, or custom time are recorded in the design notes. Rival bumping, tie handling and several balancing details remain undecided. Responsive multiplayer feasibility within included hosting is unverified; the old polling architecture must not be assumed adequate.
+
+Latest checkpoint changes documentation and concept art only. It does not modify the live game, run a migration or repeat gameplay tests. The INR 0 additional-spend constraint and normal GitHub checkpoint workflow still apply.
+
+**Character approval is final:** At 18:44 IST on September 30, the owner said "Lock these 6 characters" for the current image. Keep Iris, helmet-free Orbit, Juno in plum/cream/amber, Comet, Lumi and Jet exactly as selected. Do not repeat character ideation without a new request. Continue design discussion; this is not approval to start implementation.
+
 ## Current outcome
 
 **Version 2 is publicly deployed:** https://split-signal-satish.satishofficial016.chatgpt.site
@@ -19,6 +29,8 @@ Version 2 contains a small client patch: offer the verified public URL in a sepa
 ## Authorization and budget
 
 Building, clear rules, public publishing, and GitHub checkpoints are authorized. The owner requested a solo bot on September 30. INR 0 additional spend. Use included Sites/D1 allowances only; no billed AI API, purchases, credits, upgrades, domains, or paid overages. Hosting capacity is subject to included allowances, not an unlimited or permanent-free guarantee.
+
+Latest scope: the owner explicitly requested discussion before the Reactor Rush redesign. Character concepts and design checkpoints are authorized; do not start gameplay implementation until the owner says to proceed.
 
 ## Implemented
 
@@ -51,6 +63,12 @@ Building, clear rules, public publishing, and GitHub checkpoints are authorized.
 - D1 initial migration was generated, inspected, and applied locally once. Do not blindly replay it. Deployment provisioning is managed by Sites.
 
 ## Exact next actions
+
+1. Resume Reactor Rush discussion from docs/REACTOR_RUSH_DESIGN.md and the selected roster: Iris, helmet-free Orbit, Juno, Comet, Lumi and Jet. Do not repeat character selection unless the owner asks for changes.
+2. Resolve remaining game rules and verify real-time networking and zero-extra-cost hosting feasibility before agreeing on a concrete build plan.
+3. Implement the redesign only when the owner asks to proceed. Preserve current source, Site identity, deployment history and the unresolved live issue below.
+
+## Deferred Split Signal playtest actions
 
 1. Owner opens the public URL in a separate Chrome tab, outside ChatGPT, and retries Solo + bot. The live room-creation issue is unresolved until that succeeds. If it fails, send the new HTTP error message; inspect native logs without bypassing hosting security. Then test signed-out normal/incognito sessions using different nicknames.
 2. Play on a phone and laptop, ideally separate connections. Check all three repairs and replay. Follow docs/PLAYTEST.md.

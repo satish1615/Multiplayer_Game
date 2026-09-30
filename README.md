@@ -6,6 +6,8 @@ A cooperative rescue game by Satish Singh. Trade private clues, set your own sta
 
 Version 2 is publicly deployed. It adds direct-browser play guidance and clearer responses to hosting errors. The reported room-creation failure inside ChatGPT still needs a separate-browser retest. See [PROJECT_STATUS.md](PROJECT_STATUS.md) to resume development and [PLAYTEST.md](docs/PLAYTEST.md) for verified results and your live testing steps.
 
+**Design update, September 30:** The owner is discussing Reactor Rush, a movement-based competitive arena game, as the next direction. The selected characters and gameplay discussion are saved in [REACTOR_RUSH_DESIGN.md](docs/REACTOR_RUSH_DESIGN.md). This is a design checkpoint; the live game and implementation below are still Split Signal.
+
 ## How to play
 
 1. Enter a nickname. Create a room and share its six-character code, join a friend's room, or choose Solo + bot.
