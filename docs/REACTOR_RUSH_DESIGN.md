@@ -1,6 +1,6 @@
 # Reactor Rush: design checkpoint
 
-Recorded September 30, 2026, through the owner's 23:42 IST proposal to use gold for rare balls and blue for normal balls.
+Recorded September 30, 2026, through the owner's 23:45 IST rejection of the first golden-ball designs and the next concept board.
 
 ## Current stage
 
@@ -73,6 +73,19 @@ Full-inventory pickup behavior, the maximum number of rare balls on the map, exp
 At 23:39 IST the owner requested golden energy ball appearance options. A concept board showed six numbered candidates: 1 Glow Orb (smooth glowing sphere), 2 Bolt Core (lightning emblem), 3 Halo Orb (one surrounding ring), 4 Crystal Core (faceted sphere), 5 Reactor Core (protective shell around a glowing centre), and 6 Plasma Swirl (internal energy spiral). Option 2 was recommended by the assistant; the owner has not selected an option.
 
 At 23:42 IST the owner said, "I am thinking of making Golden as rare ball and blue as Normal". Use blue for normal one-point balls and gold for rare two-point balls as the current visual direction in further discussion. This supersedes the earlier opposite colour assignment in the working design, without changing any approved scoring, carrying or spawn rules. Exact normal and rare appearances remain unselected. The six golden candidates can now be considered for the rare ball. Do not treat the concept board as production sprites or as an approved ball design.
+
+At 23:45 IST the owner said, "I didn't like any, show me more". All six initial golden candidates are rejected. A second concept board offers these new alternatives for the rare golden ball:
+
+| Option | Name | Appearance |
+| --- | --- | --- |
+| 7 | Sunburst | Golden sphere with short rounded rays around its edge. |
+| 8 | Honey Core | Gold sphere with broad honeycomb panels, some glowing. |
+| 9 | Starheart | Transparent amber ball containing one golden star. |
+| 10 | Mercury Gold | Polished liquid-metal sphere with sculpted flowing ridges. |
+| 11 | Pearl Spark | Ivory-gold pearl with glowing golden cracks. |
+| 12 | Comet Seed | Rounded gold ball with a short swept flame-shaped fin. |
+
+No option from this second board has been selected. These are appearance choices for the same rare ball, not six powers or new gameplay mechanics. Both batches are concept previews, not production sprites. Keep the normal ball blue; its detailed appearance is still undecided.
 
 ## Map discussion, layout not yet selected
 

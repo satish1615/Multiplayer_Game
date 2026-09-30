@@ -14,6 +14,8 @@ Latest checkpoint changes documentation and concept art only. It does not modify
 
 **Latest colour direction, 23:42 IST:** After seeing six golden-ball designs, the owner proposed gold for the rare ball and blue for normal balls. Carry this direction into discussion: normal blue = one deposited energy; rare gold = two deposited energy. This swaps only their colours, not scoring or carrying limits. No exact ball design has been selected. Option 2, Bolt Core, was an assistant recommendation, not an owner selection; the six candidates are listed in the design notes.
 
+**Golden-ball art revision, 23:45 IST:** The owner rejected all six initial golden-ball designs and requested more. A new concept board offers 7 Sunburst, 8 Honey Core, 9 Starheart, 10 Mercury Gold, 11 Pearl Spark and 12 Comet Seed. No replacement has been selected yet. Do not revive options 1–6 or treat an assistant recommendation as an owner selection.
+
 **Character approval is final:** At 18:44 IST on September 30, the owner said "Lock these 6 characters" for the current image. Keep Iris, helmet-free Orbit, Juno in plum/cream/amber, Comet, Lumi and Jet exactly as selected. Do not repeat character ideation without a new request. Continue design discussion; this is not approval to start implementation.
 
 ## Current outcome
