@@ -1,6 +1,6 @@
 # Reactor Rush: design checkpoint
 
-Recorded September 30 to October 1, 2026, through the owner's 01:15 IST request for a transparent glass ball and the resulting revised concept.
+Recorded September 30 to October 1, 2026, through the owner's 01:19 IST approval of the transparent golden glass rare-ball concept.
 
 ## Current stage
 
@@ -53,6 +53,14 @@ Player character selection is required before playing. The proposed flow is nick
 - INR 0 additional spending beyond existing ChatGPT access. Do not buy services, credits, upgrades, domains, assets or overages.
 - Maintain recoverable GitHub checkpoints when work or design decisions reach a meaningful milestone.
 
+## Locked golden rare-ball appearance
+
+![Approved golden glass rare-energy ball](concepts/reactor-rush-golden-rare-ball-selected.png)
+
+At 01:19 IST on October 1, the owner said "Great fix this" in response to the transparent glass-ball revision. This is the approved golden rare-ball concept. Preserve the smooth glossy glass sphere, visible reflections, clear areas, irregular golden energy and scattered motes inside. There is no separate small inner ball, regular glowing-line pattern or rough stone-like exterior. The latest image above is authoritative; previous golden options and revisions below are history.
+
+The concept remains worth two deposited energy and occupies one carrying slot, with at most one rare ball carried per player. Normal balls are blue and worth one deposited energy; their detailed appearance is not selected yet. This full-resolution reference has a navy background and is saved under docs, not bundled into the live game. It is not a transparent-background production sprite or animation. Approval locks the appearance without authorizing gameplay implementation or changing mechanics.
+
 ## Approved rare-energy-ball option
 
 At 23:31 IST on September 30, the owner said "Keep the rare ball option" after discussing mission unlocks versus a shared random bonus-ball spawn. Keep the rare ball in the design; a dash-count or opponent-hit mission is not required to reveal it.
@@ -68,7 +76,7 @@ At 23:31 IST on September 30, the owner said "Keep the rare ball option" after d
 
 Full-inventory pickup behavior, the maximum number of rare balls on the map, expiry, and any dropped-ball priority still need decisions. Approval of the rare ball does not approve dash attacks or other unresolved combat rules. It has not been implemented or tested.
 
-### Latest ball colour direction and pending art selection
+### Ball colour and art exploration history
 
 At 23:39 IST the owner requested golden energy ball appearance options. A concept board showed six numbered candidates: 1 Glow Orb (smooth glowing sphere), 2 Bolt Core (lightning emblem), 3 Halo Orb (one surrounding ring), 4 Crystal Core (faceted sphere), 5 Reactor Core (protective shell around a glowing centre), and 6 Plasma Swirl (internal energy spiral). Option 2 was recommended by the assistant; the owner has not selected an option.
 
@@ -96,13 +104,13 @@ At 23:47 IST the owner requested more options and clarified the desired effect: 
 
 No option has been selected. These are static concepts, not implemented animations. Outward particle or wave motion can be considered when the chosen design is implemented. The visual effect does not add damage, an area attack or a change to collection range. Golden remains rare and worth two deposited energy; normal remains blue and worth one.
 
-### Current selected direction: option 14 with requested edits
+### Option 14 revision history
 
 At 23:50 IST the owner chose option 14, Plasma Burst, and requested removal of the small central ball and "the lines". The assistant stated that it was interpreting lines as the sharp lightning branches. A single revised concept was generated from option 14: no separate central sphere, a diffuse bright centre, softer flowing golden plasma, and sparks spreading outward against a dark navy background. This interpretation of the lines and the revised result still await owner feedback; do not call the edited asset locked or approved. Option 14 is the chosen starting point, superseding the earlier unselected status. No animation, production sprite or gameplay change has been implemented.
 
 At 23:53 IST the owner clarified that the spaces between the glowing lines were too even and that the glow itself should not look like lines. This supersedes the earlier interpretation that softening lightning branches was enough. The second revision uses broad overlapping clouds of golden light, irregular patch sizes and spacing, diffuse bright areas and scattered round sparks. Remove regular radial streaks, repeated gaps and a distinct inner core ball. Preserve the golden energy-ball identity and dark navy background. The second revision has been shown but is not yet approved or locked; no production asset or animation has been implemented.
 
-At 01:15 IST on October 1, the owner said this version looked like a stone and requested that the ball look like glass. The latest concept therefore has a smooth, glossy, transparent spherical surface with clear reflections and refraction, containing soft irregular golden energy and scattered luminous motes. Clear areas reveal the dark navy background through the ball. No separate small core sphere or regular glowing line pattern should return. This supersedes the exposed cloud exterior of the preceding revision. The glass-ball concept has been shown but is not yet approved or locked; it is not a production sprite or implemented animation. Golden rare and blue normal colours, point values and carrying limits are unchanged.
+At 01:15 IST on October 1, the owner said this version looked like a stone and requested that the ball look like glass. The latest concept therefore has a smooth, glossy, transparent spherical surface with clear reflections and refraction, containing soft irregular golden energy and scattered luminous motes. Clear areas reveal the dark navy background through the ball. No separate small core sphere or regular glowing line pattern should return. This supersedes the exposed cloud exterior of the preceding revision. The owner approved this glass-ball concept at 01:19 IST; see the locked reference above. It is not a production sprite or implemented animation. Golden rare and blue normal colours, point values and carrying limits are unchanged.
 
 ## Map discussion, layout not yet selected
 
@@ -134,7 +142,7 @@ Custom art can ship with the game and render on players' devices. Under 1 MB for
 
 ## Next steps when discussion resumes
 
-1. Continue map discussion: open arena versus maze is still undecided. Keep the locked characters and the approved two-point rare ball. Ask only about unresolved choices, one decision at a time.
+1. Continue discussion: the detailed blue normal-ball appearance and open arena versus maze are still undecided. Keep the locked characters, approved golden glass rare-ball appearance and two-point rare-ball rule. Ask only about unresolved choices, one decision at a time.
 2. Resolve rival bumping, ties, custom-time bounds, hazard consequences, bot settings and rare-ball edge cases into a short final specification.
 3. Check real-time networking and included-hosting feasibility before presenting a concrete build plan. Keep the zero-additional-spend constraint.
 4. Build only after the owner asks to proceed. Preserve the existing repo and Site ID; do not create a replacement Site or discard the current working game.

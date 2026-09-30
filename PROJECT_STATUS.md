@@ -10,6 +10,8 @@ Selected characters: **Iris, Orbit, Juno, Comet, Lumi, Jet**. Iris and Lumi repl
 
 Latest checkpoint changes documentation and concept art only. It does not modify the live game, run a migration or repeat gameplay tests. The INR 0 additional-spend constraint and normal GitHub checkpoint workflow still apply.
 
+**GOLDEN RARE BALL LOCKED, October 1 at 01:19 IST:** The owner approved the latest transparent glass concept with "Great fix this". The authoritative image is [docs/concepts/reactor-rush-golden-rare-ball-selected.png](docs/concepts/reactor-rush-golden-rare-ball-selected.png). Keep its smooth glossy glass surface, irregular golden energy inside, scattered motes and no separate small core ball. Do not return to the exposed cloud or evenly spaced glowing-line designs. Rare is golden, worth two deposited energy and one carrying slot; normal is blue, worth one. The blue normal-ball appearance remains unselected. This locks the concept art only, not gameplay implementation or publication.
+
 **Rare ball approved at 23:31 IST:** The owner chose a randomly appearing rare energy ball worth two points when deposited. It uses one carrying slot, with at most one rare ball carried per player. Two normal balls plus one rare ball occupy three slots and bank four energy. Everyone gets a short warning and sees the spawn; it appears at reachable locations away from bases. Roughly 20–30 seconds between appearances is the initial balancing proposal. Dash-count/hit missions are not required. No gameplay code has been changed. Map layout remains undecided: open arena was recommended, with a narrow-corridor maze as the alternative.
 
 **Latest colour direction, 23:42 IST:** After seeing six golden-ball designs, the owner proposed gold for the rare ball and blue for normal balls. Carry this direction into discussion: normal blue = one deposited energy; rare gold = two deposited energy. This swaps only their colours, not scoring or carrying limits. No exact ball design has been selected. Option 2, Bolt Core, was an assistant recommendation, not an owner selection; the six candidates are listed in the design notes.
@@ -22,7 +24,7 @@ Latest checkpoint changes documentation and concept art only. It does not modify
 
 **Latest art correction, 23:53 IST:** The owner clarified that the glow still looked like evenly spaced lines. The second revision replaces the regular streaks with broad, irregular clouds of golden light, varied spacing and round sparks. Keep the separate inner ball removed. The owner wants the glow itself to avoid a line-like appearance; merely softening lightning is insufficient. The new draft remains unapproved concept art, not gameplay or animation.
 
-**Current glass-ball direction, October 1 at 01:15 IST:** The owner said the cloud version looked like a stone and requested a glass ball. The new concept has a smooth, glossy transparent sphere containing irregular golden light and scattered motes, with visible reflections and clear areas. Keep the small inner ball and regular line patterns removed. This supersedes the exposed cloud exterior; the revised glass appearance awaits owner feedback and is not yet locked. Rare remains golden and normal remains blue; no gameplay or production asset has changed.
+**Glass-ball revision, October 1 at 01:15 IST:** The owner said the cloud version looked like a stone and requested a glass ball. The new concept has a smooth, glossy transparent sphere containing irregular golden light and scattered motes, with visible reflections and clear areas. It supersedes the exposed cloud exterior and was approved at 01:19 IST; see the locked image above. Rare remains golden and normal remains blue; no gameplay or production asset has changed.
 
 **Character approval is final:** At 18:44 IST on September 30, the owner said "Lock these 6 characters" for the current image. Keep Iris, helmet-free Orbit, Juno in plum/cream/amber, Comet, Lumi and Jet exactly as selected. Do not repeat character ideation without a new request. Continue design discussion; this is not approval to start implementation.
 
@@ -78,7 +80,7 @@ Latest scope: the owner explicitly requested discussion before the Reactor Rush 
 
 ## Exact next actions
 
-1. Resume Reactor Rush discussion from docs/REACTOR_RUSH_DESIGN.md and the selected roster: Iris, helmet-free Orbit, Juno, Comet, Lumi and Jet. Do not repeat character selection unless the owner asks for changes.
+1. Resume Reactor Rush discussion from docs/REACTOR_RUSH_DESIGN.md, the locked golden glass rare ball and the selected roster: Iris, helmet-free Orbit, Juno, Comet, Lumi and Jet. Do not repeat these art selections unless the owner asks for changes. The detailed blue normal-ball appearance is still unselected.
 2. Continue the map layout discussion, keeping the approved rare ball. Resolve remaining rules and verify real-time networking and zero-extra-cost hosting feasibility before agreeing on a concrete build plan.
 3. Implement the redesign only when the owner asks to proceed. Preserve current source, Site identity, deployment history and the unresolved live issue below.
 
