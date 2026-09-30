@@ -1,6 +1,6 @@
 # Reactor Rush: design checkpoint
 
-Recorded September 30 to October 1, 2026, through the owner's 01:23 IST request for normal-ball designs and discussion of a slightly larger rare ball.
+Recorded September 30 to October 1, 2026, through the owner's 01:26 IST selection of D, Cyan Spark, as the normal blue ball.
 
 ## Current stage
 
@@ -59,9 +59,13 @@ Player character selection is required before playing. The proposed flow is nick
 
 At 01:19 IST on October 1, the owner said "Great fix this" in response to the transparent glass-ball revision. This is the approved golden rare-ball concept. Preserve the smooth glossy glass sphere, visible reflections, clear areas, irregular golden energy and scattered motes inside. There is no separate small inner ball, regular glowing-line pattern or rough stone-like exterior. The latest image above is authoritative; previous golden options and revisions below are history.
 
-The concept remains worth two deposited energy and occupies one carrying slot, with at most one rare ball carried per player. Normal balls are blue and worth one deposited energy; their detailed appearance is not selected yet. This full-resolution reference has a navy background and is saved under docs, not bundled into the live game. It is not a transparent-background production sprite or animation. Approval locks the appearance without authorizing gameplay implementation or changing mechanics.
+The concept remains worth two deposited energy and occupies one carrying slot, with at most one rare ball carried per player. Normal balls are blue and worth one deposited energy; the selected normal appearance is D, Cyan Spark, below. This full-resolution reference has a navy background and is saved under docs, not bundled into the live game. It is not a transparent-background production sprite or animation. Approval locks the appearance without authorizing gameplay implementation or changing mechanics.
 
-## Normal-ball options and proposed relative size
+## Locked normal-ball appearance: D, Cyan Spark
+
+![Normal-ball comparison board; D Cyan Spark in the lower centre is selected](concepts/reactor-rush-normal-ball-selection.png)
+
+At 01:26 IST on October 1, the owner selected **D**. Cyan Spark is the approved normal-ball concept: a smooth, transparent blue glass sphere with a cyan-blue rim, scattered round luminous cyan motes of varying brightness and a light haze. Keep the clear glass and particle-based interior; do not substitute the cloud-based A, B or C designs. D in the lower centre of this exact saved board is authoritative. The board is preserved unchanged rather than regenerating or redesigning the chosen appearance. It is not a standalone production sprite or animation. Normal balls remain worth one energy when deposited and use one carrying slot.
 
 At 01:23 IST on October 1, the owner requested normal-ball designs and asked whether the golden rare ball should be a little larger. A concept board showed four blue glass alternatives alongside the approved golden design as a reference:
 
@@ -72,9 +76,9 @@ At 01:23 IST on October 1, the owner requested normal-ball designs and asked whe
 | C | Ocean Light | Deeper cobalt glass with broad irregular cyan glow patches and stronger dark-blue contrast. |
 | D | Cyan Spark | Clear blue glass with loosely clustered round cyan motes and light haze. |
 
-No normal-ball option has been selected. These are four possible looks for the same one-energy normal ball, not four powers. The locked golden image above remains authoritative; its appearance is not being reopened by the comparison board.
+The owner selected D; A, B and C are unselected alternatives. These are appearance options for the same one-energy normal ball, not four powers. The locked golden image above remains authoritative; its appearance is not being reopened by the comparison board.
 
-The assistant recommends a golden rare-ball diameter about 20% larger than normal to make it easier to notice, for example 30 pixels versus 25 pixels at a given display scale. This is an illustrative visual-size proposal, not an approved or tested production measurement; final dimensions still need phone-layout checks. Both types occupy one carrying slot. The approved deposited values remain one energy for blue and two for gold. The size discussion does not change pickup rules or authorize implementation.
+The assistant recommends a golden rare-ball diameter about 20% larger than normal to make it easier to notice, for example 30 pixels versus 25 pixels at a given display scale. This is an illustrative visual-size proposal, not an approved or tested production measurement; selecting D does not separately approve this ratio. Final dimensions still need phone-layout checks. Both types occupy one carrying slot. The approved deposited values remain one energy for blue and two for gold. The size discussion does not change pickup rules or authorize implementation.
 
 ## Approved rare-energy-ball option
 
@@ -157,7 +161,7 @@ Custom art can ship with the game and render on players' devices. Under 1 MB for
 
 ## Next steps when discussion resumes
 
-1. Continue discussion: the detailed blue normal-ball appearance and open arena versus maze are still undecided. Keep the locked characters, approved golden glass rare-ball appearance and two-point rare-ball rule. Ask only about unresolved choices, one decision at a time.
+1. Continue discussion: open arena versus maze and the exact rare-to-normal size ratio are still undecided. Keep the locked characters, D Cyan Spark normal ball, approved golden glass rare ball and their one-/two-point values. Ask only about unresolved choices, one decision at a time.
 2. Resolve rival bumping, ties, custom-time bounds, hazard consequences, bot settings and rare-ball edge cases into a short final specification.
 3. Check real-time networking and included-hosting feasibility before presenting a concrete build plan. Keep the zero-additional-spend constraint.
 4. Build only after the owner asks to proceed. Preserve the existing repo and Site ID; do not create a replacement Site or discard the current working game.
