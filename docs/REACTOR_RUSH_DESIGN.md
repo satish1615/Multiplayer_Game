@@ -1,6 +1,6 @@
 # Reactor Rush: design checkpoint
 
-Recorded September 30 to October 1, 2026, through the owner's 01:19 IST approval of the transparent golden glass rare-ball concept.
+Recorded September 30 to October 1, 2026, through the owner's 01:23 IST request for normal-ball designs and discussion of a slightly larger rare ball.
 
 ## Current stage
 
@@ -60,6 +60,21 @@ Player character selection is required before playing. The proposed flow is nick
 At 01:19 IST on October 1, the owner said "Great fix this" in response to the transparent glass-ball revision. This is the approved golden rare-ball concept. Preserve the smooth glossy glass sphere, visible reflections, clear areas, irregular golden energy and scattered motes inside. There is no separate small inner ball, regular glowing-line pattern or rough stone-like exterior. The latest image above is authoritative; previous golden options and revisions below are history.
 
 The concept remains worth two deposited energy and occupies one carrying slot, with at most one rare ball carried per player. Normal balls are blue and worth one deposited energy; their detailed appearance is not selected yet. This full-resolution reference has a navy background and is saved under docs, not bundled into the live game. It is not a transparent-background production sprite or animation. Approval locks the appearance without authorizing gameplay implementation or changing mechanics.
+
+## Normal-ball options and proposed relative size
+
+At 01:23 IST on October 1, the owner requested normal-ball designs and asked whether the golden rare ball should be a little larger. A concept board showed four blue glass alternatives alongside the approved golden design as a reference:
+
+| Option | Name | Appearance |
+| --- | --- | --- |
+| A | Azure Mist | Bright azure glass with uneven pale-blue energy clouds and sparse motes; closest match to the golden design. |
+| B | Ice Glow | Clear pale-blue glass with gentler silver-blue diffuse light and translucent patches. |
+| C | Ocean Light | Deeper cobalt glass with broad irregular cyan glow patches and stronger dark-blue contrast. |
+| D | Cyan Spark | Clear blue glass with loosely clustered round cyan motes and light haze. |
+
+No normal-ball option has been selected. These are four possible looks for the same one-energy normal ball, not four powers. The locked golden image above remains authoritative; its appearance is not being reopened by the comparison board.
+
+The assistant recommends a golden rare-ball diameter about 20% larger than normal to make it easier to notice, for example 30 pixels versus 25 pixels at a given display scale. This is an illustrative visual-size proposal, not an approved or tested production measurement; final dimensions still need phone-layout checks. Both types occupy one carrying slot. The approved deposited values remain one energy for blue and two for gold. The size discussion does not change pickup rules or authorize implementation.
 
 ## Approved rare-energy-ball option
 
