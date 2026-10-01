@@ -17,7 +17,9 @@ export async function rateLimit(key: string, maximum: number, windowMs: number) 
 async function load(code: string) {
   const row = await getDb().prepare("SELECT state, version, expires_at FROM rooms WHERE code = ?").bind(code).first<Row>();
   if (!row || row.expires_at <= Date.now()) throw new GameError("Room not found or expired. Check the code, or create a new room.", 404);
-  return { room: JSON.parse(row.state) as RoomState, version: row.version };
+  const state = JSON.parse(row.state);
+  if (state.game === "reactor-rush") throw new GameError("This is a Reactor Rush room. Open the game home page.", 404);
+  return { room: state as RoomState, version: row.version };
 }
 async function seen(code: string) {
   const rows = await getDb().prepare("SELECT id, last_seen FROM members WHERE room_code = ?").bind(code).all<{ id: string; last_seen: number }>();

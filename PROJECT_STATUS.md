@@ -2,6 +2,49 @@
 
 Updated: October 1, 2026 (Asia/Kolkata).
 
+## Reactor Rush implementation is authorized and in progress
+
+At 12:52 IST the owner said **"now start"**. This supersedes every older discussion-only / do-not-build instruction in the historical record below. Build and publish Reactor Rush using the locked Sky Lab theme, six characters, blue D Cyan Spark glass balls and golden glass rare ball. INR 0 additional spend. Reuse the existing Site and URL. Never re-create the project or purchase services.
+
+### Completed in this work session
+
+- Opened existing Site through its managed source workflow. Current public release is still Split Signal version 2; Reactor Rush has NOT been deployed yet.
+- Added first server-owned Reactor Rush simulation: movement, walls, dash cooldown, 3-slot carrying, automatic deposits at own reactor, normal respawns, random rare ball, warning lasers, bots, shared timer, ties, rematch, and host takeover.
+- Added authenticated create/join/sync API using existing D1 rooms/members tables with version compare-and-swap. Browser cannot set position, score, inventory or deadlines. Old and new room types are isolated.
+- First TypeScript check passed before minor throttle/isolation/arena-boundary repairs; recheck those with the UI build.
+- Generated production character and orb atlases and Sky Lab arena artwork. Asset integration and visual verification remain in progress.
+
+### In progress and exact next actions
+
+1. Build the client, lobby, character selector, arena renderer, keyboard/touch controls, reconnect handling and visible front-page Rules. Use **Deposit energy** wording.
+2. Integrate production assets; save source plus this status to GitHub before lengthy testing.
+3. Type-check, build the Worker, test authoritative rules and 2/3/6 independent clients including concurrent updates. Test actual browser sessions and phone layout. The HTTP/D1 architecture's movement responsiveness is still unverified; do not claim it works until measured.
+4. Fix observed issues, publish on the SAME Site, confirm native deployment status, update GitHub with exact source and results.
+5. Owner checks signed-out production gameplay in normal/incognito and separate devices. Do not submit the contest entry.
+
+### Playtest defaults announced before implementation
+
+Open arena; 2–6 players including ordinary-code bots; 60/90/custom 30–600 seconds; 3-second dash cooldown; dash is movement only; warning lasers drop one carried ball; highest deposited score wins, ties share victory. Blue is one point, gold two; max three balls and one gold. Gold is visually 20% larger as an initial playtest default. Rare spawns after about 20 seconds, then at random 20–30 second intervals when no rare exists, with a warning; a ground rare expires after 15 seconds. These are editable implementation defaults, not prior user selections. No paid AI service is used.
+
+### Deployment and recovery
+
+Site ID: `appgprj_6abbb87ccbac81919d299c5a9403c352`.
+Public URL: https://split-signal-satish.satishofficial016.chatgpt.site
+Checkout: `/workspace/sites/split-signal`.
+Current deployed source: `abd0d0deee3989f9fb5e743f95a4eaeb355338e5` (Split Signal v2).
+Current GitHub design checkpoint before implementation: `b53fb865c4b32c32cccdbe83193688dee79b985b`.
+No new D1 schema/migration is required. Never reapply the initial migration to an existing database. Never save tokens or credentials.
+
+The prior embedded ChatGPT room-creation failure is unconfirmed in a direct browser. Preserve safe JSON handling and the external browser link. Native hosting security restrictions must never be bypassed. A successful deployment alone does not verify production gameplay.
+
+---
+
+## Historical checkpoint (superseded by implementation authorization above)
+
+# Project Status
+
+Updated: October 1, 2026 (Asia/Kolkata).
+
 ## Current focus: Reactor Rush design discussion
 
 The owner requested discussion before building a more interactive game and chose Reactor Rush. No Reactor Rush gameplay is implemented or deployed. Continue from [the design checkpoint](docs/REACTOR_RUSH_DESIGN.md); do not restart or treat proposals as already approved.
