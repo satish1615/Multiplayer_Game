@@ -1,6 +1,6 @@
 # Reactor Rush: design checkpoint
 
-Recorded September 30 to October 1, 2026, through the owner's 01:26 IST selection of D, Cyan Spark, as the normal blue ball.
+Recorded September 30 to October 1, 2026, through the owner's 12:28 IST requirement for front-page rules and request for theme options.
 
 ## Current stage
 
@@ -46,12 +46,34 @@ Player character selection is required before playing. The proposed flow is nick
 
 - More direct interaction and excitement: visible characters, movement, choices and immediate feedback.
 - Real multiplayer across devices, room codes, no player login or installation, public reusable URL, phone and laptop support, clear rules.
+- A visible rules section on the front page, explicitly requested October 1 at 12:28 IST, available before creating or joining a room.
 - Solo mode with computer-controlled opponents. Ordinary game logic; no billed AI API.
 - Host-selectable duration: 60 seconds, 90 seconds, or custom minutes/seconds. The discussed default is 90 seconds. Everyone sees the duration before starting and shares the same fixed countdown during play. Custom bounds are not yet chosen.
 - Original selectable characters, including girls. All six selected designs are listed above.
 - Rare energy balls worth two deposited energy points, using one carrying slot. The owner explicitly chose the rare-ball option on September 30 at 23:31 IST; see the approved rule below.
 - INR 0 additional spending beyond existing ChatGPT access. Do not buy services, credits, upgrades, domains, assets or overages.
 - Maintain recoverable GitHub checkpoints when work or design decisions reach a meaningful milestone.
+
+## Front-page Rules section
+
+At 12:28 IST on October 1, the owner requested a rules section on the front page. This is a requirement for the Reactor Rush design. Put it directly below Create Room, Join Room and Solo + Bots, with a readable quick guide visible on both phones and laptops. An expandable detailed explanation can follow, but a small link or a hidden dialog alone does not satisfy the requested visible section.
+
+The full rules should explain the agreed controls and game loop in plain language: move, collect balls and return to your own reactor to deposit them. Explain blue normal balls = one energy on deposit, golden rare balls = two, at most three balls carried and at most one rare ball. Include the example that two blue balls plus one gold ball use three slots and bank four energy. Show keyboard and touch controls, explain match duration and the final win condition once settled, and clearly identify solo opponents as bots. Account for depositing fewer than three balls. Do not present unapproved dash attacks, hazard penalties, tie resolution or other unresolved choices as final rules.
+
+The theme previews use the sample rule headings "Collect energy", "Return to your reactor" and "Bank points" to show placement. These headings are a visual concept, not the complete playable rulebook. No Reactor Rush front page or rules implementation has been built or published yet.
+
+## Visual theme options, awaiting selection
+
+Four front-page previews were shown together, each using the same main play controls and a visible Rules section. Iris and Comet serve as representative mascots; all six approved characters remain in the roster with unchanged identities and outfits. The approved D Cyan Spark normal ball and golden glass rare ball remain the asset references.
+
+| Option | Theme | Visual direction |
+| --- | --- | --- |
+| 1 | Neon Station | A dark space-station arcade with navy and violet surfaces, cyan illumination and restrained pink accents. |
+| 2 | Sky Lab | A bright futuristic lab above the clouds, using white, sky blue, periwinkle and clean rounded structures. |
+| 3 | Jungle Reactor | A research station within lush vegetation, using forest green, teal, stone, metal and warm cream text. |
+| 4 | Solar Outpost | A space outpost under a coral sunset, with terracotta surroundings, copper details and contrasting indigo play surfaces. |
+
+No theme is selected. Neon Station is the assistant's recommendation because it complements the glowing collectibles, not an owner decision. The theme affects visual surroundings and interface styling, not scoring, character identity or ball appearance. Arena illustrations in these previews are not finalized layouts or fixed spawn locations; rare-ball placement remains random among eligible positions. Choosing a theme will not by itself authorize gameplay implementation or publication.
 
 ## Locked golden rare-ball appearance
 
@@ -161,7 +183,7 @@ Custom art can ship with the game and render on players' devices. Under 1 MB for
 
 ## Next steps when discussion resumes
 
-1. Continue discussion: open arena versus maze and the exact rare-to-normal size ratio are still undecided. Keep the locked characters, D Cyan Spark normal ball, approved golden glass rare ball and their one-/two-point values. Ask only about unresolved choices, one decision at a time.
+1. Continue discussion by choosing a visual theme while preserving the required front-page Rules section. Open arena versus maze and the exact rare-to-normal size ratio are still undecided. Keep the locked characters, D Cyan Spark normal ball, approved golden glass rare ball and their one-/two-point values. Ask only about unresolved choices, one decision at a time.
 2. Resolve rival bumping, ties, custom-time bounds, hazard consequences, bot settings and rare-ball edge cases into a short final specification.
 3. Check real-time networking and included-hosting feasibility before presenting a concrete build plan. Keep the zero-additional-spend constraint.
 4. Build only after the owner asks to proceed. Preserve the existing repo and Site ID; do not create a replacement Site or discard the current working game.
