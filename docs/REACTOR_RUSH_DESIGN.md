@@ -1,6 +1,6 @@
 # Reactor Rush: design checkpoint
 
-Recorded September 30 to October 1, 2026, through the owner's 12:28 IST requirement for front-page rules and request for theme options.
+Recorded September 30 to October 1, 2026, through the owner's 12:36 IST feedback that Neon Station's colours were too punchy and the resulting muted palette options.
 
 ## Current stage
 
@@ -73,7 +73,20 @@ Four front-page previews were shown together, each using the same main play cont
 | 3 | Jungle Reactor | A research station within lush vegetation, using forest green, teal, stone, metal and warm cream text. |
 | 4 | Solar Outpost | A space outpost under a coral sunset, with terracotta surroundings, copper details and contrasting indigo play surfaces. |
 
-No theme is selected. Neon Station is the assistant's recommendation because it complements the glowing collectibles, not an owner decision. The theme affects visual surroundings and interface styling, not scoring, character identity or ball appearance. Arena illustrations in these previews are not finalized layouts or fixed spawn locations; rare-ball placement remains random among eligible positions. Choosing a theme will not by itself authorize gameplay implementation or publication.
+No theme is selected. Neon Station was initially recommended by the assistant, but the owner found its colour combination too punchy at 12:36 IST and requested more options. Do not treat the original vivid palette as approved. The theme affects visual surroundings and interface styling, not scoring, character identity or ball appearance. Arena illustrations in these previews are not finalized layouts or fixed spawn locations; rare-ball placement remains random among eligible positions. Choosing a theme will not by itself authorize gameplay implementation or publication.
+
+### Calmer station palettes offered at 12:36 IST
+
+The second theme board reduces competing colours, bright bloom and decorative neon. It uses one main accent for the primary action, quieter secondary controls and a visible Rules section. Preserve the selected characters' original outfits and the distinct blue normal and golden rare balls rather than recolouring those assets to match the interface.
+
+| Option | Palette | Visual direction |
+| --- | --- | --- |
+| 5 | Midnight Teal | Dark blue-grey and slate with soft teal accents and pale text. |
+| 6 | Graphite Amber | Warm charcoal and graphite with restrained amber details and cream text. |
+| 7 | Pearl Blue | Pearl-grey and white surfaces, dusty steel-blue accents and dark readable text. |
+| 8 | Muted Lavender | Slate and grey-indigo surfaces with pale lavender accents and off-white text. |
+
+None of options 5–8 has been selected. The owner's confirmed preference is a less punchy colour combination; exact colours and final theme remain open. The concept previews preserve the visible front-page Rules section. They do not change the locked characters, selected balls, game mechanics or discussion-only implementation scope.
 
 ## Locked golden rare-ball appearance
 
