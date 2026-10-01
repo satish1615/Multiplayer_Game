@@ -1,6 +1,6 @@
 # Reactor Rush: design checkpoint
 
-Recorded September 30 to October 1, 2026, through the owner's 12:42 IST selection of option 2, Sky Lab, as the visual theme.
+Recorded September 30 to October 1, 2026, through the owner's 12:50 IST approval of "Deposit energy" as the clearer rules label.
 
 ## Current stage
 
@@ -60,7 +60,7 @@ At 12:28 IST on October 1, the owner requested a rules section on the front page
 
 The full rules should explain the agreed controls and game loop in plain language: move, collect balls and return to your own reactor to deposit them. Explain blue normal balls = one energy on deposit, golden rare balls = two, at most three balls carried and at most one rare ball. Include the example that two blue balls plus one gold ball use three slots and bank four energy. Show keyboard and touch controls, explain match duration and the final win condition once settled, and clearly identify solo opponents as bots. Account for depositing fewer than three balls. Do not present unapproved dash attacks, hazard penalties, tie resolution or other unresolved choices as final rules.
 
-The theme previews use the sample rule headings "Collect energy", "Return to your reactor" and "Bank points" to show placement. These headings are a visual concept, not the complete playable rulebook. No Reactor Rush front page or rules implementation has been built or published yet.
+The approved quick-guide headings are **"Collect energy"**, **"Return to your reactor"** and **"Deposit energy"**. At 12:49 IST on October 1 the owner asked what "Bank points" meant, then approved the clearer "Deposit energy" label at 12:50 IST. Explain depositing as returning collected balls to the player's reactor to add their energy value to the score; two blue balls plus one golden ball add four points when deposited. The saved theme previews still show the older "Bank points" heading, which is superseded by this approved wording. These headings show placement and are not the complete playable rulebook. No Reactor Rush front page or rules implementation has been built or published yet.
 
 ## Locked visual theme: 2, Sky Lab
 
