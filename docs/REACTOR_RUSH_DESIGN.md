@@ -1,6 +1,6 @@
 # Reactor Rush: design checkpoint
 
-Recorded September 30 to October 1, 2026, through the owner's 12:36 IST feedback that Neon Station's colours were too punchy and the resulting muted palette options.
+Recorded September 30 to October 1, 2026, through the owner's 12:42 IST selection of option 2, Sky Lab, as the visual theme.
 
 ## Current stage
 
@@ -62,7 +62,15 @@ The full rules should explain the agreed controls and game loop in plain languag
 
 The theme previews use the sample rule headings "Collect energy", "Return to your reactor" and "Bank points" to show placement. These headings are a visual concept, not the complete playable rulebook. No Reactor Rush front page or rules implementation has been built or published yet.
 
-## Visual theme options, awaiting selection
+## Locked visual theme: 2, Sky Lab
+
+![Original theme board; option 2 Sky Lab in the top-right is selected](concepts/reactor-rush-theme-selection.png)
+
+At 12:42 IST on October 1, the owner selected **"2. Sky Lab"**. Use the top-right concept in this original board as the approved visual direction: a bright futuristic laboratory above clouds, white and sky-blue surfaces, soft periwinkle accents, rounded structures and readable contrasting play surfaces. Keep the visible Rules section below the play buttons. The owner previously found Neon Station's colours too punchy; do not reintroduce its vivid purple/cyan/pink combination. Do not confuse this selection with option 7 Pearl Blue from the later palette board.
+
+The comparison board is preserved unchanged as the exact selection reference. Only option 2 is selected; the other panels are alternatives. The six character identities, D Cyan Spark normal ball and golden glass rare ball remain separately locked. This is concept art, not a built front page or approved map blueprint. It does not settle exact map geometry, paths, hazards or spawn positions, and does not authorize gameplay implementation or publication.
+
+### Theme exploration history
 
 Four front-page previews were shown together, each using the same main play controls and a visible Rules section. Iris and Comet serve as representative mascots; all six approved characters remain in the roster with unchanged identities and outfits. The approved D Cyan Spark normal ball and golden glass rare ball remain the asset references.
 
@@ -73,7 +81,7 @@ Four front-page previews were shown together, each using the same main play cont
 | 3 | Jungle Reactor | A research station within lush vegetation, using forest green, teal, stone, metal and warm cream text. |
 | 4 | Solar Outpost | A space outpost under a coral sunset, with terracotta surroundings, copper details and contrasting indigo play surfaces. |
 
-No theme is selected. Neon Station was initially recommended by the assistant, but the owner found its colour combination too punchy at 12:36 IST and requested more options. Do not treat the original vivid palette as approved. The theme affects visual surroundings and interface styling, not scoring, character identity or ball appearance. Arena illustrations in these previews are not finalized layouts or fixed spawn locations; rare-ball placement remains random among eligible positions. Choosing a theme will not by itself authorize gameplay implementation or publication.
+Sky Lab is selected. Neon Station was initially recommended by the assistant, but the owner found its colour combination too punchy at 12:36 IST and requested more options before choosing Sky Lab at 12:42 IST. The original vivid Neon Station palette is unapproved. The theme affects visual surroundings and interface styling, not scoring, character identity or ball appearance. Arena illustrations in these previews are not finalized layouts or fixed spawn locations; rare-ball placement remains random among eligible positions.
 
 ### Calmer station palettes offered at 12:36 IST
 
@@ -86,7 +94,7 @@ The second theme board reduces competing colours, bright bloom and decorative ne
 | 7 | Pearl Blue | Pearl-grey and white surfaces, dusty steel-blue accents and dark readable text. |
 | 8 | Muted Lavender | Slate and grey-indigo surfaces with pale lavender accents and off-white text. |
 
-None of options 5–8 has been selected. The owner's confirmed preference is a less punchy colour combination; exact colours and final theme remain open. The concept previews preserve the visible front-page Rules section. They do not change the locked characters, selected balls, game mechanics or discussion-only implementation scope.
+None of options 5–8 was selected. The owner chose option 2 Sky Lab from the original board. Keep the feedback against punchy colours without substituting a later palette for the selected Sky Lab reference. These exploration previews do not change the locked characters, selected balls, game mechanics or discussion-only implementation scope.
 
 ## Locked golden rare-ball appearance
 
@@ -196,7 +204,7 @@ Custom art can ship with the game and render on players' devices. Under 1 MB for
 
 ## Next steps when discussion resumes
 
-1. Continue discussion by choosing a visual theme while preserving the required front-page Rules section. Open arena versus maze and the exact rare-to-normal size ratio are still undecided. Keep the locked characters, D Cyan Spark normal ball, approved golden glass rare ball and their one-/two-point values. Ask only about unresolved choices, one decision at a time.
+1. Continue map discussion within the locked Sky Lab theme and preserve the required front-page Rules section. Open arena versus maze and the exact rare-to-normal size ratio are still undecided. Keep the locked characters, D Cyan Spark normal ball, approved golden glass rare ball and their one-/two-point values. Do not reopen these art choices unless the owner asks for changes. Ask only about unresolved choices, one decision at a time.
 2. Resolve rival bumping, ties, custom-time bounds, hazard consequences, bot settings and rare-ball edge cases into a short final specification.
 3. Check real-time networking and included-hosting feasibility before presenting a concrete build plan. Keep the zero-additional-spend constraint.
 4. Build only after the owner asks to proceed. Preserve the existing repo and Site ID; do not create a replacement Site or discard the current working game.
