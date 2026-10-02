@@ -1,6 +1,6 @@
 # Project Status
 
-Updated: October 1, 2026 (Asia/Kolkata).
+Updated: October 2, 2026 (Asia/Kolkata).
 
 ## Reactor Rush implementation is authorized and in progress
 
@@ -11,14 +11,16 @@ At 12:52 IST the owner said **"now start"**. This supersedes every older discuss
 - Opened existing Site through its managed source workflow. Current public release is still Split Signal version 2; Reactor Rush has NOT been deployed yet.
 - Added first server-owned Reactor Rush simulation: movement, walls, dash cooldown, 3-slot carrying, automatic deposits at own reactor, normal respawns, random rare ball, warning lasers, bots, shared timer, ties, rematch, and host takeover.
 - Added authenticated create/join/sync API using existing D1 rooms/members tables with version compare-and-swap. Browser cannot set position, score, inventory or deadlines. Old and new room types are isolated.
-- First TypeScript check passed before minor throttle/isolation/arena-boundary repairs; recheck those with the UI build.
-- Generated production character and orb atlases and Sky Lab arena artwork. Asset integration and visual verification remain in progress.
+- Implemented the complete first UI: start screen, six-character selector, room creation/joining, lobby, 60/90/custom timer, bots, readiness, game canvas, keyboard/touch controls, cargo, leaderboard, finish/replay, reconnect, and front-page Rules using **Deposit energy**.
+- Integrated all three generated production assets in public/reactor/. Character and energy sprites have true transparency; the arena is opaque. Total artwork is approximately 6.1 MiB, not a sub-1-MB asset bundle.
+- TypeScript passed after the UI patch. `node tests/reactor-rules.mjs` passed 36 rule checks including complete 2/3/6-participant bot simulations. This is simulated rule validation, not independent multiplayer API/browser proof.
+- Opened the supervised preview and visually inspected the actual start screen. Room joining, actual movement/scoring and phone behavior still need browser verification.
 
 ### In progress and exact next actions
 
-1. Build the client, lobby, character selector, arena renderer, keyboard/touch controls, reconnect handling and visible front-page Rules. Use **Deposit energy** wording.
-2. Integrate production assets; save source plus this status to GitHub before lengthy testing.
-3. Type-check, build the Worker, test authoritative rules and 2/3/6 independent clients including concurrent updates. Test actual browser sessions and phone layout. The HTTP/D1 architecture's movement responsiveness is still unverified; do not claim it works until measured.
+1. This WIP checkpoint saves all client/server code, production artwork and progress before further testing.
+2. Inspect room creation, lobby and gameplay in the supervised preview; resolve any runtime/control issue.
+3. Build the Worker and test 2/3/6 independent clients, concurrent updates, permissions, actual scoring and input timeout. Test separate browser seats and phone layout. Multiplayer responsiveness remains unverified until these checks pass. Review inactive lobby seats so a disconnected player cannot block a room forever.
 4. Fix observed issues, publish on the SAME Site, confirm native deployment status, update GitHub with exact source and results.
 5. Owner checks signed-out production gameplay in normal/incognito and separate devices. Do not submit the contest entry.
 

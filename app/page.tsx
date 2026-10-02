@@ -1,2 +1,2 @@
-import Game from "./game";
-export default function Page() { return <Game />; }
+import ReactorRush from "./reactor-rush";
+export default function Page() { return <ReactorRush />; }
