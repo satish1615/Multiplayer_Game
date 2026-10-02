@@ -9,6 +9,7 @@ export const actionSchema = z.discriminatedUnion('type', [
   z.object({ type: z.literal('character'), requestId: z.string().uuid(), character: characterSchema }).strict(),
   z.object({ type: z.literal('duration'), requestId: z.string().uuid(), value: z.number().int().min(30).max(600) }).strict(),
   z.object({ type: z.literal('bots'), requestId: z.string().uuid(), value: z.number().int().min(0).max(5) }).strict(),
+  z.object({ type: z.literal('remove'), requestId: z.string().uuid(), targetId: z.string().min(1).max(100) }).strict(),
   ...(['start', 'rematch', 'leave'] as const).map(type => z.object({ type: z.literal(type), requestId: z.string().uuid() }).strict()),
 ]);
 export function failure(error: unknown) {

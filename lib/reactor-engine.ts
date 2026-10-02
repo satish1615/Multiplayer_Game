@@ -31,9 +31,9 @@ export type Room = {
   eventId: number; events: { id: number; at: number; playerId: string; kind: 'deposit' | 'drop' | 'rare'; value: number }[];
 };
 export type Action = {
-  type: 'input' | 'ready' | 'character' | 'duration' | 'bots' | 'start' | 'rematch' | 'leave';
+  type: 'input' | 'ready' | 'character' | 'duration' | 'bots' | 'start' | 'rematch' | 'leave' | 'remove';
   requestId?: string; x?: number; y?: number; seq?: number; dash?: number;
-  value?: number; character?: Character; ready?: boolean;
+  value?: number; character?: Character; ready?: boolean; targetId?: string;
 };
 export class ReactorError extends Error { constructor(message: string, public status = 400) { super(message); } }
 export const distance = (a: Point, b: Point) => Math.hypot(a.x - b.x, a.y - b.y);
@@ -222,6 +222,12 @@ export function apply(r: Room, id: string, action: Action, now: number) {
     else {
       if (id !== r.hostId) throw new ReactorError('Only the host can change this setting.', 403);
       if (action.type === 'duration') { r.duration = action.value!; r.players.forEach(other => { if (!other.isBot) other.ready = false; }); }
+      if (action.type === 'remove') {
+        const target = r.players.find(other => other.id === action.targetId);
+        if (!target || target.isBot || target.id === id || now - target.lastSeen < 15000)
+          throw new ReactorError('Only a player offline for 15 seconds can be removed.');
+        r.players = r.players.filter(other => other.id !== target.id); placeHomes(r);
+      }
       if (action.type === 'bots') setBots(r, action.value!, now);
       if (action.type === 'start') {
         if (r.players.length < 2) throw new ReactorError('Invite another player or add a bot.');

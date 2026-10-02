@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { readGameResponse } from './client-response';
+import { requestId } from './request-id';
 import type { Action, Character, Seat, Snapshot } from './reactor-engine';
 
 export type Controls = { x: number; y: number; dash: number; dashUntil: number; changedAt: number };
@@ -22,6 +23,7 @@ export function useReactor() {
   const [loaded, setLoaded] = useState(false);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState('');
+  const [seatLost, setSeatLost] = useState(false);
   const [connection, setConnection] = useState<'connecting' | 'online' | 'reconnecting'>('connecting');
   const [latency, setLatency] = useState(0);
   const latest = useRef<Snapshot | null>(null);
@@ -42,11 +44,11 @@ export function useReactor() {
     }
     seq.current = Math.max(seq.current, (me?.input.seq ?? -1) + 1);
     controls.current.dash = Math.max(controls.current.dash, me?.input.dash || 0);
-    latest.current = next; setRoom(next); setConnection('online'); setLatency(now - sent);
+    setSeatLost(false); latest.current = next; setRoom(next); setConnection('online'); setLatency(now - sent);
   }
   function forget() {
     try { sessionStorage.removeItem(KEY); } catch { /* session still works in memory */ }
-    latest.current = null; queue.current = []; setSeat(null); setRoom(null); setBusy(false); setError('');
+    latest.current = null; queue.current = []; setSeat(null); setRoom(null); setBusy(false); setError(''); setSeatLost(false);
     controls.current.x = 0; controls.current.y = 0;
   }
   useEffect(() => {
@@ -80,6 +82,7 @@ export function useReactor() {
         if (!command) setError(previous => previous.startsWith('Connection:') ? '' : previous);
       } catch (e) {
         if (cancelled) return;
+        if (e instanceof ApiError && [401, 404].includes(e.status)) setSeatLost(true);
         if (command) setError(e instanceof Error ? e.message : 'Could not apply that action. Try again.');
         else {
           failures++; setConnection('reconnecting');
@@ -120,7 +123,8 @@ export function useReactor() {
   }
   function action(value: Action) {
     if (!seat || queue.current.length > 3) return;
-    setBusy(true); setError(''); queue.current.push({ ...value, requestId: crypto.randomUUID() }); wake.current();
+    const id = requestId();
+    setBusy(true); setError(''); queue.current.push({ ...value, requestId: id }); wake.current();
   }
   function direction(x: number, y: number) {
     const d = Math.max(1, Math.hypot(x, y)); x /= d; y /= d;
@@ -133,5 +137,5 @@ export function useReactor() {
     if (r?.phase !== 'playing' || !p || now < p.cooldownUntil || Date.now() < controls.current.dashUntil || Math.hypot(controls.current.x, controls.current.y) < .1) return;
     controls.current.dash++; controls.current.dashUntil = Date.now() + 180; wake.current();
   }
-  return { seat, room, loaded, busy, error, setError, connection, latency, latest, offset, received, controls, enter, action, forget, direction, dash };
+  return { seat, room, loaded, busy, error, setError, seatLost, connection, latency, latest, offset, received, controls, enter, action, forget, direction, dash };
 }

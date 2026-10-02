@@ -1,3 +1,26 @@
+# Current resume checkpoint
+
+Updated: October 3, 2026 (Asia/Kolkata).
+
+Reactor Rush is implemented but NOT published. The public Site is still Split Signal v2. Building, testing, publishing, and GitHub checkpoints remain authorized. Keep INR 0 additional spend and the same Site/URL.
+
+Latest work:
+- Restored the game from the prior durable GitHub/source checkpoint after the working directory was lost. New active checkout: `/workspace/scratch/a9c9e0935281/reactor-rush-work`.
+- Reapplied secure UUID fallback for HTTP preview, recovery UI for expired/removed seats, and host removal of lobby players offline for 15 seconds. Removal is server-validated; online players cannot be removed.
+- TypeScript passed and all 36 rule checks passed again.
+- Previous actual Worker/D1 run passed 73 assertions plus HTTP validation with 2/3/6 independent players. Added offline-removal coverage; rebuild and rerun are pending.
+- Browser now confirms Solo creates two bots and changing 90 to 60 seconds succeeds, clearing human readiness correctly. Further gameplay, reconnect, phone layout and replay QA are pending.
+- Automatic approval service rejected the previous opening attempt due to its usage limit. The resumed opening and internal preview succeeded; the blocker is cleared.
+
+Next: finish browser QA, update README/playtest, final build plus integration test, publish this SAME Site, record verified deployment and source. Never reapply initial D1 migration to existing DB. No contest submission is authorized.
+
+Current Site: `appgprj_6abbb87ccbac81919d299c5a9403c352`
+URL: https://split-signal-satish.satishofficial016.chatgpt.site
+Managed live source: `abd0d0deee3989f9fb5e743f95a4eaeb355338e5`
+GitHub base before this checkpoint: `10714624150aeda7344365536dc2e07c424c2b14`
+
+---
+
 # Project Status
 
 Updated: October 2, 2026 (Asia/Kolkata).
