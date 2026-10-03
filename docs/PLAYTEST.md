@@ -1,6 +1,6 @@
 # Reactor Rush validation
 
-Updated October 3, 2026 (Asia/Kolkata). Publication pending.
+Updated October 3, 2026 (Asia/Kolkata). Version 3 publication succeeded at 13:21:44 UTC (18:51:44 IST).
 
 ## Completed
 
@@ -11,9 +11,15 @@ Updated October 3, 2026 (Asia/Kolkata). Publication pending.
 - Fixed browser-discovered HTTP crypto.randomUUID compatibility issue. Added secure random UUID fallback. Fixed mobile scroll position when entering a round. Removed temporary phone QA route.
 - Actual screenshot: [gameplay](screenshots/reactor-rush-gameplay.jpg).
 
-## Final validation pending
+## Final validated release
 
-Rebuild and run `node tests/reactor-integration.mjs` after adding offline-player removal. Then publish the exact validated build and record deployment status. The new checks reject removing online players and non-host removal, and invalidate removed seat access.
+- TypeScript and the production Worker build passed.
+- `node tests/reactor-integration.mjs`: **74 assertions plus HTTP validation checks passed** for 2/3/6 independent players. Includes offline-player removal, rejection of online/non-host removal, and removed-seat access invalidation.
+- Concurrent update conflicts: **0**. Local request median **3 ms**, p95 **14 ms**; these are local measurements only.
+- Deployed managed source: `4c96ec1eb37249bb3fe52f9aef9c558890cfc9b9`.
+- Public version **3**, successful deployment `appgdep_6ac1015255708191a443189708d4636d`.
+- Game: https://split-signal-satish.satishofficial016.chatgpt.site
+- No schema migration, paid API or added paid service was required.
 
 ## Owner's live playtest
 

@@ -4,7 +4,7 @@ A multiplayer energy race by Satish Singh. Choose a character, collect glowing e
 
 **Game URL:** https://split-signal-satish.satishofficial016.chatgpt.site
 
-Reactor Rush publication is pending. See [PROJECT_STATUS.md](PROJECT_STATUS.md) for the verified release state and the exact next step after an interruption.
+**Reactor Rush version 3 is live.** Publication succeeded on October 3, 2026. See [PROJECT_STATUS.md](PROJECT_STATUS.md) for the exact release and recovery information. Final checks passed: TypeScript, production build, 36 engine checks and 74 Worker/API assertions plus HTTP validation. Signed-out production and physical-device play still need the owner’s check.
 
 ![Reactor Rush during an actual browser playtest](docs/screenshots/reactor-rush-gameplay.jpg)
 

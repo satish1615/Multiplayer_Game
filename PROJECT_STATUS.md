@@ -4,7 +4,7 @@ Updated: October 3, 2026 (Asia/Kolkata).
 
 ## Current state
 
-The Reactor Rush implementation and browser playtest are complete enough for final build validation. Publication is pending; the public URL still serves Split Signal v2. Building, publishing and GitHub checkpoints are authorized. Do not restart design or ask to publish again.
+**Reactor Rush version 3 is publicly deployed.** Sites returned `succeeded` on October 3, 2026 at 13:21:44 UTC (18:51:44 IST). The existing URL now serves the Reactor Rush build. Building, publishing and GitHub checkpoints are authorized. Do not restart design or ask to publish again.
 
 ## Locked requirements
 
@@ -20,19 +20,25 @@ Full create/join/lobby/match/results/replay UI and authoritative game engine. Th
 
 Browser checks: two independent human seats plus two bots joined, changed timer, readied and started; same match appeared on desktop and a 390×844 phone frame. Bots moved and deposited; guest joystick moved and collected energy; released knob returned to centre. Refresh recovered the same host seat. Rules opened and closed during play. Fixed HTTP UUID compatibility and scrolling to the top on phase transitions. The temporary phone test page has been removed. Actual gameplay screenshot: docs/screenshots/reactor-rush-gameplay.jpg.
 
-Validation already passed: TypeScript; 36 engine checks; an earlier production Worker/D1 run with 73 assertions plus HTTP validations for 2/3/6 independent players. Latest offline-player removal coverage requires the final rebuild/test below. Results/replay are API-tested; browser results/replay and physical-device production play remain manual checks.
+Validation already passed: TypeScript; 36 engine checks; an earlier production Worker/D1 run with 73 assertions plus HTTP validations for 2/3/6 independent players. Final build and TypeScript passed. Final Worker/D1 suite passed **74 assertions plus HTTP validation**, including offline-player removal; 2/3/6 independent players, 0 concurrent conflicts, local median 3 ms and p95 14 ms. Results/replay are API-tested; browser results/replay and physical-device production play remain manual checks.
 
-## Exact next actions
+## Next work
 
-1. Run final TypeScript, build and tests/reactor-integration.mjs (includes offline removal). No schema changes. NEVER reapply the initial migration to existing D1.
-2. Use the opened Site source result, package and publish the exact built source with Sites; verify terminal deployment success.
-3. Update this status, README and docs/PLAYTEST.md with actual final results and release IDs; sync GitHub and verify main.
-4. Stop only this Site's preview. Ask owner to play in normal/incognito and on a second physical device outside ChatGPT.
+Owner playtests the live URL in normal/incognito and on a second physical device, outside ChatGPT. Check movement, deposits, Dash, winner screen and Play again. Record precise bugs and make small fixes. No further automated tests are needed without a new change or observed issue. Prepare challenge submission materials after owner feedback; do not submit on their behalf.
 
-Active checkout: `/workspace/scratch/a9c9e0935281/reactor-rush-work`.
-Managed source base/live v2: `abd0d0deee3989f9fb5e743f95a4eaeb355338e5`.
-GitHub checkpoint before this update: `7a96592127b3d1614af3b4444f086cb2ff04b34a`.
-Artwork is already durably stored on GitHub; do not regenerate it.
+## Verified release and recovery
+
+- Live URL: https://split-signal-satish.satishofficial016.chatgpt.site
+- Site: `appgprj_6abbb87ccbac81919d299c5a9403c352`
+- Version: **3**, `appgprj_6abbb87ccbac81919d299c5a9403c352~appgver_1a499e42a2648191b0a76226c453218f`
+- Successful deployment: `appgdep_6ac1015255708191a443189708d4636d`
+- Exact deployed managed source: `4c96ec1eb37249bb3fe52f9aef9c558890cfc9b9`
+- Archive: `/workspace/scratch/a9c9e0935281/reactor-rush-deployment.tar.gz`
+- Archive hash: `sha256:8b58e1aaa9d67e74e060b7808b66f3aad25726d5a623959c817675883474538d`
+- Active checkout: `/workspace/scratch/a9c9e0935281/reactor-rush-work`
+- GitHub pre-publication checkpoint: `4b71328648d842cb280b63f0b880d1497cbfc89d`
+
+This final release-note update changes documentation only. Runtime source matches the deployed commit. Recover code/artwork from GitHub if scratch is lost. Read this file first; preserve source, Site, URL, budget and character decisions. NEVER reapply the initial migration to existing D1. No schema migration was needed for this release.
 
 ## Known limits
 
