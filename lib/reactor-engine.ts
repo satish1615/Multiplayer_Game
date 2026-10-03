@@ -9,6 +9,9 @@ export const CHARACTERS = [
 ] as const;
 export type Character = typeof CHARACTERS[number]['id'];
 export const WORLD = { width: 960, height: 600, radius: 17, speed: 165, dashSpeed: 460, dashMs: 180, cooldown: 3000, carry: 3 };
+// Cross-region room requests can take 600–1200ms. A valid held direction must
+// survive that interval, while disconnected players still stop after 2s.
+export const INPUT_LEASE_MS = 2000;
 export const WALLS = [
   { x: 285, y: 170, w: 96, h: 34 }, { x: 579, y: 170, w: 96, h: 34 },
   { x: 285, y: 396, w: 96, h: 34 }, { x: 579, y: 396, w: 96, h: 34 },
@@ -130,7 +133,7 @@ function botInput(r: Room, p: Runner, now: number) {
 function step(r: Room, now: number, dt: number) {
   for (const p of r.players) {
     if (p.isBot) botInput(r, p, now);
-    const active = p.isBot || now - p.input.at < 700;
+    const active = p.isBot || now - p.input.at < INPUT_LEASE_MS;
     const speed = now < p.dashUntil ? WORLD.dashSpeed : WORLD.speed;
     p.vx = active ? p.input.x * speed : 0; p.vy = active ? p.input.y * speed : 0;
     if (p.vx) p.facing = p.vx < 0 ? -1 : 1;
@@ -170,11 +173,11 @@ export function advance(r: Room, now: number) {
   if (r.phase === 'countdown' && now >= r.startedAt) { r.phase = 'playing'; r.simAt = r.startedAt; }
   if (r.phase === 'countdown') return;
   const end = Math.min(now, r.endsAt);
-  // Inputs stop after 700ms without a heartbeat. Long abandoned matches finish
+  // Inputs stop after their bounded lease. Long abandoned matches finish
   // without simulating an unlimited backlog; nobody can gain offline points.
-  if (end - r.simAt > 1600) {
-    r.simAt = end - 1600;
-    for (const p of r.players) { p.input.at = Math.min(p.input.at, r.simAt - 701); p.dashUntil = 0; }
+  if (end - r.simAt > INPUT_LEASE_MS + 500) {
+    r.simAt = end - INPUT_LEASE_MS - 500;
+    for (const p of r.players) { p.input.at = Math.min(p.input.at, r.simAt - INPUT_LEASE_MS - 1); p.dashUntil = 0; }
   }
   while (r.simAt < end) {
     const next = Math.min(r.simAt + 25, end);

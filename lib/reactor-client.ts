@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { readGameResponse } from './client-response';
 import { requestId } from './request-id';
+import { LocalMotion, syncDelay } from './reactor-motion';
 import type { Action, Character, Seat, Snapshot } from './reactor-engine';
 
 export type Controls = { x: number; y: number; dash: number; dashUntil: number; changedAt: number };
@@ -30,6 +31,7 @@ export function useReactor() {
   const offset = useRef(0);
   const received = useRef(0);
   const controls = useRef<Controls>({ x: 0, y: 0, dash: 0, dashUntil: 0, changedAt: 0 });
+  const motion = useRef(new LocalMotion());
   const seq = useRef(0), round = useRef(-1), queue = useRef<Action[]>([]);
   const wake = useRef(() => {});
 
@@ -44,12 +46,13 @@ export function useReactor() {
     }
     seq.current = Math.max(seq.current, (me?.input.seq ?? -1) + 1);
     controls.current.dash = Math.max(controls.current.dash, me?.input.dash || 0);
+    motion.current.accept(next, sent, now);
     setSeatLost(false); latest.current = next; setRoom(next); setConnection('online'); setLatency(now - sent);
   }
   function forget() {
     try { sessionStorage.removeItem(KEY); } catch { /* session still works in memory */ }
     latest.current = null; queue.current = []; setSeat(null); setRoom(null); setBusy(false); setError(''); setSeatLost(false);
-    controls.current.x = 0; controls.current.y = 0;
+    controls.current.x = 0; controls.current.y = 0; motion.current = new LocalMotion();
   }
   useEffect(() => {
     try {
@@ -60,16 +63,18 @@ export function useReactor() {
   }, []);
   useEffect(() => {
     if (!seat) return;
-    let cancelled = false, inFlight = false, timer: ReturnType<typeof setTimeout>, failures = 0, dueAt = 0;
+    let cancelled = false, inFlight = false, timer: ReturnType<typeof setTimeout>, failures = 0, dueAt = 0, lastSent = 0, urgent = false;
     const tick = async () => {
       if (cancelled || inFlight) return;
       inFlight = true;
       const sent = Date.now(), state = latest.current, command = queue.current.shift();
+      lastSent = sent; urgent = false;
       const playing = state?.phase === 'playing' || state?.phase === 'countdown';
       const action = command || (playing ? {
         type: 'input', x: document.hidden ? 0 : controls.current.x, y: document.hidden ? 0 : controls.current.y,
         seq: seq.current++, dash: controls.current.dash,
       } : undefined);
+      if (action?.type === 'input') motion.current.sending(action.seq!, sent);
       try {
         const result = await request<Snapshot & { left?: boolean }>(`/api/reactor/${seat.code}`, {
           method: action ? 'POST' : 'GET',
@@ -94,14 +99,18 @@ export function useReactor() {
         if (!cancelled) {
           const active = latest.current?.phase === 'playing' || latest.current?.phase === 'countdown';
           const interval = failures ? Math.min(3000, 600 * failures) : document.hidden ? 1500 : active ? 200 : 1000;
-          const delay = queue.current.length ? 80 : Math.max(80, interval - (Date.now() - sent));
+          const delay = syncDelay(Date.now() - sent, interval, !failures && (urgent || queue.current.length > 0));
           dueAt = Date.now() + delay; timer = setTimeout(tick, delay);
         }
       }
     };
-    wake.current = () => { if (!inFlight && Date.now() + 80 < dueAt) { clearTimeout(timer); dueAt = Date.now() + 80; timer = setTimeout(tick, 80); } };
+    wake.current = () => {
+      urgent = true;
+      const delay = syncDelay(Date.now() - lastSent, 80, true);
+      if (!inFlight && Date.now() + delay < dueAt) { clearTimeout(timer); dueAt = Date.now() + delay; timer = setTimeout(tick, delay); }
+    };
     tick();
-    const resume = () => { controls.current.x = 0; controls.current.y = 0; wake.current(); };
+    const resume = () => { direction(0, 0); wake.current(); };
     window.addEventListener('blur', resume); document.addEventListener('visibilitychange', resume);
     return () => { cancelled = true; clearTimeout(timer); wake.current = () => {}; window.removeEventListener('blur', resume); document.removeEventListener('visibilitychange', resume); };
   // A seat owns one sequential request loop. Snapshot changes do not restart it.
@@ -117,7 +126,7 @@ export function useReactor() {
         body: JSON.stringify(mode === 'join' ? { name, character, code } : { name, character, solo: mode === 'solo' }),
       });
       try { sessionStorage.setItem(KEY, JSON.stringify(result.session)); } catch { /* memory only */ }
-      latest.current = null; accept(result.room, sent); setSeat(result.session);
+      latest.current = null; motion.current = new LocalMotion(); accept(result.room, sent); setSeat(result.session);
     } catch (e) { setError(e instanceof Error ? e.message : 'Could not enter the room.'); }
     finally { setBusy(false); }
   }
@@ -128,14 +137,15 @@ export function useReactor() {
   }
   function direction(x: number, y: number) {
     const d = Math.max(1, Math.hypot(x, y)); x /= d; y /= d;
-    const changed = Math.abs(controls.current.x - x) + Math.abs(controls.current.y - y) > .08;
+    const changed = Math.abs(controls.current.x - x) + Math.abs(controls.current.y - y) > .001;
     controls.current.x = x; controls.current.y = y;
-    if (changed) { controls.current.changedAt = Date.now(); wake.current(); }
+    if (changed) { controls.current.changedAt = Date.now(); motion.current.record(controls.current, controls.current.changedAt); wake.current(); }
   }
   function dash() {
     const r = latest.current, p = r?.players.find(p => p.id === r.me), now = Date.now() + offset.current;
     if (r?.phase !== 'playing' || !p || now < p.cooldownUntil || Date.now() < controls.current.dashUntil || Math.hypot(controls.current.x, controls.current.y) < .1) return;
-    controls.current.dash++; controls.current.dashUntil = Date.now() + 180; wake.current();
+    controls.current.dash++; controls.current.dashUntil = Date.now() + 180;
+    motion.current.record(controls.current, Date.now()); wake.current();
   }
-  return { seat, room, loaded, busy, error, setError, seatLost, connection, latency, latest, offset, received, controls, enter, action, forget, direction, dash };
+  return { seat, room, loaded, busy, error, setError, seatLost, connection, latency, latest, offset, received, controls, motion, enter, action, forget, direction, dash };
 }

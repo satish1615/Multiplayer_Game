@@ -1,13 +1,14 @@
 'use client';
 
 import { useEffect, useRef, type RefObject } from 'react';
-import { CHARACTERS, LASERS, WALLS, WORLD, laserState, move, type Snapshot, type Point } from '@/lib/reactor-engine';
+import { CHARACTERS, INPUT_LEASE_MS, LASERS, WALLS, WORLD, laserState, move, type Snapshot, type Point } from '@/lib/reactor-engine';
+import type { LocalMotion } from '@/lib/reactor-motion';
 import type { Controls } from '@/lib/reactor-client';
 
 export const SEAT_COLORS = ['#5bc8ff', '#ffa974', '#c3a1ff', '#8ee1b2', '#ffd86e', '#ff9cc5'];
 type Props = {
   latest: RefObject<Snapshot | null>; offset: RefObject<number>; received: RefObject<number>;
-  controls: RefObject<Controls>; muted: boolean;
+  controls: RefObject<Controls>; motion: RefObject<LocalMotion>; muted: boolean;
 };
 const roundRect = (ctx: CanvasRenderingContext2D, x: number, y: number, w: number, h: number, radius: number) => { ctx.beginPath(); ctx.roundRect(x, y, w, h, radius); };
 function label(ctx: CanvasRenderingContext2D, text: string, x: number, y: number, color = '#fff', size = 13) {
@@ -15,15 +16,15 @@ function label(ctx: CanvasRenderingContext2D, text: string, x: number, y: number
   ctx.lineWidth = 4; ctx.strokeStyle = '#16334d'; ctx.strokeText(text, x, y); ctx.fillStyle = color; ctx.fillText(text, x, y);
 }
 
-export default function ReactorArena({ latest, offset, received, controls }: Props) {
+export default function ReactorArena({ latest, offset, received, controls, motion }: Props) {
   const canvas = useRef<HTMLCanvasElement>(null);
   useEffect(() => {
     const element = canvas.current!, ctx = element.getContext('2d'); if (!ctx) return;
     const art = new Image(), orbs = new Image(), crew = new Image();
     art.src = '/reactor/arena.png'; orbs.src = '/reactor/energy.png'; crew.src = '/reactor/characters.png';
     const positions = new Map<string, Point>();
-    let frame = 0, before = performance.now(), previousVersion = -1, previousRound = -1, width = 960, height = 600, dpr = 1;
-    let local: Point | null = null, correction = { x: 0, y: 0 }, camera = { x: 480, y: 300 };
+    let frame = 0, before = performance.now(), previousRound = -1, width = 960, height = 600, dpr = 1;
+    let camera = { x: 480, y: 300 };
     const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
     const resize = new ResizeObserver(entries => {
       width = entries[0].contentRect.width; height = entries[0].contentRect.height;
@@ -31,30 +32,14 @@ export default function ReactorArena({ latest, offset, received, controls }: Pro
     }); resize.observe(element);
     const draw = (now: number) => {
       frame = requestAnimationFrame(draw);
-      const dt = Math.min(.04, (now - before) / 1000); before = now;
+      const dt = Math.min(.25, (now - before) / 1000); before = now;
       const r = latest.current; if (!r || !width || !height) return;
       const time = Date.now() + offset.current, active = r.phase === 'playing' && time < r.endsAt;
       const me = r.players.find(p => p.id === r.me); if (!me) return;
-      const fresh = Date.now() - received.current < 900;
+      const fresh = Date.now() - received.current < INPUT_LEASE_MS;
       const age = Math.max(0, Math.min(220, time - r.simAt)) / 1000;
-      if (previousRound !== r.round || !local) { positions.clear(); local = { x: me.x, y: me.y }; previousRound = r.round; camera = { ...local }; }
-      if (previousVersion !== r.version) {
-        const target = { x: me.x, y: me.y };
-        if (active && time - me.input.at < 700) {
-          const speed = time < me.dashUntil ? WORLD.dashSpeed : WORLD.speed;
-          move(target, me.input.x * speed * age, me.input.y * speed * age);
-        }
-        correction = { x: target.x - local.x, y: target.y - local.y };
-        if (Math.hypot(correction.x, correction.y) > 140 || !active) { local = target; correction = { x: 0, y: 0 }; }
-        previousVersion = r.version;
-      }
-      if (active && fresh) {
-        const speed = Date.now() < controls.current.dashUntil ? WORLD.dashSpeed : WORLD.speed;
-        move(local, controls.current.x * speed * dt, controls.current.y * speed * dt);
-      }
-      const blend = Math.min(1, dt * 10);
-      local.x += correction.x * blend; local.y += correction.y * blend;
-      correction.x *= 1 - blend; correction.y *= 1 - blend;
+      const local = motion.current.frame(Date.now(), time);
+      if (previousRound !== r.round) { positions.clear(); previousRound = r.round; camera = { ...local }; }
       const compact = width < 650;
       const scale = compact ? Math.max(.7, Math.min(.95, height / 480)) : Math.min(width / WORLD.width, height / WORLD.height);
       const viewW = width / scale, viewH = height / scale;
@@ -153,6 +138,6 @@ export default function ReactorArena({ latest, offset, received, controls }: Pro
     };
     frame = requestAnimationFrame(draw);
     return () => { cancelAnimationFrame(frame); resize.disconnect(); };
-  }, [latest, offset, received, controls]);
+  }, [latest, offset, received, controls, motion]);
   return <canvas ref={canvas} className="rr-canvas" aria-label="Sky Lab arena. Move with WASD, arrow keys or the touch joystick. Collect energy and return to your labelled reactor." role="img" />;
 }
