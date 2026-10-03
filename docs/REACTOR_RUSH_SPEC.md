@@ -18,3 +18,5 @@ Approved build start: October 1, 2026, 12:52 IST. Locked design history: REACTOR
 ## Verification gates
 
 Worker/API independent clients and concurrent actions; no client score injection; carrying and deposit rules; cooldown; boundaries; laser drop; rare timing; expiry; disconnected input timeout; host takeover; match timer/ties; rematch; keyboard/touch; readable phone layout. Record actual evidence, not assumptions.
+
+Lobby recovery: host takeover after 15 seconds offline; host can remove a human lobby player offline for 15 seconds. Online players, bots and self-removal through that action are rejected. Removed/expired seats have a Return home recovery action.

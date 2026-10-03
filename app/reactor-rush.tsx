@@ -74,6 +74,10 @@ export default function ReactorRush() {
   const leaderboard = room ? [...room.players].sort((a, b) => b.score - a.score || a.joined - b.joined) : [];
 
   useEffect(() => {
+    // Lobby controls can be below the fold on a phone. Start each screen at its top.
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  }, [room?.phase]);
+  useEffect(() => {
     const invite = new URLSearchParams(location.search).get('room');
     if (invite && /^[a-z2-9]{6}$/i.test(invite)) { setCode(invite.toUpperCase()); setJoinOpen(true); }
     setTouch(matchMedia('(pointer: coarse)').matches); setEmbedded(window.self !== window.top);
